@@ -1,23 +1,36 @@
-import Layout from "../../components/layout";
-import { getAllPostIds, getPostData } from "../../lib/posts";
+import { MDXRemote } from "next-mdx-remote";
+import dynamic from "next/dynamic";
 import Head from "next/head";
 import Date from "../../components/date";
-import utilStyles from "../../styles/utils.module.css";
+import Layout from "../../components/layout";
+import { getAllPostIds, getPostData } from "../../lib/posts";
 
-export default function Post({ postData }) {
+const components = {
+  code: dynamic(() => import("../../components/code")),
+};
+
+export default function Post({ source, frontMatter }) {
   return (
-    <Layout>
-      <Head>
-        <title>{postData.title}</title>
-      </Head>
-      <article>
-        <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-        <div className={utilStyles.lightText}>
-          <Date dateString={postData.date} />
-        </div>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-      </article>
-    </Layout>
+    <>
+      <Layout>
+        <Head>
+          <title>{frontMatter.title}</title>
+        </Head>
+        <article>
+          <h1 className="title">{frontMatter.title}</h1>
+          <div className="light-text">
+            <Date dateString={frontMatter.date} />
+          </div>
+          <MDXRemote {...source} components={components} />
+        </article>
+      </Layout>
+      <style jsx>{`
+        .title {
+          font-size: 2.5rem;
+          margin: 1rem 0;
+        }
+      `}</style>
+    </>
   );
 }
 
@@ -30,10 +43,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const postData = await getPostData(params.id);
-  return {
-    props: {
-      postData,
-    },
-  };
+  const data = await getPostData(params.id);
+  return data;
 }

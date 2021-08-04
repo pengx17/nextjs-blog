@@ -1,19 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code");
-@import url("https://cdn.jsdelivr.net/gh/adobe-fonts/source-sans@3.046R/source-sans-3VF.css");
-
-@font-face {
-  font-family: "Source Han Sans VF";
-  font-weight: 200 900;
-  font-style: normal;
-  font-stretch: normal;
-  src: url("https://cdn.jsdelivr.net/gh/adobe-fonts/source-han-sans@release/Variable/WOFF2/OTF/Subset/SourceHanSansCN-VF.otf.woff2");
+:root {
+  --font-sans: "Source Sans 3 VF", "Source Han Sans VF", sans-serif;
+  --font-serif: "Source Serif VF", "Noto Serif CJK", serif;
 }
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Source Sans 3 VF", "Source Han Sans VF", sans-serif;
+  font-family: var(--font-sans);
   line-height: 1.8;
   font-size: 16px;
 }
@@ -31,11 +25,6 @@ a:hover {
   text-decoration: underline;
 }
 
-img {
-  max-width: 100%;
-  display: block;
-}
-
 b,
 strong {
   font-weight: 600;
@@ -47,9 +36,69 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 300;
+  font-family: var(--font-serif);
+  font-weight: 400;
+}
+
+article > :is(h1, h2, h3, h4, h5, h6) {
+  position: relative;
+}
+
+article > :is(h1, h2, h3, h4, h5, h6)::before {
+  position: absolute;
+  right: calc(100% + 0.2rem);
+  font-size: 0.8em;
+  opacity: 0;
+  top: 0.2em;
+}
+
+article > :is(h1, h2, h3, h4, h5, h6):hover::before {
+  opacity: 0.5;
+}
+
+article > h1::before {
+  content: "h1";
+}
+
+article > h2::before {
+  content: "h2";
+}
+
+article > h3::before {
+  content: "h3";
+}
+
+article > h4::before {
+  content: "h4";
+}
+
+article > h5::before {
+  content: "h5";
+}
+
+article > h6::before {
+  content: "h6";
+}
+
+::selection {
+  background-color: #000;
+  color: #fff;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-item {
+  margin: 0 0 1.25rem;
+}
+
+.light-text {
+  color: #666;
 }
 
 code {
-  font-family: "Fira Code VF", monospace;
+  font-size: 0.9em;
 }
