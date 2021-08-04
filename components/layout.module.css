@@ -1,13 +1,13 @@
-.container {
-  max-width: 36rem;
-  padding: 0 1rem;
-  margin: 3rem auto 6rem;
-}
-
-.header {
+.root {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
   align-items: center;
+}
+
+.container {
+  max-width: 60rem;
+  padding: 3rem 1rem 2rem;
 }
 
 .backToHome {
