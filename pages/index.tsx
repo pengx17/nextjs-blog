@@ -14,7 +14,10 @@ export default function Home({ allPostsData }) {
         <section className="home-container">
           <div className="left">
             <h1>Index</h1>
-            <h3 className="light-text"> pengx17</h3>
+            <h3 className="light-text">
+              {" "}
+              <Link href="/about">pengx17</Link>
+            </h3>
           </div>
           <ul className="right list">
             {allPostsData.map(({ id, date, title }) => (
