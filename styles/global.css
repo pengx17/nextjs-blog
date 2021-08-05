@@ -48,7 +48,7 @@ article > :is(h1, h2, h3, h4, h5, h6)::before {
   position: absolute;
   right: calc(100% + 0.2rem);
   font-size: 0.8em;
-  opacity: 0;
+  opacity: 0.1;
   top: 0.2em;
 }
 
@@ -101,4 +101,9 @@ article > h6::before {
 
 code {
   font-size: 0.9em;
+  padding: 0 0.2em;
+}
+
+article img {
+  max-width: 100%;
 }

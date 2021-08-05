@@ -14,7 +14,7 @@ export default function Layout({
     <>
       <div className="root">
         <Head>
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" href="/favicon.jpeg" />
           <meta
             name="description"
             content="Learn how to build a personal website using Next.js"
