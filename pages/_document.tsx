@@ -6,8 +6,13 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <link
-            href="https://fonts.googleapis.com/css2?family=Inter&display=optional"
-            rel="stylesheet"
+            rel="preconnect"
+            href="https://cdn.jsdelivr.net"
+            crossOrigin="anonymous"
+          />
+          <link
+            rel="preload"
+            href="https://cdn.jsdelivr.net/gh/pengx17/source-fonts@0.0.3/fonts.css"
           />
           <link
             href="https://cdn.jsdelivr.net/gh/pengx17/source-fonts@0.0.3/fonts.css"
