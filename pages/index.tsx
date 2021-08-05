@@ -36,12 +36,12 @@ export default function Home({ allPostsData }) {
       </Layout>
       <style jsx>{`
         .home-container {
-          min-height: 100vh;
+          height: 100vh;
           width: 100vw;
           justify-self: center;
           display: flex;
           align-items: center;
-          padding: 3rem;
+          padding: 0 3rem;
         }
 
         .left {
@@ -64,6 +64,9 @@ export default function Home({ allPostsData }) {
           flex: 1;
           display: flex;
           flex-flow: column;
+          max-height: 100%;
+          overflow: auto;
+          padding: 3rem 0;
         }
 
         .blog-item-title {
