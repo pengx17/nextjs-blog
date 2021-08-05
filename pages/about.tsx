@@ -14,7 +14,7 @@ export default function About() {
       </h3>
       <h4>
         twitter:{" "}
-        <a href="https://twitter.com/pengx17" target="_blank">
+        <a href="https://twitter.com/pengx17" target="_blank" rel="noreferrer">
           @pengx17
         </a>
       </h4>
