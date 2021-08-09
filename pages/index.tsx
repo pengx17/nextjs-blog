@@ -20,17 +20,19 @@ export default function Home({ allPostsData }) {
             </h3>
           </div>
           <ul className="right list">
-            {allPostsData.map(({ id, date, title }) => (
-              <li className="list-item" key={id}>
-                <Link href={`/posts/${id}`}>
-                  <a className="blog-item-title">{title}</a>
-                </Link>
-                <br />
-                <small className="light-text">
-                  <Date dateString={date} />
-                </small>
-              </li>
-            ))}
+            {allPostsData
+              .filter((d) => !d.draft)
+              .map(({ id, date, title }) => (
+                <li className="list-item" key={id}>
+                  <Link href={`/posts/${id}`}>
+                    <a className="blog-item-title">{title}</a>
+                  </Link>
+                  <br />
+                  <small className="light-text">
+                    <Date dateString={date} />
+                  </small>
+                </li>
+              ))}
           </ul>
         </section>
       </Layout>
