@@ -36,6 +36,7 @@ h3,
 h4,
 h5,
 h6 {
+  text-shadow: 2px 2px #eee;
   font-family: var(--font-serif);
   font-weight: 400;
 }
