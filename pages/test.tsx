@@ -28,7 +28,12 @@ const example = {
 const Preview = ({ data }: { data: typeof example }) => {
   return (
     <>
-      <div className="root">
+      <a
+        className="root"
+        href={data.url}
+        rel="noopener noreferrer"
+        target="_blank"
+      >
         <div className="card-container">
           <div className="text-container">
             <div className="text-container-title">{data.title}</div>
@@ -44,7 +49,7 @@ const Preview = ({ data }: { data: typeof example }) => {
             )}
           </div>
         </div>
-      </div>
+      </a>
       <style jsx>{`
         .root {
           width: 720px;
@@ -55,6 +60,10 @@ const Preview = ({ data }: { data: typeof example }) => {
           border: 1px solid #dee0e3;
           overflow: hidden;
           border: 1px solid #dee0e3;
+          text-decoration: none;
+        }
+        .root:hover {
+          border: 1px solid rgba(97, 106, 229, 0.5);
         }
         .card-container {
           width: 100%;
@@ -68,6 +77,8 @@ const Preview = ({ data }: { data: typeof example }) => {
           padding: 12px 16px;
           flex-shrink: 2;
           overflow: hidden;
+          display: flex;
+          flex-flow: column;
         }
         .cover-container {
           width: 33.3%;
@@ -92,6 +103,8 @@ const Preview = ({ data }: { data: typeof example }) => {
           color: #646a73;
           margin-top: 6px;
           overflow: hidden;
+          flex-grow: 1;
+          flex-shrink: 2;
           text-overflow: ellipsis;
           white-space: break-spaces;
           display: -webkit-box;
@@ -102,8 +115,6 @@ const Preview = ({ data }: { data: typeof example }) => {
           display: flex;
           align-items: center;
           flex-wrap: nowrap;
-          flex-grow: 1;
-          flex-shrink: 2;
           min-width: 0;
           flex-direction: row;
           height: 17px;
