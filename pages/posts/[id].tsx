@@ -7,6 +7,7 @@ import { getAllPostIds, getPostData } from "../../lib/posts";
 
 const components = {
   code: dynamic(() => import("../../components/code")),
+  LinkPreview: dynamic(() => import("../../components/link-preview")),
 };
 
 export default function Post({ source, frontMatter }) {
