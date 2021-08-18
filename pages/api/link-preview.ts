@@ -8,7 +8,6 @@ export default async function linkPreviewHandler(req, res) {
     imagesPropertyType: "og",
     headers: {
       "user-agent": "googlebot",
-      "Accept-Language": "zh-CN",
     },
   });
   res.json(data);
