@@ -12,6 +12,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@tippyjs/react": "^4.2.5",
     "date-fns": "^2.23.0",
     "gray-matter": "^4.0.3",
     "link-preview-js": "^2.1.8",

@@ -145,15 +145,22 @@ const PreviewCard = ({ data }: { data: typeof example }) => {
   );
 };
 
-export default function LinkPreview({ url }: { url: string }) {
+export default function LinkPreview({
+  url,
+  showError = false,
+}: {
+  url: string;
+  showError?: boolean;
+}) {
   const { data, error } = useSWR(url, fetcher);
 
   return (
     <>
-      <div>{!(error || data) && url && "⌛"}</div>
-      <div>
-        <strong>{error}</strong>
-      </div>
+      {showError && error && !data && (
+        <div>
+          <strong>{error}</strong>
+        </div>
+      )}
 
       {data && <PreviewCard data={data} />}
       <style jsx>{`
