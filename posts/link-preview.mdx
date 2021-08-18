@@ -63,7 +63,9 @@ res = {
 
 [link-preview-js](link-preview-js) 这个 Node.js 库可以方便的实现我们的需求，把目标 URL 的相关特征，以 JSON 格式输出。因为跨域问题，我们需要把它部署在服务端，并且提供一个简单的接口，让客户端获取相关信息。
 
-Next.js 提供了十分方便的 Serverless 方案，让我们可以用极低的开发成本实现相关功能。本博客由于使用了 Next.js 作为技术栈，所以我们可以直接在 `pages/api` 下新建 `link-preview.ts` 这个文件，快速实现一个 `/api/link-preview` 接口：
+Next.js 提供了十分方便的 Serverless 方案，让我们可以用极低的开发成本实现相关功能。本博客由于使用了 Next.js 作为技术栈，所以我们可以直接在 `pages/api` 下新建 `link-preview.ts` 这个文件，快速实现一个 `/api/link-preview` 接口。
+
+注意：在请求 header 中我们需要添加 `"user-agent": "googlebot"`, 这是为了让 link-preview-js 可以获取完整的 og 信息。
 
 ```ts
 import { getLinkPreview } from "link-preview-js";
@@ -74,6 +76,9 @@ export default async function linkPreviewHandler(req, res) {
   const data = await getLinkPreview(url, {
     timeout: 10000,
     imagesPropertyType: "og",
+    headers: {
+      "user-agent": "googlebot", // fetches with googlebot crawler user agent
+    },
   });
   res.json(data);
 }
