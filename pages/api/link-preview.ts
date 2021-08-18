@@ -6,6 +6,10 @@ export default async function linkPreviewHandler(req, res) {
   const data = await getLinkPreview(url, {
     timeout: 10000,
     imagesPropertyType: "og",
+    headers: {
+      "user-agent": "googlebot",
+      "Accept-Language": "zh-CN",
+    },
   });
   res.json(data);
 }
