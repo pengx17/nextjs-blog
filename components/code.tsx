@@ -1,13 +1,26 @@
 import React from "react";
 import Highlight, { defaultProps } from "prism-react-renderer";
+import lightTheme from "prism-react-renderer/themes/vsLight";
 
 export default function Code({ children, className }) {
   const language = className?.replace(/language-/, "") ?? "javascript";
 
   return (
-    <Highlight {...defaultProps} code={children.trim()} language={language}>
+    <Highlight
+      {...defaultProps}
+      theme={lightTheme}
+      code={children.trim()}
+      language={language}
+    >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre className={className} style={{ ...style, padding: "20px" }}>
+        <pre
+          className={className}
+          style={{
+            ...style,
+            fontSize: "14px",
+            lineHeight: "1.5",
+          }}
+        >
           {tokens.map((line, i) => (
             <div key={i} {...getLineProps({ line, key: i })}>
               {line.map((token, key) => (

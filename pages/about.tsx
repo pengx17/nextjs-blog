@@ -1,4 +1,5 @@
 import Layout from "../components/layout";
+import LinkPreview from "../components/link-preview";
 
 export default function About() {
   return (
@@ -12,12 +13,7 @@ export default function About() {
         </ruby>{" "}
         Frontend Developer
       </h3>
-      <h4>
-        twitter:{" "}
-        <a href="https://twitter.com/pengx17" target="_blank" rel="noreferrer">
-          @pengx17
-        </a>
-      </h4>
+      <LinkPreview url="https://twitter.com/pengx17" />
     </Layout>
   );
 }
