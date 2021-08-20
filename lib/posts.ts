@@ -66,6 +66,7 @@ export async function getPostData(id: string) {
     props: {
       source: mdxSource,
       frontMatter: data,
+      content,
     },
   };
 }

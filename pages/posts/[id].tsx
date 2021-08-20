@@ -31,13 +31,16 @@ function createCache() {
 
 const cache = createCache();
 
-export default function Post({ source, frontMatter }) {
+export default function Post({ source, content, frontMatter }) {
   return (
     <>
       <Layout>
         <Head>
           <meta property="og:title" content={frontMatter.title} />
-          <meta property="og:description" content={source} />
+          <meta
+            property="og:description"
+            content={content.substr(0, 140).replace(/\n/g, " ")}
+          />
           <title>{frontMatter.title}</title>
         </Head>
         <article>
