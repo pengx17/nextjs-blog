@@ -42,7 +42,7 @@ export default function LinkPreview({ url }: { url: string }) {
 
 问题在于如何提取目标 URL 的相关特征。在这里，我们可以使用 [OpenGraph Protocol](https://ogp.me/) 这项协议，从目标页面中的 `HEAD` 里获取到相关信息。其细节我们不多说，实际上我们在各种渠道看到的卡片式链接的背后，都有这种技术的影子。
 
-对于 twitter.com/pengx17，我们在页面渲染完成后，可以通过 JS 获取相关 OGP 信息：
+对于 [twitter.com/pengx17](https://twitter.com/pengx17)，我们在页面渲染完成后，可以通过 JS 获取相关 OGP 信息：
 
 ```js
 Object.fromEntries(
@@ -61,7 +61,7 @@ res = {
 };
 ```
 
-[link-preview-js](link-preview-js) 这个 Node.js 库可以方便的实现我们的需求，把目标 URL 的相关特征，以 JSON 格式输出。因为跨域问题，我们需要把它部署在服务端，并且提供一个简单的接口，让客户端获取相关信息。
+[link-preview-js](https://github.com/ospfranco/link-preview-js) 这个 Node.js 库可以方便的实现我们的需求，把目标 URL 的相关特征，以 JSON 格式输出。因为跨域问题，我们需要把它部署在服务端，并且提供一个简单的接口，让客户端获取相关信息。
 
 Next.js 提供了十分方便的 Serverless 方案，让我们可以用极低的开发成本实现相关功能。本博客由于使用了 Next.js 作为技术栈，所以我们可以直接在 `pages/api` 下新建 `link-preview.ts` 这个文件，快速实现一个 `/api/link-preview` 接口。
 

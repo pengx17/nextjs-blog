@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import * as React from "react";
 import useSWR from "swr";
 
 const fetcher = (url) =>
@@ -9,21 +10,161 @@ const fetcher = (url) =>
     return res.json();
   });
 
-const example = {
-  url: "https://discord.com/channels/@me",
-  title: "Discord - A New Way to Chat with Friends & Communities",
-  siteName: "Discord",
-  description:
-    "Discord is the easiest way to communicate over voice, video, and text.  Chat, hang out, and stay close with your friends and communities.",
-  mediaType: "website",
-  contentType: "text/html",
-  images: ["https://discord.com/assets/ee7c382d9257652a88c8f7b7f22a994d.png"],
-  videos: [],
-  favicons: ["https://discord.com/assets/847541504914fd33810e70a0ea73177e.ico"],
+interface BaseType {
+  mediaType: string;
+  contentType: string;
+  favicons: string[];
+  url: string;
+  error: any;
+}
+
+interface PlaceholderType extends BaseType {
+  contentType: "placeholder";
+}
+
+interface HTMLResponse extends BaseType {
+  title: string;
+  siteName: string;
+  description: string;
+  images: string[];
+  videos: string[];
+  contentType: `text/html${string}`;
+}
+
+interface AudioResponse extends BaseType {
+  contentType: `audio/${string}`;
+}
+
+interface ImageResponse extends BaseType {
+  contentType: `image/${string}`;
+}
+
+interface VideoResponse extends BaseType {
+  contentType: `video/${string}`;
+}
+
+interface ApplicationResponse extends BaseType {
+  contentType: `application/${string}`;
+}
+
+type Metadata =
+  | HTMLResponse
+  | AudioResponse
+  | ImageResponse
+  | VideoResponse
+  | ApplicationResponse
+  | PlaceholderType;
+
+const isHTML = (d: Metadata): d is HTMLResponse => {
+  return (d as any).contentType.startsWith("text/html");
+};
+
+const isVideo = (d: Metadata): d is VideoResponse => {
+  return (d as any).contentType.startsWith("video/");
+};
+
+const isAudio = (d: Metadata): d is AudioResponse => {
+  return (d as any).contentType.startsWith("audio/");
+};
+
+const isImage = (d: Metadata): d is ImageResponse => {
+  return (d as any).contentType.startsWith("image/");
+};
+
+const adaptMeta = (d: Metadata) => {
+  if (isHTML(d)) {
+    return d;
+  }
+
+  if (isVideo(d)) {
+    return {
+      ...d,
+      images: [],
+      description: <video controls src={d.url} />,
+      url: d.url,
+    };
+  }
+
+  if (isAudio(d)) {
+    return {
+      ...d,
+      images: [],
+      description: <audio controls src={d.url} />,
+    };
+  }
+
+  if (isImage(d)) {
+    return {
+      ...d,
+      images: [],
+      description: <img src={d.url} />,
+    };
+  }
+
+  return {
+    ...d,
+    images: [],
+    description:
+      d.error != null ? "Failed to load link metadata" : "loading ...",
+  };
+};
+
+type LinkPreviewMetadata = Pick<
+  Metadata,
+  "contentType" | "error" | "favicons" | "mediaType" | "url"
+> & {
+  title?: string;
+  description: React.ReactNode;
+  images?: string[];
+};
+
+const useLinkPreview = (href?: string): LinkPreviewMetadata | null => {
+  const { data, error } = useSWR(href ?? null, fetcher, {
+    revalidateOnFocus: false,
+  });
+
+  return React.useMemo(() => {
+    return href
+      ? adaptMeta({
+          contentType: "placeholder",
+          error,
+          url: href,
+          ...(data ?? {}),
+        })
+      : null;
+  }, [href, data]);
+};
+
+const getCardSize = (data: LinkPreviewMetadata) => {
+  // If link has cover image
+  const width = data.images && data.images.length > 0 ? 720 : 400;
+
+  // If link showing placeholder
+  let height = 140;
+
+  if (
+    data.contentType.startsWith("text/html") ||
+    data.contentType.startsWith("audio")
+  ) {
+    height = 140;
+  } else if (
+    data.contentType.startsWith("image") ||
+    data.contentType.startsWith("video")
+  ) {
+    height = 300;
+  } else {
+    height = 100;
+  }
+  if (!data.description) {
+    height -= 60;
+  }
+
+  return [width, height];
 };
 
 // Credits: taken directly from innos.io
-const PreviewCard = ({ data }: { data: typeof example }) => {
+const PreviewCard = ({ data }: { data: LinkPreviewMetadata }) => {
+  const [width, height] = getCardSize(data);
   return (
     <>
       <a
@@ -31,26 +172,30 @@ const PreviewCard = ({ data }: { data: typeof example }) => {
         href={data.url}
         rel="noopener noreferrer"
         target="_blank"
+        style={{ width, height }}
       >
         <div className="card-container">
           <div className="text-container">
-            <div className="text-container-title">{data.title}</div>
+            {data.title && (
+              <div className="text-container-title">{data.title}</div>
+            )}
             <div className="text-container-description">{data.description}</div>
             <div className="text-container-url-container">
-              <img src={data.favicons[0]} width={16} height={16} alt="favico" />
+              {data.favicons?.length > 0 && (
+                <img src={data.favicons[0]} width={16} height={16} />
+              )}
               <span className="text-container-url">{data.url}</span>
             </div>
           </div>
-          <div className="cover-container">
-            {data.images[0] && (
+          {data.images?.[0] && (
+            <div className="cover-container">
               <img className="cover-image" src={data.images[0]} alt="cover" />
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </a>
       <style jsx>{`
         .root {
-          width: 720px;
           display: block;
           cursor: pointer;
           user-select: none;
@@ -59,13 +204,14 @@ const PreviewCard = ({ data }: { data: typeof example }) => {
           overflow: hidden;
           border: 1px solid #dee0e3;
           text-decoration: none;
+          text-shadow: none;
         }
         .root:hover {
           border: 1px solid rgba(97, 106, 229, 0.5);
         }
         .card-container {
           width: 100%;
-          max-height: 120px;
+          height: 100%;
           background-color: #f8f8f8;
           display: flex;
           justify-content: space-between;
@@ -73,16 +219,13 @@ const PreviewCard = ({ data }: { data: typeof example }) => {
         }
         .text-container {
           padding: 12px 16px;
-          flex-shrink: 2;
+          flex: 2;
           overflow: hidden;
           display: flex;
           flex-flow: column;
         }
         .cover-container {
-          width: 33.3%;
-          min-width: 33.3%;
-          flex-shrink: 1;
-          flex-grow: 0;
+          flex: 1;
         }
         .text-container-title {
           font-size: 16px;
@@ -92,23 +235,24 @@ const PreviewCard = ({ data }: { data: typeof example }) => {
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
+          flex-shrink: 0;
         }
         .text-container-description {
-          max-height: 40px;
           line-height: 20px;
-          font-size: 14px;
+          font-size: 12px;
           font-weight: 400;
           color: #646a73;
           margin-top: 6px;
-          overflow: hidden;
+          overflow: auto;
+          display: flex;
           flex-grow: 1;
-          flex-shrink: 2;
-          text-overflow: ellipsis;
-          white-space: break-spaces;
-          display: -webkit-box;
-          -webkit-line-clamp: 2;
-          -webkit-box-orient: vertical;
         }
+
+        .text-container-description > * {
+          align-self: center;
+          flex: 1;
+        }
+
         .text-container-url-container {
           display: flex;
           align-items: center;
@@ -121,8 +265,10 @@ const PreviewCard = ({ data }: { data: typeof example }) => {
           color: #1f2329;
           margin-top: 6px;
         }
+        .text-container-url-container > img {
+          margin-right: 8px;
+        }
         .text-container-url {
-          margin-left: 8px;
           flex-grow: 0;
           flex-shrink: 1;
           min-width: 0;
@@ -147,28 +293,10 @@ const PreviewCard = ({ data }: { data: typeof example }) => {
 
 export default function LinkPreview({
   url,
-  showError = false,
 }: {
   url: string;
   showError?: boolean;
 }) {
-  const { data, error } = useSWR(url, fetcher);
-
-  return (
-    <>
-      {showError && error && !data && (
-        <div>
-          <strong>{error}</strong>
-        </div>
-      )}
-
-      {data && <PreviewCard data={data} />}
-      <style jsx>{`
-        .input {
-          width: 400px;
-          padding: 2px 4px;
-        }
-      `}</style>
-    </>
-  );
+  const meta = useLinkPreview(url);
+  return meta ? <PreviewCard data={meta} /> : null;
 }

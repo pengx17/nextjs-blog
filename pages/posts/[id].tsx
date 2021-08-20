@@ -4,12 +4,31 @@ import Head from "next/head";
 import Date from "../../components/date";
 import Layout from "../../components/layout";
 import { getAllPostIds, getPostData } from "../../lib/posts";
+import { createCache as SWRCreateCache, SWRConfig } from "swr";
 
 const components = {
   code: dynamic(() => import("../../components/code")),
   a: dynamic(() => import("../../components/anchor")),
   LinkPreview: dynamic(() => import("../../components/link-preview")),
 };
+
+function createCache() {
+  if (typeof window === "undefined") {
+    return;
+  }
+  const cacheId = "swr_cache";
+  const map = new Map(JSON.parse(localStorage.getItem(cacheId) ?? "[]"));
+
+  window.addEventListener("beforeunload", () => {
+    const appCache = JSON.stringify(Array.from(map.entries()));
+    localStorage.setItem(cacheId, appCache);
+  });
+
+  const { cache } = SWRCreateCache(map);
+  return cache;
+}
+
+const cache = createCache();
 
 export default function Post({ source, frontMatter }) {
   return (
@@ -23,7 +42,9 @@ export default function Post({ source, frontMatter }) {
           <div className="light-text">
             <Date dateString={frontMatter.date} />
           </div>
-          <MDXRemote {...source} components={components} />
+          <SWRConfig value={{ cache }}>
+            <MDXRemote {...source} components={components} />
+          </SWRConfig>
         </article>
       </Layout>
       <style jsx>{`
