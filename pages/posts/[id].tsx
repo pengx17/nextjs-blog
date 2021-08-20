@@ -36,6 +36,8 @@ export default function Post({ source, frontMatter }) {
     <>
       <Layout>
         <Head>
+          <meta property="og:title" content={frontMatter.title} />
+          <meta property="og:description" content={source} />
           <title>{frontMatter.title}</title>
         </Head>
         <article>
