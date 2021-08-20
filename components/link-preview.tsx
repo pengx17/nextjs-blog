@@ -118,8 +118,8 @@ type LinkPreviewMetadata = Pick<
   images?: string[];
 };
 
-const useLinkPreview = (href?: string): LinkPreviewMetadata | null => {
-  const { data, error } = useSWR(href ?? null, fetcher, {
+const useLinkPreview = (href: string): LinkPreviewMetadata | null => {
+  const { data, error } = useSWR(href, fetcher, {
     revalidateOnFocus: false,
   });
 

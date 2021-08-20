@@ -14,7 +14,8 @@ const components = {
 
 function createCache() {
   if (typeof window === "undefined") {
-    return;
+    const { cache } = SWRCreateCache(new Map());
+    return cache;
   }
   const cacheId = "swr_cache";
   const map = new Map(JSON.parse(localStorage.getItem(cacheId) ?? "[]"));
