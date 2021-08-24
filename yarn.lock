@@ -4366,7 +4366,7 @@ remark-footnotes@2.0.0:
   resolved "https://registry.yarnpkg.com/remark-footnotes/-/remark-footnotes-2.0.0.tgz#9001c4c2ffebba55695d2dd80ffb8b82f7e6303f"
   integrity sha512-3Clt8ZMH75Ayjp9q4CorNeyjwIxHFcTkaektplKGl2A1jNGEUey8cKL0ZC5vJwfcD5GFGsNLImLG/NGzWIzoMQ==
 
-remark-html@^14.0.0:
+remark-html@14.0.0:
   version "14.0.0"
   resolved "https://registry.yarnpkg.com/remark-html/-/remark-html-14.0.0.tgz#48f5d1e3e0d6dfe957153f27fe11024c2432d1e1"
   integrity sha512-ISQjSlOI3Hb99REjDz0cAhPJVJZDednsj4GNj4Ve7DEZdEXhVPOzBvym0Di+1K3p/RmKXqSw0r02JDmtATh6Dw==
@@ -4438,7 +4438,7 @@ remark-stringify@^10.0.0:
     mdast-util-to-markdown "^1.0.0"
     unified "^10.0.0"
 
-remark@^14.0.1:
+remark@14.0.1:
   version "14.0.1"
   resolved "https://registry.yarnpkg.com/remark/-/remark-14.0.1.tgz#a97280d4f2a3010a7d81e6c292a310dcd5554d80"
   integrity sha512-7zLG3u8EUjOGuaAS9gUNJPD2j+SqDqAFHv2g6WMpE5CU9rZ6e3IKDM12KHZ3x+YNje+NMAuN55yx8S5msGSx7Q==
