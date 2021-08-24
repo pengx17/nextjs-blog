@@ -32,7 +32,7 @@
     "@types/mdx-js__react": "1.5.4",
     "@types/node": "16.6.1",
     "@types/react": "17.0.19",
-    "@vercel/node": "^1.12.1",
+    "@vercel/node": "1.12.1",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.0",
     "husky": "7.0.1",
