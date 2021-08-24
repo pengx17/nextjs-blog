@@ -368,7 +368,7 @@
   dependencies:
     glob "7.1.7"
 
-"@next/mdx@^11.1.0":
+"@next/mdx@11.1.0":
   version "11.1.0"
   resolved "https://registry.yarnpkg.com/@next/mdx/-/mdx-11.1.0.tgz#79d6d20e0906e81c07aed0f8286d58530d051be6"
   integrity sha512-X+NwSByGr9HuPkGs1nrzhmJ5qqQbv6CpEA3dJKEYHaDe7YzEUCM00Y7abxOzowXhUXeDdAHJ7IeIV4GZMhdcpg==
@@ -1715,7 +1715,7 @@ escape-string-regexp@^4.0.0:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz#14ba83a5d373e3d311e5afca29cf5bfad965bf34"
   integrity sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==
 
-eslint-config-next@^11.1.0:
+eslint-config-next@11.1.0:
   version "11.1.0"
   resolved "https://registry.yarnpkg.com/eslint-config-next/-/eslint-config-next-11.1.0.tgz#722d6901f7162f4bb1e9236aef7b3fd8ceb0f2d6"
   integrity sha512-8KeBg3qUEhM06vhzvs9MwZl2lsSfu3bm0wa3QVTc9kBdFxSRY6Gu/1GM0FKzWG0sQmWqzjLbynazczu/037Ibw==
@@ -3575,7 +3575,7 @@ next-remote-watch@^1.0.0:
     commander "^5.0.0"
     express "^4.17.1"
 
-next@^11.1.0:
+next@11.1.0:
   version "11.1.0"
   resolved "https://registry.yarnpkg.com/next/-/next-11.1.0.tgz#767d4c4fa0b9b0c768cdbd6c9f03dd86b5d701c0"
   integrity sha512-GHBk/c7Wyr6YbFRFZF37I0X7HKzkHHI8pur/loyXo5AIE8wdkbGPGO0ds3vNAO6f8AxZAKGCRYtAzoGlVLoifA==
