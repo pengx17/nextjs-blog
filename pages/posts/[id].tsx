@@ -4,7 +4,7 @@ import Head from "next/head";
 import Date from "../../components/date";
 import Layout from "../../components/layout";
 import { getAllPostIds, getPostData } from "../../lib/posts";
-import { createCache as SWRCreateCache, SWRConfig } from "swr";
+import { SWRConfig } from "swr";
 
 const components = {
   code: dynamic(() => import("../../components/code")),
@@ -14,8 +14,7 @@ const components = {
 
 function createCache() {
   if (typeof window === "undefined") {
-    const { cache } = SWRCreateCache(new Map());
-    return cache;
+    return new Map();
   }
   const cacheId = "swr_cache";
   const map = new Map(JSON.parse(localStorage.getItem(cacheId) ?? "[]"));
@@ -25,8 +24,7 @@ function createCache() {
     localStorage.setItem(cacheId, appCache);
   });
 
-  const { cache } = SWRCreateCache(map);
-  return cache;
+  return map;
 }
 
 const cache = createCache();
@@ -48,7 +46,7 @@ export default function Post({ source, content, frontMatter }) {
           <div className="light-text">
             <Date dateString={frontMatter.date} />
           </div>
-          <SWRConfig value={{ cache }}>
+          <SWRConfig value={{ provider: createCache }}>
             <MDXRemote {...source} components={components} />
           </SWRConfig>
         </article>
