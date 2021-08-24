@@ -1,0 +1,47 @@
+---
+title: "Fastify 初体验"
+date: "2021-08-24"
+---
+
+工作中遇到一个问题，我需要在一个 Node + Express 的项目中增加 HTTP2 的支持。
+但经过简单调查发现，Express 对于 HTTP2 的支持并不是非常好，同时 [Express 项目的维护状态](https://www.reddit.com/r/node/comments/l67u0t/what_is_the_current_status_of_express_js_project/) 也令人担忧。
+
+Express 的开源替代产品有 [Koa/Hapi/Fastify](https://www.npmtrends.com/express-vs-fastify-vs-hapi-vs-koa-vs-restify) 等。我注意到社区中出现越来越多关于 Fastify 的推荐。对于 [Fastify](https://www.fastify.io/) 的维护状态、[性能](https://www.fastify.io/benchmarks/)与开发者体验，大家都给出了不错的评价。
+
+我试着快速的实现了一个基于 Fastify 的 HTTP2 服务。你可以在这里找到相关代码: https://github.com/pengx17/fastify-boilerplate 。
+
+除了 Fastify 这里面还用到了几个其他技术：
+
+- 利用 [devcert](https://github.com/davewasmer/devcert) 方便的将本地 HTTPS 证书维护集成到本地服务
+- 通过 [esbuild-register](https://github.com/egoist/esbuild-register) 在本地运行 TS 代码
+- 使用 [pnpm](https://pnpm.io/npmrc) 作为包管理工具
+
+以下是相关代码:
+
+```ts
+import fastify from "fastify";
+import devcert from "devcert";
+
+const host = "localhost";
+const port = 8080;
+
+async function main() {
+  let ssl = await devcert.certificateFor(host);
+
+  const server = fastify({ http2: true, https: ssl });
+
+  server.get("/ping", async (request, reply) => {
+    return "pong\n";
+  });
+
+  server.listen({ port }, (err) => {
+    if (err) {
+      console.error(err);
+      process.exit(1);
+    }
+    console.log(`Server listening at ` + `https://${host}:${port}`);
+  });
+}
+
+main();
+```
