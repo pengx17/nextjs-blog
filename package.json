@@ -23,7 +23,7 @@
     "react-use": "17.2.4",
     "remark": "14.0.1",
     "remark-html": "14.0.0",
-    "swr": "1.0.0-beta.11"
+    "swr": "1.0.0-beta.12"
   },
   "devDependencies": {
     "@mdx-js/loader": "1.6.22",

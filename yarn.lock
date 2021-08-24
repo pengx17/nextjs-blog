@@ -5024,10 +5024,10 @@ supports-color@^8.0.0:
   dependencies:
     has-flag "^4.0.0"
 
-swr@1.0.0-beta.11:
-  version "1.0.0-beta.11"
-  resolved "https://registry.yarnpkg.com/swr/-/swr-1.0.0-beta.11.tgz#e1efeea2af4171669efc3af8a100c4434165fe9d"
-  integrity sha512-F9sWmEwzGpmRHPot80dKZmTcsgM9HGh8E8eYCP9qHWBCPnIbDo4xNVwGdBhzWbekV89PSU7FqL8H/LC7+k5guQ==
+swr@1.0.0-beta.12:
+  version "1.0.0-beta.12"
+  resolved "https://registry.yarnpkg.com/swr/-/swr-1.0.0-beta.12.tgz#826d2eab32c58c00e8be7ab8c80c73a8eee1a569"
+  integrity sha512-Vq23PIKKt3fRNJQcrmcyyQOYB7jbB9SVYC4m2/KbaXoJSRG8lQwC9ndcMCAx8023DMwCTGRg7NpCyjzi+yyN6Q==
   dependencies:
     dequal "2.0.2"
 
