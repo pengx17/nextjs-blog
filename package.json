@@ -12,34 +12,34 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@tippyjs/react": "^4.2.5",
-    "date-fns": "^2.23.0",
-    "gray-matter": "^4.0.3",
-    "link-preview-js": "^2.1.8",
+    "@tippyjs/react": "4.2.5",
+    "date-fns": "2.23.0",
+    "gray-matter": "4.0.3",
+    "link-preview-js": "2.1.8",
     "next": "11.1.0",
-    "prism-react-renderer": "^1.2.1",
+    "prism-react-renderer": "1.2.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-use": "^17.2.4",
+    "react-use": "17.2.4",
     "remark": "14.0.1",
     "remark-html": "14.0.0",
-    "swr": "^1.0.0-beta.11"
+    "swr": "1.0.0-beta.11"
   },
   "devDependencies": {
     "@mdx-js/loader": "1.6.22",
     "@mdx-js/react": "1.6.22",
     "@next/mdx": "11.1.0",
-    "@types/mdx-js__react": "^1.5.4",
-    "@types/node": "^16.6.1",
-    "@types/react": "^17.0.18",
-    "eslint": "^7.32.0",
+    "@types/mdx-js__react": "1.5.4",
+    "@types/node": "16.6.1",
+    "@types/react": "17.0.18",
+    "eslint": "7.32.0",
     "eslint-config-next": "11.1.0",
-    "husky": "^7.0.1",
-    "lint-staged": "^11.1.2",
-    "next-mdx-remote": "^3.0.4",
-    "next-remote-watch": "^1.0.0",
-    "prettier": "^2.3.2",
-    "typescript": "^4.3.5"
+    "husky": "7.0.1",
+    "lint-staged": "11.1.2",
+    "next-mdx-remote": "3.0.4",
+    "next-remote-watch": "1.0.0",
+    "prettier": "2.3.2",
+    "typescript": "4.3.5"
   },
   "lint-staged": {
     "*": "prettier --write"
