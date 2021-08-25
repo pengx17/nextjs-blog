@@ -43,12 +43,12 @@ export default function Home({ allPostsData }) {
           justify-self: center;
           display: flex;
           align-items: center;
-          padding: 0 3rem;
         }
 
         .left {
           display: inline;
           flex: 1;
+          padding-left: 3rem;
         }
 
         .left > * {
@@ -68,7 +68,7 @@ export default function Home({ allPostsData }) {
           flex-flow: column;
           max-height: 100%;
           overflow: auto;
-          padding: 3rem 0;
+          padding: 3rem;
         }
 
         .blog-item-title {

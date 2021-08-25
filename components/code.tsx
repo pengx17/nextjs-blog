@@ -13,7 +13,7 @@ export default function Code({ children, className }) {
       language={language}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre
+        <div
           className={className}
           style={{
             ...style,
@@ -28,7 +28,7 @@ export default function Code({ children, className }) {
               ))}
             </div>
           ))}
-        </pre>
+        </div>
       )}
     </Highlight>
   );

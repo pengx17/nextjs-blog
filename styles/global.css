@@ -21,12 +21,18 @@ a {
   text-decoration: none;
 }
 
-article a {
-  text-shadow: 2px 2px rgba(0, 141, 146, 0.2);
-}
-
 a:hover {
   text-decoration: underline;
+}
+
+a[data-anchor] {
+  text-decoration: underline;
+}
+
+pre {
+  overflow: auto;
+  padding: 1rem 0;
+  margin: 0;
 }
 
 b,

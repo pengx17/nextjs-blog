@@ -53,7 +53,7 @@ export default function Layout({
         .container {
           width: 100%;
           max-width: 60rem;
-          padding: 3rem 1rem 2rem;
+          padding: 3rem;
         }
 
         .backToHome {
