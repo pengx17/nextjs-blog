@@ -205,6 +205,7 @@ const PreviewCard = ({ data }: { data: LinkPreviewMetadata }) => {
           border: 1px solid #dee0e3;
           text-decoration: none;
           text-shadow: none;
+          max-width: 100%;
         }
         .root:hover {
           border: 1px solid rgba(97, 106, 229, 0.5);
