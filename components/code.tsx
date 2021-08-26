@@ -19,6 +19,8 @@ export default function Code({ children, className }) {
             ...style,
             fontSize: "14px",
             lineHeight: "1.5",
+            background: "#f6f8fa",
+            padding: "1rem",
           }}
         >
           {tokens.map((line, i) => (

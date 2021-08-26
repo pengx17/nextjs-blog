@@ -3,9 +3,39 @@ title: "Emoji First Font Family"
 date: "2021-08-07"
 ---
 
-- references:
-  - unicode list
-  - emoji unicode range from openmoji https://openmoji.org/
+[Logseq Dev Theme](https://github.com/pengx17/logseq-dev-theme) 的维护过程中我遇到一个个问题，使用了这个主题之后，有的表情符号会以默认的字体形式展示，而没有显示为 Emoji。经过调查发现，问题出在如果 `font-family` 靠前的字体定义了一些表情符号，那么系统自带的 Emoji 字体优先级就会降低，导致表情符号不能正常显示。
+
+本博客的默认字体为 `"Source Sans 3 VF", "Source Han Sans VF", sans-serif`, 即[思源可变黑体](https://github.com/adobe-fonts/source-han-sans)，也有同样的问题。以下面的 `U+2764` 为例，相信您看到的会是一个黑色的心形，而不是红色的 Emoji。
+
+<span style={{ fontSize: "32px", fontFamily: "'Source Sans 3 VF'" }}>❤️</span>
+
+如果给文字的 `font-family` 指定为 `"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"` ，可以将 `U+2764` 正常显示为 Emoji：
+
+<span
+  style={{
+    fontSize: "32px",
+    fontFamily:
+      '"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+  }}
+>
+  ❤️
+</span>
+
+那么是否意味着，把 Emoji 字体顺序提前就可以了？我们可以试试看把表情符号与其他非表情符号结合在一起：
+
+<span
+  style={{
+    fontSize: "24px",
+    fontFamily:
+      '"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "Source Sans 3 VF"',
+  }}
+>
+  ❤️ The quick brown fox jumps over the lazy dog
+</span>
+
+可以看到我们又引入了别的问题：空格变得特别的大。这个原因在于，与默认字体定义了表情符号的问题类似，Emoji 字体中同样也定义了其他非表情符号的字符。
+
+为了解决这个问题，[Logseq Dev Theme](https://github.com/pengx17/logseq-dev-theme) 采用的方案是增加了一个 `@font-face` 规则，自定义了一个包含常用 Emoji 字符范围的字体，如下：
 
 ```css
 @font-face {
@@ -51,3 +81,16 @@ date: "2021-08-07"
     U+E0070-E0079, U+E007F;
 }
 ```
+
+注：这个字符列表来自于 [OpenMoji](https://openmoji.org/).
+
+之后，我们就可以用 `font-family: "Only Emoji", "Source Sans 3 VF", "Source Han Sans VF", sans-serif`, 解决 Emoji 与 文字混排显示不正常的问题了。
+
+<span
+  style={{
+    fontSize: "24px",
+    fontFamily: '"Only Emoji", "Source Sans 3 VF", "Source Han Sans VF"',
+  }}
+>
+  ❤️ The quick brown fox jumps over the lazy dog
+</span>

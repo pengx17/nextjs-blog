@@ -97,7 +97,7 @@ const adaptMeta = (d: Metadata) => {
     return {
       ...d,
       images: [],
-      description: <img src={d.url} />,
+      description: <img src={d.url} alt="" />,
     };
   }
 
@@ -132,7 +132,7 @@ const useLinkPreview = (href: string): LinkPreviewMetadata | null => {
           ...(data ?? {}),
         })
       : null;
-  }, [href, data]);
+  }, [href, error, data]);
 };
 
 const getCardSize = (data: LinkPreviewMetadata) => {
@@ -182,14 +182,14 @@ const PreviewCard = ({ data }: { data: LinkPreviewMetadata }) => {
             <div className="text-container-description">{data.description}</div>
             <div className="text-container-url-container">
               {data.favicons?.length > 0 && (
-                <img src={data.favicons[0]} width={16} height={16} />
+                <img src={data.favicons[0]} width={16} height={16} alt="" />
               )}
               <span className="text-container-url">{data.url}</span>
             </div>
           </div>
           {data.images?.[0] && (
             <div className="cover-container">
-              <img className="cover-image" src={data.images[0]} alt="cover" />
+              <img className="cover-image" src={data.images[0]} alt="" />
             </div>
           )}
         </div>
