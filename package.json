@@ -20,17 +20,17 @@
     "prism-react-renderer": "1.2.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-use": "17.2.4",
+    "react-use": "17.3.1",
     "remark": "14.0.1",
     "remark-html": "14.0.0",
-    "swr": "1.0.0-beta.12"
+    "swr": "1.0.0"
   },
   "devDependencies": {
     "@mdx-js/loader": "1.6.22",
     "@mdx-js/react": "1.6.22",
     "@next/mdx": "11.1.2",
     "@types/mdx-js__react": "1.5.4",
-    "@types/node": "16.6.1",
+    "@types/node": "16.7.10",
     "@types/react": "17.0.19",
     "@vercel/node": "1.12.1",
     "eslint": "7.32.0",

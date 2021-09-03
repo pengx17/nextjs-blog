@@ -4,7 +4,7 @@ import Head from "next/head";
 import Date from "../../components/date";
 import Layout from "../../components/layout";
 import { getAllPostIds, getPostData } from "../../lib/posts";
-import { createCache as SWRCreateCache, SWRConfig } from "swr";
+import { SWRConfig } from "swr";
 
 const components = {
   code: dynamic(() => import("../../components/code")),
@@ -12,24 +12,22 @@ const components = {
   LinkPreview: dynamic(() => import("../../components/link-preview")),
 };
 
-function createCache() {
+function localStorageProvider() {
   if (typeof window === "undefined") {
-    const { cache } = SWRCreateCache(new Map());
-    return cache;
+    return new Map();
   }
-  const cacheId = "swr_cache";
-  const map = new Map(JSON.parse(localStorage.getItem(cacheId) ?? "[]"));
+  // When initializing, we restore the data from `localStorage` into a map.
+  const map = new Map(JSON.parse(localStorage.getItem("swr_cache") || "[]"));
 
+  // Before unloading the app, we write back all the data into `localStorage`.
   window.addEventListener("beforeunload", () => {
     const appCache = JSON.stringify(Array.from(map.entries()));
-    localStorage.setItem(cacheId, appCache);
+    localStorage.setItem("swr_cache", appCache);
   });
 
-  const { cache } = SWRCreateCache(map);
-  return cache;
+  // We still use the map for write & read for performance.
+  return map;
 }
-
-const cache = createCache();
 
 export default function Post({ source, content, frontMatter }) {
   return (
@@ -48,7 +46,7 @@ export default function Post({ source, content, frontMatter }) {
           <div className="light-text">
             <Date dateString={frontMatter.date} />
           </div>
-          <SWRConfig value={{ cache }}>
+          <SWRConfig value={{ provider: localStorageProvider }}>
             <MDXRemote {...source} components={components} />
           </SWRConfig>
         </article>
