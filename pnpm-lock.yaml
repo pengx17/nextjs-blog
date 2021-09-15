@@ -25,7 +25,7 @@ specifiers:
   react-dom: 17.0.2
   react-use: 17.3.1
   remark: 14.0.1
-  remark-html: 14.0.0
+  remark-html: 14.0.1
   swr: 1.0.0
   typescript: 4.4.3
 
@@ -40,7 +40,7 @@ dependencies:
   react-dom: 17.0.2_react@17.0.2
   react-use: 17.3.1_react-dom@17.0.2+react@17.0.2
   remark: 14.0.1
-  remark-html: 14.0.0
+  remark-html: 14.0.1
   swr: 1.0.0_react@17.0.2
 
 devDependencies:
@@ -4338,8 +4338,8 @@ packages:
     resolution: {integrity: sha512-3Clt8ZMH75Ayjp9q4CorNeyjwIxHFcTkaektplKGl2A1jNGEUey8cKL0ZC5vJwfcD5GFGsNLImLG/NGzWIzoMQ==}
     dev: true
 
-  /remark-html/14.0.0:
-    resolution: {integrity: sha512-ISQjSlOI3Hb99REjDz0cAhPJVJZDednsj4GNj4Ve7DEZdEXhVPOzBvym0Di+1K3p/RmKXqSw0r02JDmtATh6Dw==}
+  /remark-html/14.0.1:
+    resolution: {integrity: sha512-a/x5bTlFrkwYkz43zuJIk0m0IuS5Rx8zLztGwdzmAdUj0Hsi4C4nkJ8gTQRNXY/ET/gMrqQORMMI0arRItq/aQ==}
     dependencies:
       '@types/mdast': 3.0.10
       hast-util-sanitize: 4.0.0
