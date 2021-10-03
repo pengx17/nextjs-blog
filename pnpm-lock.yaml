@@ -25,7 +25,7 @@ specifiers:
   react-dom: 17.0.2
   react-use: 17.3.1
   remark: 14.0.1
-  remark-html: 14.0.1
+  remark-html: 15.0.0
   swr: 1.0.0
   typescript: 4.4.3
 
@@ -40,7 +40,7 @@ dependencies:
   react-dom: 17.0.2_react@17.0.2
   react-use: 17.3.1_react-dom@17.0.2+react@17.0.2
   remark: 14.0.1
-  remark-html: 14.0.1
+  remark-html: 15.0.0
   swr: 1.0.0_react@17.0.2
 
 devDependencies:
@@ -3193,18 +3193,19 @@ packages:
       unist-util-visit: 2.0.3
     dev: true
 
-  /mdast-util-to-hast/11.2.0:
-    resolution: {integrity: sha512-KSYbg4PA9wk5YwoCZCPxbUAjdYunNN5TqTXoZp/9taRDGQS65cL2fFgKc78l0f3deg4p1LP9xdhmMuUrhAUSZA==}
+  /mdast-util-to-hast/12.0.0:
+    resolution: {integrity: sha512-BCeq0Bz103NJvmhB7gN0TDmKRT7x3auJmEp7NcYX1xpqZsQeA3JNLazLhFx6VQPqw30e2zes/coKPAiEqxxUuQ==}
     dependencies:
       '@types/hast': 2.3.4
       '@types/mdast': 3.0.10
       '@types/mdurl': 1.0.2
       mdast-util-definitions: 5.1.0
       mdurl: 1.0.1
+      micromark-util-sanitize-uri: 1.0.0
       unist-builder: 3.0.0
       unist-util-generated: 2.0.0
       unist-util-position: 4.0.1
-      unist-util-visit: 3.1.0
+      unist-util-visit: 4.0.0
     dev: false
 
   /mdast-util-to-markdown/1.2.1:
@@ -4338,13 +4339,13 @@ packages:
     resolution: {integrity: sha512-3Clt8ZMH75Ayjp9q4CorNeyjwIxHFcTkaektplKGl2A1jNGEUey8cKL0ZC5vJwfcD5GFGsNLImLG/NGzWIzoMQ==}
     dev: true
 
-  /remark-html/14.0.1:
-    resolution: {integrity: sha512-a/x5bTlFrkwYkz43zuJIk0m0IuS5Rx8zLztGwdzmAdUj0Hsi4C4nkJ8gTQRNXY/ET/gMrqQORMMI0arRItq/aQ==}
+  /remark-html/15.0.0:
+    resolution: {integrity: sha512-Fsk04zueun0u3aM3dbwfVDRTOeEco0H4Dc3hWyv7XKra8smQQJEqnD0sFhQVe9v1KxYvzVcJ6ioXtuLux2SvJA==}
     dependencies:
       '@types/mdast': 3.0.10
       hast-util-sanitize: 4.0.0
       hast-util-to-html: 8.0.2
-      mdast-util-to-hast: 11.2.0
+      mdast-util-to-hast: 12.0.0
       unified: 10.1.0
     dev: false
 
