@@ -9,7 +9,7 @@ specifiers:
   '@types/node': 16.7.10
   '@types/react': 17.0.24
   '@vercel/node': 1.12.1
-  date-fns: 2.23.0
+  date-fns: 2.25.0
   eslint: 8.0.1
   eslint-config-next: 11.1.2
   gray-matter: 4.0.3
@@ -31,7 +31,7 @@ specifiers:
 
 dependencies:
   '@tippyjs/react': 4.2.5_react-dom@17.0.2+react@17.0.2
-  date-fns: 2.23.0
+  date-fns: 2.25.0
   gray-matter: 4.0.3
   link-preview-js: 2.1.8
   next: 11.1.2_bd7797d63db473de6e2318609a63c933
@@ -1520,8 +1520,8 @@ packages:
     engines: {node: '>= 6'}
     dev: false
 
-  /date-fns/2.23.0:
-    resolution: {integrity: sha512-5ycpauovVyAk0kXNZz6ZoB9AYMZB4DObse7P3BPWmyEjXNORTI8EJ6X0uaSAq4sCHzM1uajzrkr6HnsLQpxGXA==}
+  /date-fns/2.25.0:
+    resolution: {integrity: sha512-ovYRFnTrbGPD4nqaEqescPEv1mNwvt+UTqI3Ay9SzNtey9NZnYu6E2qCcBBgJ6/2VF1zGGygpyTDITqpQQ5e+w==}
     engines: {node: '>=0.11'}
     dev: false
 
