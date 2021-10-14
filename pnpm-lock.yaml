@@ -7,7 +7,7 @@ specifiers:
   '@tippyjs/react': 4.2.5
   '@types/mdx-js__react': 1.5.4
   '@types/node': 16.7.10
-  '@types/react': 17.0.24
+  '@types/react': 17.0.29
   '@vercel/node': 1.12.1
   date-fns: 2.25.0
   eslint: 8.0.1
@@ -49,7 +49,7 @@ devDependencies:
   '@next/mdx': 11.1.2_f56c41adb6190c4680be4a1c0222355d
   '@types/mdx-js__react': 1.5.4
   '@types/node': 16.7.10
-  '@types/react': 17.0.24
+  '@types/react': 17.0.29
   '@vercel/node': 1.12.1
   eslint: 8.0.1
   eslint-config-next: 11.1.2_9c7dc95c15a0c75a3f8a96b01c59e197
@@ -644,8 +644,8 @@ packages:
       csstype: 3.0.8
     dev: true
 
-  /@types/react/17.0.24:
-    resolution: {integrity: sha512-eIpyco99gTH+FTI3J7Oi/OH8MZoFMJuztNRimDOJwH4iGIsKV2qkGnk4M9VzlaVWeEEWLWSQRy0FEA0Kz218cg==}
+  /@types/react/17.0.29:
+    resolution: {integrity: sha512-HSenIfBEBZ70BLrrVhtEtHpqaP79waauPtA8XKlczTxL3hXrW/ElGNLTpD1TmqkykgGlOAK55+D3SmUHEirpFw==}
     dependencies:
       '@types/prop-types': 15.7.4
       '@types/scheduler': 0.16.2
