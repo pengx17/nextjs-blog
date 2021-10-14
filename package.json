@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@tippyjs/react": "4.2.5",
-    "date-fns": "2.23.0",
+    "date-fns": "2.25.0",
     "gray-matter": "4.0.3",
     "link-preview-js": "2.1.8",
     "next": "11.1.2",
