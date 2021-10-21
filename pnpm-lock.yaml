@@ -13,7 +13,7 @@ specifiers:
   eslint: 8.0.1
   eslint-config-next: 11.1.2
   gray-matter: 4.0.3
-  husky: 7.0.2
+  husky: 7.0.4
   link-preview-js: 2.1.8
   lint-staged: 11.2.3
   next: 11.1.2
@@ -53,7 +53,7 @@ devDependencies:
   '@vercel/node': 1.12.1
   eslint: 8.0.1
   eslint-config-next: 11.1.2_9c7dc95c15a0c75a3f8a96b01c59e197
-  husky: 7.0.2
+  husky: 7.0.4
   lint-staged: 11.2.3
   next-mdx-remote: 3.0.6_react-dom@17.0.2+react@17.0.2
   next-remote-watch: 1.0.0
@@ -2707,8 +2707,8 @@ packages:
     engines: {node: '>=10.17.0'}
     dev: true
 
-  /husky/7.0.2:
-    resolution: {integrity: sha512-8yKEWNX4z2YsofXAMT7KvA1g8p+GxtB1ffV8XtpAEGuXNAbCV5wdNKH+qTpw8SM9fh4aMPDR+yQuKfgnreyZlg==}
+  /husky/7.0.4:
+    resolution: {integrity: sha512-vbaCKN2QLtP/vD4yvs6iz6hBEo6wkSzs8HpRah1Z6aGmF2KW5PdYuAd7uX5a+OyBZHBhd+TFLqgjUgytQr4RvQ==}
     engines: {node: '>=12'}
     hasBin: true
     dev: true
