@@ -7,7 +7,7 @@ specifiers:
   '@tippyjs/react': 4.2.5
   '@types/mdx-js__react': 1.5.4
   '@types/node': 16.7.10
-  '@types/react': 17.0.29
+  '@types/react': 17.0.33
   '@vercel/node': 1.12.1
   date-fns: 2.25.0
   eslint: 8.0.1
@@ -49,7 +49,7 @@ devDependencies:
   '@next/mdx': 11.1.2_f56c41adb6190c4680be4a1c0222355d
   '@types/mdx-js__react': 1.5.4
   '@types/node': 16.7.10
-  '@types/react': 17.0.29
+  '@types/react': 17.0.33
   '@vercel/node': 1.12.1
   eslint: 8.0.1
   eslint-config-next: 11.1.2_9c7dc95c15a0c75a3f8a96b01c59e197
@@ -614,7 +614,7 @@ packages:
   /@types/mdx-js__react/1.5.4:
     resolution: {integrity: sha512-hce+Hymj3cEMOma13eQRhpT3mhQrOkN4CAYEwKWB/qj2BiuUrrTpCkOShEERGmLVgDc3nxF4Dc0k7W999EQxnQ==}
     dependencies:
-      '@types/react': 17.0.19
+      '@types/react': 17.0.33
     dev: true
 
   /@types/ms/0.7.31:
@@ -636,16 +636,8 @@ packages:
     resolution: {integrity: sha512-rZ5drC/jWjrArrS8BR6SIr4cWpW09RNTYt9AMZo3Jwwif+iacXAqgVjm0B0Bv/S1jhDXKHqRVNCbACkJ89RAnQ==}
     dev: true
 
-  /@types/react/17.0.19:
-    resolution: {integrity: sha512-sX1HisdB1/ZESixMTGnMxH9TDe8Sk709734fEQZzCV/4lSu9kJCPbo2PbTRoZM+53Pp0P10hYVyReUueGwUi4A==}
-    dependencies:
-      '@types/prop-types': 15.7.4
-      '@types/scheduler': 0.16.2
-      csstype: 3.0.8
-    dev: true
-
-  /@types/react/17.0.29:
-    resolution: {integrity: sha512-HSenIfBEBZ70BLrrVhtEtHpqaP79waauPtA8XKlczTxL3hXrW/ElGNLTpD1TmqkykgGlOAK55+D3SmUHEirpFw==}
+  /@types/react/17.0.33:
+    resolution: {integrity: sha512-pLWntxXpDPaU+RTAuSGWGSEL2FRTNyRQOjSWDke/rxRg14ncsZvx8AKWMWZqvc1UOaJIAoObdZhAWvRaHFi5rw==}
     dependencies:
       '@types/prop-types': 15.7.4
       '@types/scheduler': 0.16.2
