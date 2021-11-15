@@ -41,7 +41,7 @@
 :root {
   --font-sans: "Only Emoji", "Source Sans 3 VF", "Source Han Sans VF",
     sans-serif;
-  --font-serif: "Only Emoji", "Source Serif VF", "Source Han Sans VF", serif;
+  --font-serif: "Only Emoji", "Source Serif VF", "Source Han Serif VF", serif;
 }
 
 html,

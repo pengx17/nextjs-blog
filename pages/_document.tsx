@@ -13,10 +13,10 @@ class MyDocument extends Document {
           />
           <link
             rel="preload"
-            href="https://cdn.jsdelivr.net/gh/pengx17/source-fonts@0.0.3/fonts.css"
+            href="https://cdn.jsdelivr.net/gh/pengx17/source-fonts@0.0.4/fonts.css"
           />
           <link
-            href="https://cdn.jsdelivr.net/gh/pengx17/source-fonts@0.0.3/fonts.css"
+            href="https://cdn.jsdelivr.net/gh/pengx17/source-fonts@0.0.4/fonts.css"
             rel="stylesheet"
           />
           {/* https://github.com/vercel/next.js/blob/canary/examples/with-google-analytics/pages/_document.js */}
