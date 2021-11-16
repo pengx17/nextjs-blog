@@ -34,7 +34,7 @@
     "@types/react": "^17.0.33",
     "@vercel/node": "^1.12.1",
     "eslint": "^8.1.0",
-    "eslint-config-next": "^11.1.2",
+    "eslint-config-next": "12.0.4",
     "husky": "^7.0.4",
     "lint-staged": "^11.2.6",
     "next-mdx-remote": "^3.0.6",
