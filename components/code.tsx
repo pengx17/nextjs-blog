@@ -1,6 +1,6 @@
 import React from "react";
 import Highlight, { defaultProps } from "prism-react-renderer";
-import lightTheme from "prism-react-renderer/themes/vsLight";
+import lightTheme from "prism-react-renderer/themes/github";
 
 export default function Code({ children, className }) {
   const language = className?.replace(/language-/, "") ?? "javascript";
@@ -19,7 +19,7 @@ export default function Code({ children, className }) {
             ...style,
             fontSize: "14px",
             lineHeight: "1.5",
-            background: "#f6f8fa",
+            background: "var(--code-background)",
             padding: "1rem",
           }}
         >

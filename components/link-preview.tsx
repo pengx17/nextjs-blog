@@ -165,6 +165,7 @@ const getCardSize = (data: LinkPreviewMetadata) => {
 // Credits: taken directly from innos.io
 const PreviewCard = ({ data }: { data: LinkPreviewMetadata }) => {
   const [width, height] = getCardSize(data);
+
   return (
     <>
       <a
@@ -176,9 +177,7 @@ const PreviewCard = ({ data }: { data: LinkPreviewMetadata }) => {
       >
         <div className="card-container">
           <div className="text-container">
-            {data.title && (
-              <div className="text-container-title">{data.title}</div>
-            )}
+            <div className="text-container-title">{data.title}</div>
             <div className="text-container-description">{data.description}</div>
             <div className="text-container-url-container">
               {data.favicons?.length > 0 && (
