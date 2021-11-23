@@ -297,6 +297,10 @@ export default function LinkPreview({
   url: string;
   showError?: boolean;
 }) {
-  const meta = useLinkPreview(url);
+  const [hasMounted, setHasMounted] = React.useState(false);
+  React.useEffect(() => {
+    setHasMounted(true);
+  }, []);
+  const meta = useLinkPreview(hasMounted ? url : null);
   return meta ? <PreviewCard data={meta} /> : null;
 }
