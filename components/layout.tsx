@@ -56,9 +56,11 @@ export default function Layout({
         }
 
         .backToHome {
-          font-size: 1.2rem;
+          color: #004174;
+          text-decoration: underline;
+          font-size: 1.5rem;
           font-weight: 600;
-          margin: 3rem 0 0 -1.5rem;
+          margin: 3rem 0 0 -0.25rem;
         }
       `}</style>
     </>
