@@ -8,8 +8,6 @@ export default function Anchor({ ...props }) {
     <Tippy
       interactive
       delay={100}
-      sticky
-      followCursor="horizontal"
       animation="fade"
       arrow={false}
       content={<LinkPreview url={props.href} />}

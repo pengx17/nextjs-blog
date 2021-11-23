@@ -73,6 +73,7 @@ export default function Home({ allPostsData }) {
 
         .blog-item-title {
           font-size: 1.2rem;
+          font-weight: 600;
           font-family: var(--font-serif);
         }
       `}</style>

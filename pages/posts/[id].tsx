@@ -10,6 +10,7 @@ const components = {
   code: dynamic(() => import("../../components/code")),
   a: dynamic(() => import("../../components/anchor")),
   LinkPreview: dynamic(() => import("../../components/link-preview")),
+  Icon: dynamic(() => import("../../components/icon")),
 };
 
 function localStorageProvider() {

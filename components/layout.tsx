@@ -15,10 +15,7 @@ export default function Layout({
       <div className="root">
         <Head>
           <link rel="icon" href="/favicon.jpeg" />
-          <meta
-            name="description"
-            content="Learn how to build a personal website using Next.js"
-          />
+          <meta name="description" content="A personal blog by pengx17" />
           <meta
             property="og:image"
             content={`https://og-image.vercel.app/${encodeURI(
@@ -36,7 +33,9 @@ export default function Layout({
             <main>{children}</main>
             <div className="backToHome">
               <Link href="/">
-                <a>← Back to home</a>
+                <a>
+                  <code>cd ~</code>
+                </a>
               </Link>
             </div>
           </div>
@@ -57,7 +56,9 @@ export default function Layout({
         }
 
         .backToHome {
-          margin: 3rem 0 0;
+          font-size: 1.2rem;
+          font-weight: 600;
+          margin: 3rem 0 0 -1.5rem;
         }
       `}</style>
     </>

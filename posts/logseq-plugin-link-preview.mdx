@@ -1,7 +1,143 @@
 ---
-title: "External Link Preview Plugin for Logseq"
-date: "2021-08-20"
-draft: true
+title: "Logseq: 外链预览插件"
+date: "2021-10-23"
+draft: false
 ---
 
-[link-preview](https://pengx17.vercel.app/posts/link-preview)
+本博客通过 Next.js function + MDX 的组合拳，提供了**鼠标悬停**与**内联卡片**两种渲染模式的[外链预览的支持](/posts/link-preview)。那么对于 Logseq，我们可以尝试用插件 API 为 Logseq 提供类似的功能。
+
+这个[在前面的博客](/posts/link-preview)里介绍了将任意外链渲染为卡片模板的方法。为了在 Logseq 里实现两种渲染模式，我们还需要解决其他问题。
+
+## 鼠标悬停
+
+### 🎯 目标：当鼠标移动到外部链接时，在悬停位置显示链接的预览图。
+
+在 Plugin 中监听主视图中的 `mouseenter` 事件，当事件中的 `target` 为外链 (`className === "external-link"`) 时，在锚点位置显示预览图。如下的 `useHoveringExternalLink` React Hook 会返回当前鼠标悬停的外链锚点元素。
+
+```tsx
+const useHoveringExternalLink = () => {
+  const [anchor, setAnchor] = React.useState<HTMLAnchorElement | null>(null);
+  const currentAnchor = React.useRef(anchor);
+
+  React.useEffect(() => {
+    const enterAnchorListener = (e: MouseEvent) => {
+      const target = e.composedPath()[0] as HTMLAnchorElement;
+      if (
+        target.tagName === "A" &&
+        target.href &&
+        target.className.includes("external-link")
+      ) {
+        setAnchor(target);
+        currentAnchor.current = target;
+        target.addEventListener(
+          "mouseleave",
+          () => {
+            setAnchor(null);
+          },
+          { once: true }
+        );
+      }
+    };
+
+    const enterIframeListener = (e: MouseEvent) => {
+      setAnchor(currentAnchor.current);
+      document.addEventListener(
+        "mouseleave",
+        () => {
+          setAnchor(null);
+        },
+        { once: true }
+      );
+    };
+
+    top?.document.addEventListener("mouseenter", enterAnchorListener, true);
+    document.addEventListener("mouseenter", enterIframeListener, true);
+    return () => {
+      top?.document.removeEventListener(
+        "mouseenter",
+        enterAnchorListener,
+        true
+      );
+      document.removeEventListener("mouseenter", enterIframeListener, true);
+    };
+  }, []);
+  return anchor;
+};
+```
+
+这里请注意，Logseq 插件默认情况是运行在 `iframe` 沙盒中的，访问主视图 `top` 引用的能力只有在本地通过 `Load unpacked plugin` 的方式加载插件时才有效。
+
+解决了获取当前悬停外链的问题后，那么我们只需要拿到外链元素的 `getBoundingClientRect`，将插件主窗口渲染到相应位置即可。
+
+```tsx
+const useAdaptViewPort = (
+  data: LinkPreviewMetadata | null,
+  anchor: HTMLAnchorElement | null
+) => {
+  React.useEffect(() => {
+    if (data && anchor && top) {
+      logseq.showMainUI();
+      const elemBoundingRect = anchor.getBoundingClientRect();
+      const [width, height] = getCardSize(data);
+      let left = (elemBoundingRect.left + elemBoundingRect.right - width) / 2;
+      const right = left + width;
+      const oversize = Math.max(right - top.visualViewport.width, 0);
+      left = Math.max(left - oversize, 0);
+      let vOffset =
+        elemBoundingRect.top - height > 0
+          ? elemBoundingRect.top - height - 8
+          : elemBoundingRect.top + elemBoundingRect.height + 8;
+      logseq.setMainUIInlineStyle({
+        top: vOffset + `px`,
+        left: left + `px`,
+        width: width + `px`,
+        height: height + `px`,
+        zIndex: 20,
+        filter: "drop-shadow(0 0 12px rgba(0, 0, 0, 0.2))",
+        position: "fixed",
+      });
+    } else {
+      logseq.hideMainUI();
+    }
+  }, [anchor, data]);
+};
+```
+
+<br />
+
+### 🐛 问题：悬停外链显示预览图时编辑焦点丢失
+
+由于 `iframe` 的问题，鼠标在悬停外链并显示卡片时，页面的焦点会自动切换到悬浮卡片上。这样会导致编辑焦点丢失的问题，多少会影响用户更连贯的输入体验。
+
+这里我的解决办法比较 hack：在 `React.useEffect` 中监听插件上下文中的 `document` `focus` 事件。当焦点切换到插件主窗口时，主动把焦点重新设为主窗口，并通过 `logseq.Editor.restoreEditingCursor` 还原编辑状态。代码同样也封装成了 React Hook：
+
+```tsx
+// Makes sure the user will not lose focus (editing state) when previewing a link
+export const usePreventFocus = () => {
+  React.useEffect(() => {
+    let timer = 0;
+    const listener = () => {
+      setTimeout(() => {
+        if (window.document.hasFocus()) {
+          (top as any).focus();
+          logseq.Editor.restoreEditingCursor();
+        }
+      });
+    };
+    timer = setInterval(listener, 1000);
+    window.addEventListener("focus", listener);
+    return () => {
+      window.removeEventListener("focus", listener);
+      clearInterval(timer);
+    };
+  });
+};
+```
+
+## 内联卡片
+
+# References
+
+<Icon name="code" />
+
+[插件项目源码](https://github.com/pengx17/logseq-plugin-link-preview)
