@@ -48,9 +48,9 @@ const components = {
     <HNo tag="h1" className="text-3xl font-bold my-8" {...props} />
   ),
   h2: (props) => (
-    <HNo tag="h2" className="text-2xl font-bold my-6" {...props} />
+    <HNo tag="h2" className="text-2xl font-bold my-8" {...props} />
   ),
-  h3: (props) => <HNo tag="h3" className="text-xl font-bold my-5" {...props} />,
+  h3: (props) => <HNo tag="h3" className="text-xl font-bold my-6" {...props} />,
   h4: (props) => (
     <HNo tag="h4" className="text-xl font-semibold my-4" {...props} />
   ),
@@ -73,6 +73,7 @@ const components = {
       {...props}
     />
   ),
+  ul: (props) => <ul className="list-disc pl-10 my-4" {...props} />,
 };
 
 function localStorageProvider() {
