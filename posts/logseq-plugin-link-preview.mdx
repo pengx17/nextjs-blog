@@ -7,13 +7,15 @@ date: "2021-10-23"
 
 ![](/images/link-preview-screenshot.png)
 
-[在前面的博客](/posts/link-preview)里，我介绍了将任意外链渲染为卡片模板的方法。为了在 Logseq 里实现两种渲染模式，我们还需要解决其他问题。
+[在前面的博客](/posts/link-preview)里, 我介绍了将任意外链渲染为卡片模板的方法。为了在
+Logseq 里实现两种渲染模式，我们还需要解决其他问题。
 
 ## 鼠标悬停
 
 ### 目标：当鼠标移动到外部链接时，在悬停位置显示链接的预览图。
 
-Logseq 插件 API 目前没有提供 `mouseenter` 或 `mouseleave` 事件的 API，但我们可以监听主视图中的 `mouseenter` 事件作为 workaround。当事件中的 `target` 为外链 (`className === "external-link"`) 时，在锚点位置渲染预览图。如下的 `useHoveringExternalLink` React Hook 会返回当前鼠标悬停的外链锚点元素。
+Logseq 插件 API 目前没有提供 `mouseenter` 或 `mouseleave` 事件的 API，但我们可以监听主视图中的 `mouseenter` 事件作为 <note label="workaround">这里请注意，发布在市场中的 Logseq 插件默认情况是运行在独立域名中的 `iframe` 沙盒里，访问主视图 `top` 引用（指向到主视图的 `window` 对象）的能力被[跨域安全策略](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy#cross-origin_script_api_access)禁止，我们目前只有在本地通过 `Load unpacked plugin` 的方式加载插件，才能访问到 `top` 引用。</note>。
+当事件中的 `target` 为外链 (`className === "external-link"`) 时，在锚点位置渲染预览图。如下的 `useHoveringExternalLink` React Hook 会返回当前鼠标悬停的外链锚点元素。
 
 ```tsx
 const useHoveringExternalLink = () => {
@@ -65,8 +67,6 @@ const useHoveringExternalLink = () => {
   return anchor;
 };
 ```
-
-> 这里请注意，发布在市场中的 Logseq 插件默认情况是运行在独立域名中的 `iframe` 沙盒里，访问主视图 `top` 引用（指向到主视图的 `window` 对象）的能力被[跨域安全策略](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy#cross-origin_script_api_access)禁止，我们目前只有在本地通过 `Load unpacked plugin` 的方式加载插件，才能访问到 `top` 引用。
 
 解决了获取当前悬停外链的问题后，我们就可以通过调用 `https://logseq-plugin-link-preview.vercel.app/api/link-preview?url=URL` 获取到链接的元数据，然后将结果交给 `<LinkCard />` 组件渲染。卡片的悬浮位置可通过外链元素的 `getBoundingClientRect`，通过 `logseq.setMainUIInlineStyle` 动态设置 iframe 的样式，以实现悬停位置的自适应调整。
 
@@ -162,7 +162,7 @@ logseq.Editor.registerSlashCommand("Convert to Link Card 🪧", async () => {
 
 ### 目标：自定义宏(Macro)渲染
 
-Logseq 中的宏与[编程语言的宏](<https://en.wikipedia.org/wiki/Macro_(computer_science)>)概念类似，其作用就是将输入文本替换为其他的文本。我们的接下来的目标就是将 `{{renderer :linkpreview,http://www.baidu.com}}` 文本渲染成相应 HTML 模板：
+Logseq 中的宏与<note label="编程语言的宏概念">以预定义规则，将输入文本替换为其他的文本</note>类似。我们的接下来的目标就是将 `{{renderer :linkpreview,http://www.baidu.com}}` 文本渲染成相应 HTML 模板：
 
 ```html
 <a
@@ -223,7 +223,7 @@ logseq.App.onMacroRendererSlotted(async ({ payload, slot }) => {
 });
 ```
 
-利用 React SSR/SSG 中常用的 `ReactDOMServer.renderToStaticMarkup` 函数，我们可以复用 `LinkCard` React 组件，将 ReactElement 输出为 HTML 字符串。
+利用 React <note label="SSR/SSG">SSR 和 SSG 分别指 server-side rendering (服务端渲染)与 static site generation (静态站点生成)，[参考链接](https://nextjs.org/docs/basic-features/pages#two-forms-of-pre-rendering)</note> 中常用的 `ReactDOMServer.renderToStaticMarkup` 函数，我们可以复用 `LinkCard` React 组件，将 ReactElement 输出为 HTML 字符串。
 
 ### 问题：提供模板样式
 

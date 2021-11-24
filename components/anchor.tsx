@@ -3,7 +3,7 @@ import Tippy from "@tippyjs/react";
 
 import LinkPreview from "./link-preview";
 
-export default function Anchor({ ...props }) {
+export function Anchor({ ...props }) {
   return (
     <Tippy
       interactive

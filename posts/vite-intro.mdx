@@ -9,7 +9,7 @@ Vite 由 Vue 的作者尤雨溪设计并开发，目前在"bundless 界"处于�
 
 前端工程化通常是一个很棘手的问题。从源码转译、对于不同静态资源的导入，到上线时需要的打包、uglify 等配置的加入，让 Webpack 的配置越来越复杂，增加了配置难度。同时也增加了启动时间和热启动时间，影响了开发效率。
 
-Vite 的配置规借鉴了 Parcel 的 Zero configuration (即开箱即用) 的概念，降低了配置前端项目的复杂度。
+Vite 的配置规<note label="借鉴">有兴趣的朋友可以看一下这个[推特](https://twitter.com/youyuxi/status/1460406787757072386?s=21)上的八卦。</note>了 Parcel 的 Zero configuration (即开箱即用) 的概念，降低了配置前端项目的复杂度。
 
 Vite 开箱即用的能力依赖于一个事实：前端工程化越来越趋近于标准化，业内社区对于如何处理常见文件已经有了共识。工具可以根据文件后缀自动判断使用哪种插件, 如为 module.css 使用 Module CSS, .json 导入为 js 模块, .tsx 文件的 TS / React 转译等。
 
@@ -46,7 +46,7 @@ import { Fragment as __Fragment__ } from 'react'`
 }
 ```
 
-不过上述写法会导致 sourcemap 失效。这个问题在https://github.com/aleclarson/vite/pull/3进入vite主干分支后解决。
+不过上述写法会导致 sourcemap 失效。这个问题在 https://github.com/aleclarson/vite/pull/3 进入 vite 主干分支后解决 <note>已经进入主干分支，我还贡献了一点代码 😏</note>。
 
 #### 确保业务模块源码符合 ESM 规范，并且源码与依赖没有使用 TC39 Stage 3 以下的提案
 
@@ -64,9 +64,9 @@ import { Fragment as __Fragment__ } from 'react'`
 
 ### Node 服务启动时间优化
 
-DS UI 的 mock 服务中有大量的 mock 的 json 数据，Node 启动时会预处理这些数据，拖慢了冷启动时间。
+前端的 mock 服务中有可能有大量的 mock 的 json 数据，Node 启动时会预处理这些数据，拖慢了冷启动时间。
 
-但启动时我们并不需要使用这些数据，因此可以做成 dynamic import ，跳过对于这些文件的载入，使得服务启动时间降低了 3 秒
+但启动时我们并不需要使用这些数据，因此可以做成 dynamic import ，跳过对于这些文件的载入，使得服务启动时间降低了 3 秒。
 
 ### 使用前端代码按需加载降低网络请求瀑布流
 

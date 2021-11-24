@@ -2,7 +2,10 @@ import { MDXRemote } from "next-mdx-remote";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import Date from "../../components/date";
-import Layout from "../../components/layout";
+import { Layout } from "../../components/layout";
+import { Anchor } from "../../components/anchor";
+import { Icon } from "../../components/icon";
+import { FloatingNote } from "../../components/floating-note";
 import { getAllPostIds, getPostData } from "../../lib/posts";
 import { SWRConfig } from "swr";
 import React from "react";
@@ -34,19 +37,35 @@ const HNo = ({ tag, className, children, ...rest }) => {
 };
 
 const components = {
+  a: Anchor,
   code: dynamic(() => import("../../components/code")),
+  LinkPreview: dynamic(() => import("../../components/link-preview")),
+  note: FloatingNote,
+  Icon: Icon,
+
+  // Default ones
   inlineCode: (props) => (
     <code
-      className="py-0.5 px-1 bg-gray-100 rounded"
-      style={{ fontSize: "0.8em" }}
+      className="bg-gray-100 rounded"
+      style={{ fontSize: "0.8em", padding: "0.1em 0.2em", lineHeight: 1 }}
     >
       {props.children}
     </code>
   ),
-  a: dynamic(() => import("../../components/anchor")),
-  LinkPreview: dynamic(() => import("../../components/link-preview")),
-  Icon: dynamic(() => import("../../components/icon")),
-  p: (props) => <p className="my-4" {...props} />,
+  p: (props) => (
+    <div className="my-4 relative flex" data-para-anchor>
+      <p className="flex-1" {...props} />
+      <div
+        style={{ minHeight: "128px" }}
+        className="w-72 absolute h-full left-full pl-2"
+      >
+        <div
+          className="sticky right-0 top-4 bottom-4"
+          data-sidenote-container
+        ></div>
+      </div>
+    </div>
+  ),
   h1: (props) => (
     <HNo tag="h1" className="text-3xl font-bold my-8" {...props} />
   ),

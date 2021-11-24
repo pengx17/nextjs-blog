@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const siteTitle = "pengx17";
 
-export default function Layout({
+export function Layout({
   children,
   home,
 }: {
@@ -28,7 +28,7 @@ export default function Layout({
       </Head>
       {home && children}
       {!home && (
-        <div className="w-full max-w-4xl p-12">
+        <div className="w-full max-w-3xl p-12 -left-32 relative">
           <main>{children}</main>
           <div className="inline-block py-0.5 px-2 text-green-800 font-semibold text-2xl mt-12 underline bg-gray-100">
             <Link href="/">

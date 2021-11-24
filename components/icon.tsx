@@ -1,5 +1,9 @@
 import "material-design-icons-iconfont";
 
-export default function Icon({ name }) {
-  return <i className={`material-icons`}>{name}</i>;
+export function Icon({ name }) {
+  return (
+    <i className="material-icons" style={{ fontSize: "1em" }}>
+      {name}
+    </i>
+  );
 }

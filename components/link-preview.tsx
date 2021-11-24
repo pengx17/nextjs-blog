@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import * as React from "react";
 import useSWR from "swr";
+import { useMountedState } from "react-use";
+import { useHasMounted } from "./has-mounted";
 
 const fetcher = (url) =>
   fetch(`/api/link-preview?url=${encodeURIComponent(url)}`).then((res) => {
@@ -297,10 +299,8 @@ export default function LinkPreview({
   url: string;
   showError?: boolean;
 }) {
-  const [hasMounted, setHasMounted] = React.useState(false);
-  React.useEffect(() => {
-    setHasMounted(true);
-  }, []);
+  const hasMounted = useHasMounted();
+
   const meta = useLinkPreview(hasMounted ? url : null);
   return meta ? <PreviewCard data={meta} /> : null;
 }

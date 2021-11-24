@@ -61,4 +61,8 @@
     background-color: #000;
     color: #fff;
   }
+
+  aside code {
+    background: transparent !important;
+  }
 }
