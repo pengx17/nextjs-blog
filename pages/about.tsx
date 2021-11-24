@@ -4,8 +4,8 @@ import LinkPreview from "../components/link-preview";
 export default function About() {
   return (
     <Layout>
-      <h1 className="title">About</h1>
-      <h3>
+      <h1 className="font-serif text-4xl font-bold my-4">About</h1>
+      <h3 className="font-serif text-xl my-4">
         A{" "}
         <ruby>
           Senior
