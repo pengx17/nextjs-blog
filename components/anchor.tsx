@@ -12,7 +12,7 @@ export default function Anchor({ ...props }) {
       arrow={false}
       content={<LinkPreview url={props.href} />}
     >
-      <a data-anchor {...props} />
+      <a style={{ textDecorationLine: "underline" }} {...props} />
     </Tippy>
   );
 }

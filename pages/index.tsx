@@ -11,8 +11,8 @@ export default function Home({ allPostsData }) {
         <Head>
           <title>{siteTitle}</title>
         </Head>
-        <section className="home-container">
-          <div className="left">
+        <section className="w-screen h-screen flex items-center justify-self-center">
+          <div className="flex-1 pl-12 inline">
             <h1>Index</h1>
             <h3 className="light-text">
               {" "}
@@ -23,30 +23,21 @@ export default function Home({ allPostsData }) {
             {allPostsData
               .filter((d) => !d.draft)
               .map(({ id, date, title }) => (
-                <li className="list-item" key={id}>
+                <li className="mb-5" key={id}>
                   <Link href={`/posts/${id}`}>
                     <a className="blog-item-title">{title}</a>
                   </Link>
                   <br />
-                  <small className="light-text">
+                  <span className="text-sm">
                     <Date dateString={date} />
-                  </small>
+                  </span>
                 </li>
               ))}
           </ul>
         </section>
       </Layout>
       <style jsx>{`
-        .home-container {
-          height: 100vh;
-          width: 100vw;
-          justify-self: center;
-          display: flex;
-          align-items: center;
-        }
-
         .left {
-          display: inline;
           flex: 1;
           padding-left: 3rem;
         }

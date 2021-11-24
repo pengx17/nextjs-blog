@@ -47,6 +47,10 @@
   --code-background: #f6f8fa;
 }
 
+* {
+  margin: 0;
+}
+
 html,
 body {
   padding: 0;
@@ -54,25 +58,6 @@ body {
   font-family: var(--font-sans);
   line-height: 1.8;
   font-size: 16px;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-a[data-anchor] {
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 2px;
 }
 
 pre {
@@ -148,29 +133,11 @@ article > h6::before {
   color: #fff;
 }
 
-.list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.list-item {
-  margin: 0 0 1.25rem;
-}
-
-.light-text {
-  color: #666;
-}
-
 code {
   font-size: 0.8em;
   padding: 0.1em 0.2em;
   background-color: var(--code-background);
   border-radius: 0.2em;
-}
-
-article img {
-  max-width: 100%;
 }
 
 hr {
