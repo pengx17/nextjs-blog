@@ -8,26 +8,29 @@ import { SWRConfig } from "swr";
 import React from "react";
 
 const HNo = ({ tag, className, children, ...rest }) => {
-  return React.createElement(tag, {
-    className: "font-serif relative " + (className ?? ""),
-    children: (
-      <>
-        {children}
-        <span
-          style={{
-            position: "absolute",
-            right: "calc(100% + .2rem)",
-            fontSize: ".8em",
-            opacity: ".1",
-            top: ".2em",
-          }}
-        >
-          {tag}
-        </span>
-      </>
-    ),
-    ...rest,
-  });
+  return React.createElement(
+    tag,
+    {
+      className: "font-serif relative " + (className ?? ""),
+      ...rest,
+    },
+    <>
+      {children}
+      <span
+        style={{
+          position: "absolute",
+          right: "calc(100% + .2rem)",
+          opacity: ".1",
+          top: "calc(50% - .4em)",
+          fontSize: "0.8em",
+          lineHeight: 1,
+        }}
+        className="font-normal font-mono uppercase select-none"
+      >
+        {tag}
+      </span>
+    </>
+  );
 };
 
 const components = {

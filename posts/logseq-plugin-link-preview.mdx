@@ -13,13 +13,6 @@ date: "2021-10-23"
 
 ### 目标：当鼠标移动到外部链接时，在悬停位置显示链接的预览图。
 
-<video
-  src="/videos/link-preview-plugin-hover-demo.mp4"
-  width="100%"
-  loop
-  autoPlay
-></video>
-
 Logseq 插件 API 目前没有提供 `mouseenter` 或 `mouseleave` 事件的 API，但我们可以监听主视图中的 `mouseenter` 事件作为 workaround。当事件中的 `target` 为外链 (`className === "external-link"`) 时，在锚点位置渲染预览图。如下的 `useHoveringExternalLink` React Hook 会返回当前鼠标悬停的外链锚点元素。
 
 ```tsx

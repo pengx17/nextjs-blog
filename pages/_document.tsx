@@ -7,25 +7,9 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <link
-            as="link"
-            rel="preconnect"
-            href="https://cdn.jsdelivr.net"
-            crossOrigin="anonymous"
-          />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200;300;400;500;600;700;900&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap"
             rel="stylesheet"
           />
-          <link
-            as="style"
-            rel="preload"
-            href="https://cdn.jsdelivr.net/gh/pengx17/source-fonts@0.0.5/fonts.css"
-          />
-          <link
-            href="https://cdn.jsdelivr.net/gh/pengx17/source-fonts@0.0.5/fonts.css"
-            rel="stylesheet"
-          />
-          {/* https://github.com/vercel/next.js/blob/canary/examples/with-google-analytics/pages/_document.js */}
           <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
