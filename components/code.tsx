@@ -14,14 +14,8 @@ export default function Code({ children, className }) {
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <div
-          className={className}
-          style={{
-            ...style,
-            fontSize: "14px",
-            lineHeight: "1.5",
-            background: "var(--code-background)",
-            padding: "1rem",
-          }}
+          className={`${className} text-sm p-4 bg-gray-100 overflow-auto`}
+          style={style}
         >
           {tokens.map((line, i) => (
             <div key={i} {...getLineProps({ line, key: i })}>

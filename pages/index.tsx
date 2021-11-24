@@ -6,69 +6,34 @@ import { getSortedPostsData } from "../lib/posts";
 
 export default function Home({ allPostsData }) {
   return (
-    <>
-      <Layout home>
-        <Head>
-          <title>{siteTitle}</title>
-        </Head>
-        <section className="w-screen h-screen flex items-center justify-self-center">
-          <div className="flex-1 pl-12 inline">
-            <h1>Index</h1>
-            <h3 className="light-text">
-              {" "}
-              <Link href="/about">pengx17</Link>
-            </h3>
-          </div>
-          <ul className="right list">
-            {allPostsData
-              .filter((d) => !d.draft)
-              .map(({ id, date, title }) => (
-                <li className="mb-5" key={id}>
-                  <Link href={`/posts/${id}`}>
-                    <a className="blog-item-title">{title}</a>
-                  </Link>
-                  <br />
-                  <span className="text-sm">
-                    <Date dateString={date} />
-                  </span>
-                </li>
-              ))}
-          </ul>
-        </section>
-      </Layout>
-      <style jsx>{`
-        .left {
-          flex: 1;
-          padding-left: 3rem;
-        }
-
-        .left > * {
-          display: inline;
-          vertical-align: baseline;
-          margin: 0;
-        }
-
-        .left > h1 {
-          font-weight: 600;
-          font-size: 3rem;
-        }
-
-        .right {
-          flex: 1;
-          display: flex;
-          flex-flow: column;
-          max-height: 100%;
-          overflow: auto;
-          padding: 3rem;
-        }
-
-        .blog-item-title {
-          font-size: 1.2rem;
-          font-weight: 600;
-          font-family: var(--font-serif);
-        }
-      `}</style>
-    </>
+    <Layout home>
+      <Head>
+        <title>{siteTitle}</title>
+      </Head>
+      <section className="w-screen h-screen flex items-center justify-self-center">
+        <div className="flex-1 pl-12 inline font-serif font-semibold">
+          <span className="text-5xl">Index</span>
+          <span className="text-gray-600 text-lg ml-1">
+            <Link href="/about">pengx17</Link>
+          </span>
+        </div>
+        <ul className="flex flex-col flex-1 max-h-full overflow-auto p-12 list">
+          {allPostsData
+            .filter((d) => !d.draft)
+            .map(({ id, date, title }) => (
+              <li className="mb-5" key={id}>
+                <Link href={`/posts/${id}`}>
+                  <a className="text-xl font-semibold font-serif">{title}</a>
+                </Link>
+                <br />
+                <span className="text-xs text-gray-600">
+                  <Date dateString={date} />
+                </span>
+              </li>
+            ))}
+        </ul>
+      </section>
+    </Layout>
   );
 }
 

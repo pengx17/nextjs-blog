@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { pageview } from "../lib/gtag";
 import "../styles/tailwind.css";
-import "../styles/global.css";
 
 const App = ({ Component, pageProps }) => {
   const router = useRouter();

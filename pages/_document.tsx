@@ -13,6 +13,10 @@ class MyDocument extends Document {
             crossOrigin="anonymous"
           />
           <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200;300;400;500;600;700;900&display=swap"
+            rel="stylesheet"
+          />
+          <link
             as="style"
             rel="preload"
             href="https://cdn.jsdelivr.net/gh/pengx17/source-fonts@0.0.5/fonts.css"
