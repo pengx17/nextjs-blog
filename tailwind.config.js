@@ -8,8 +8,8 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
-      sans: ["Only Emoji", "Noto Sans", "Noto Sans SC", "sans-serif"],
-      serif: ["Only Emoji", "Noto Serif", "Noto Serif SC", "serif"],
+      sans: ["Only Emoji", "Source Sans Pro", "Noto Sans SC", "sans-serif"],
+      serif: ["Only Emoji", "Source Serif Pro", "Noto Serif SC", "serif"],
       mono: ["Only Emoji", "Fira Code", "monospace"],
     },
     extend: {},

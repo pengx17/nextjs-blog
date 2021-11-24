@@ -21,7 +21,7 @@ export default function Home({ allPostsData }) {
           {allPostsData
             .filter((d) => !d.draft)
             .map(({ id, date, title }) => (
-              <li className="mb-5" key={id}>
+              <li className="mb-6" key={id}>
                 <Link href={`/posts/${id}`}>
                   <a className="text-xl font-semibold font-serif">{title}</a>
                 </Link>

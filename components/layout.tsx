@@ -30,10 +30,15 @@ export default function Layout({
       {!home && (
         <div className="w-full max-w-4xl p-12">
           <main>{children}</main>
-          <div className="inline-block py-0.5 px-2 text-green-800 font-semibold text-2xl mt-12 -ml-1 underline bg-gray-100">
+          <div className="inline-block py-0.5 px-2 text-green-800 font-semibold text-2xl mt-12 underline bg-gray-100">
             <Link href="/">
-              <a>
-                <code>cd ~</code>
+              <a className="group relative">
+                <code className="group-hover:opacity-0 transition-all">
+                  cd ~
+                </code>
+                <code className="group-hover:opacity-100 opacity-0 absolute left-0 top-1.5 transition-all">
+                  ← 🏠
+                </code>
               </a>
             </Link>
           </div>
