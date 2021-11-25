@@ -43,7 +43,7 @@ export function Layout({
       </Head>
       {home && children}
       {!home && (
-        <main className="max-w-6xl w-full lg:p-12 p-4">
+        <main className="max-w-6xl w-full lg:p-12 p-6">
           {children}
           <BackHome />
         </main>
