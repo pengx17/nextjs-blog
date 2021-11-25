@@ -40,9 +40,9 @@ const createSectionWrapper =
   (Tag) =>
   ({ className, ...props }) => {
     return (
-      <section className={cx("my-4 relative flex", className)}>
+      <section className={cx("my-6 relative flex", className)}>
         <Tag className="flex-1" {...props} />
-        <aside className="md:hidden lg:block lg:w-48 xl:w-72 h-full left-full pl-2 flex-shrink-0">
+        <aside className="hidden md:block md:w-48 lg:block lg:w-64 xl:w-72 h-full left-full pl-2 flex-shrink-0">
           <div
             className="sticky right-0 top-4 bottom-4 min-h-full"
             data-aside-container
@@ -75,9 +75,9 @@ export const mdxComponents = {
     </code>
   ),
   p: wrapNative("p"),
-  h1: hWrapper("h1", "text-3xl font-bold my-8"),
-  h2: hWrapper("h2", "text-2xl font-bold my-8"),
-  h3: hWrapper("h3", "text-xl font-bold my-6"),
+  h1: hWrapper("h1", "text-3xl font-bold my-12 mb-8"),
+  h2: hWrapper("h2", "text-2xl font-bold mt-12 mb-8"),
+  h3: hWrapper("h3", "text-xl font-bold mt-8 mb-6"),
   h4: hWrapper("h4", "text-xl font-semibold my-4"),
   // Should not use H5 & H6
   hr: wrapNative("hr", "h-1.5 border-gray-400 border-t border-b my-4"),
@@ -85,7 +85,7 @@ export const mdxComponents = {
     "blockquote",
     "py-0.5 px-4 border-green-900 border-l-4"
   ),
-  pre: wrapNative("pre", "whitespace-pre-wrap"),
+  pre: wrapNative("pre", "whitespace-pre-wrap max-w-full break-words"),
   ul: wrapNative("ul", "list-disc pl-10"),
 };
 

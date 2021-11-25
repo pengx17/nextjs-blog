@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDom from "react-dom";
-import { useHoverDirty } from "react-use";
+import { useHoverDirty, useWindowSize } from "react-use";
 
 import { useHasMounted } from "./has-mounted";
 
@@ -25,6 +25,9 @@ export function FloatingNote({ label, children, ...props }) {
     }
   }, [triggerRef, anchor, hasMounted]);
 
+  // This will trigger re-render when window size changed.
+  useWindowSize();
+
   if (!hasMounted) {
     return null;
   }
@@ -45,13 +48,17 @@ export function FloatingNote({ label, children, ...props }) {
       anchor
     );
 
+  const asideVisible =
+    !!asideEl &&
+    window.getComputedStyle(anchor.parentElement).display !== "none";
+
   return (
     <span
       ref={triggerRef}
       style={{
         textDecorationStyle: "dotted",
         textDecorationColor: "rgba(31, 41, 55)",
-        textDecorationLine: "underline",
+        textDecorationLine: asideVisible ? "underline" : "none",
         textUnderlineOffset: "2px",
         backgroundColor: asideHovering ? "rgb(209, 213, 219)" : "",
       }}
