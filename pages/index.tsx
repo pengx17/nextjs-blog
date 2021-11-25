@@ -17,7 +17,7 @@ export default function Home({ allPostsData }) {
             <Link href="/about">pengx17</Link>
           </span>
         </div>
-        <ul className="flex flex-col flex-1 max-h-full overflow-auto p-12 list">
+        <ul className="flex flex-col flex-1 max-h-full overflow-auto p-12">
           {allPostsData
             .filter((d) => !d.draft)
             .map(({ id, date, title }) => (

@@ -1,102 +1,10 @@
 import { MDXRemote } from "next-mdx-remote";
-import dynamic from "next/dynamic";
 import Head from "next/head";
+import { SWRConfig } from "swr";
+import { mdxComponents } from "../../components";
 import Date from "../../components/date";
 import { Layout } from "../../components/layout";
-import { Anchor } from "../../components/anchor";
-import { Icon } from "../../components/icon";
-import { FloatingNote } from "../../components/floating-note";
 import { getAllPostIds, getPostData } from "../../lib/posts";
-import { SWRConfig } from "swr";
-import React from "react";
-
-const HNo = ({ tag, className, children, ...rest }) => {
-  return React.createElement(
-    tag,
-    {
-      className: "font-serif relative " + (className ?? ""),
-      ...rest,
-    },
-    <>
-      {children}
-      <span
-        style={{
-          position: "absolute",
-          right: "calc(100% + .2rem)",
-          opacity: ".1",
-          top: "calc(50% - .4em)",
-          fontSize: "0.8em",
-          lineHeight: 1,
-        }}
-        className="font-normal font-mono uppercase select-none"
-      >
-        {tag}
-      </span>
-    </>
-  );
-};
-
-const components = {
-  a: Anchor,
-  code: dynamic(() => import("../../components/code")),
-  LinkPreview: dynamic(() => import("../../components/link-preview")),
-  note: FloatingNote,
-  Icon: Icon,
-
-  // Default ones
-  inlineCode: (props) => (
-    <code
-      className="bg-gray-100 rounded"
-      style={{ fontSize: "0.8em", padding: "0.1em 0.2em", lineHeight: 1 }}
-    >
-      {props.children}
-    </code>
-  ),
-  p: (props) => (
-    <div className="my-4 relative flex" data-para-anchor>
-      <p className="flex-1" {...props} />
-      <div
-        style={{ minHeight: "128px" }}
-        className="w-72 absolute h-full left-full pl-2"
-      >
-        <div
-          className="sticky right-0 top-4 bottom-4"
-          data-sidenote-container
-        ></div>
-      </div>
-    </div>
-  ),
-  h1: (props) => (
-    <HNo tag="h1" className="text-3xl font-bold my-8" {...props} />
-  ),
-  h2: (props) => (
-    <HNo tag="h2" className="text-2xl font-bold my-8" {...props} />
-  ),
-  h3: (props) => <HNo tag="h3" className="text-xl font-bold my-6" {...props} />,
-  h4: (props) => (
-    <HNo tag="h4" className="text-xl font-semibold my-4" {...props} />
-  ),
-  h5: (props) => (
-    <HNo tag="h5" className="text-xl font-medium my-4" {...props} />
-  ),
-  h6: (props) => (
-    <HNo
-      tag="h6"
-      className="text-xl font-medium text-gray-800 my-4"
-      {...props}
-    />
-  ),
-  hr: (props) => (
-    <hr className="h-1.5 border-gray-400 border-t border-b my-8" {...props} />
-  ),
-  blockquote: (props) => (
-    <blockquote
-      className="my-4 py-0.5 px-4 border-green-900 border-l-4"
-      {...props}
-    />
-  ),
-  ul: (props) => <ul className="list-disc pl-10 my-4" {...props} />,
-};
 
 function localStorageProvider() {
   if (typeof window === "undefined") {
@@ -126,7 +34,7 @@ export default function Post({ source, content, frontMatter }) {
         />
         <title>{frontMatter.title}</title>
       </Head>
-      <article>
+      <article className="w-full">
         <h1 className="text-4xl my-4 font-serif font-bold">
           {frontMatter.title}
         </h1>
@@ -134,7 +42,7 @@ export default function Post({ source, content, frontMatter }) {
           <Date dateString={frontMatter.date} />
         </div>
         <SWRConfig value={{ provider: localStorageProvider }}>
-          <MDXRemote {...source} components={components} />
+          <MDXRemote {...source} components={mdxComponents} />
         </SWRConfig>
       </article>
     </Layout>

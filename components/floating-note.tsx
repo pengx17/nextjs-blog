@@ -15,13 +15,12 @@ export function FloatingNote({ label, children, ...props }) {
   React.useEffect(() => {
     if (triggerRef.current && !anchor && hasMounted) {
       setTimeout(() => {
-        let pEl = triggerRef.current;
+        let el = triggerRef.current;
         do {
-          pEl = pEl.parentElement;
-        } while (pEl && !pEl.dataset["paraAnchor"]);
-
-        pEl = pEl.querySelector("[data-sidenote-container]");
-        setAnchor(pEl);
+          el = el.parentElement;
+        } while (el && el.tagName !== "SECTION");
+        el = el?.querySelector("[data-aside-container]");
+        setAnchor(el);
       }, 100);
     }
   }, [triggerRef, anchor, hasMounted]);

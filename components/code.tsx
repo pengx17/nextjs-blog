@@ -13,10 +13,7 @@ export default function Code({ children, className }) {
       language={language}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <div
-          className={`${className} text-sm p-4 bg-gray-100 overflow-auto`}
-          style={style}
-        >
+        <div className={`${className} text-sm p-4 bg-gray-100`} style={style}>
           {tokens.map((line, i) => (
             <div key={i} {...getLineProps({ line, key: i })}>
               {line.map((token, key) => (
