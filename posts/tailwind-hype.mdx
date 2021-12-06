@@ -1,0 +1,54 @@
+---
+title: "Tailwind?"
+date: "2021-12-06"
+---
+
+<LinkPreview url="https://tailwindcss.com/" />
+
+[Tailwind CSS](https://tailwindcss.com/) has been a buzz word for quite some time. I have seen it in many different places: Twitter, DEV.to, Podcast etc, during the time I was exploring the eco-system of [CSS in JS](/posts/css-in-js) or browsing causal stuff when at the office.
+
+I could still recall for the first time, around mid-2020, when I saw Tailwind that it seemed to be a step back that could rewind back to the good-old bootstrap time. This statement was so true that I could see a lot of [opponents](https://dev.to/jaredcwhite/why-tailwind-isn-t-for-me-5c90) with a equal community to its [proponents](https://www.swyx.io/why-tailwind/). Who really needs _atomic_ or _utilities_ when he is really good at CSS? This seems to be a even more sceptical concept to CSS in JS.
+
+Some time later, the <note label="author">Adam Wathan, Twitter [@adamwathan](https://twitter.com/adamwathan)</note> of the Tailwind announced that he [gained quite a lot money](https://adamwathan.me/tailwindcss-from-side-project-byproduct-to-multi-mullion-dollar-business/) from [Tailwind UI](https://tailwindui.com/) framework, which is a UI framework with tailwind as the foundation.
+This was a big news during that time. I was curious as well and listened to a [Podcast by the author](https://changelog.com/news/the-tailwind-beneath-my-wings-nLXW) on Changelog.
+
+I have to say, I still did not buy the idea even after I read or listen to many of these materials about Tailwind. There are several reasons:
+
+- I enjoy how css-in-js could solve my problems in general
+- css-in-js is may be too heavy for some case, but I still have original CSS or module css to solve scoping issues
+- configurating Tailwind is troublesome
+- learning Tailwind vocabulary requires practice in action
+- I don't like long class names in HTML
+
+Though I myself did not get it, I believe the there is a reason why <note label="opinion leaders">[Jord Walke](https://twitter.com/jordwalke/status/1374674525762166784), [Dan Abramov](https://twitter.com/dan_abramov/status/1452324924421550080), any one you can name here</note> are talking about it positively. In the meantime, all modern JS tools (Webpack, Parcel, Vite, Next.JS ...) support it either as a first class plugin, or have a widely adopted community solution. There are even some dialects which have similar syntaxes to Tailwind, but with some their own selling points.
+
+It was very alike the time when CSS-in-JS became a de-facto standards back to 2 ~ 3 years ago. Emotion CSS, styled-components and other solutions were all converging towards a couple of common interfaces within some uniqueness of their own.
+
+I knew it is the time. I force myself in using a dialet of Tailwind, aka [Windicss](https://windicss.org/) in some of my Logseq Plugins. The reason I adopted this solution instead of Tailwind is that [it seems to be much faster than Tailwind CLI](https://antfu.me/posts/reimagine-atomic-css) with its JIT mode; also it is advocated by an active Vite member [@antfu](https://github.com/antfu). TBH I don't know the best practices; I don't understand its philosophy; I don't know how it works. But the good news is that I can get started using it just by adding a few lines of configurations into a Vite project.
+
+I was starting to understand why it was promoted by the community:
+
+- it enforces consistency & best practices
+- responsiveness over simple variant decroations
+- it has really nice IDE integrations (VS Code plugin, for example) to get rid some of the time of document-lookup
+
+Despect these obvious facts, these are not really the sweet points to me.
+The sweet point is that
+it feels VERY alike **inline styles!** You know what? I like inline-styles.
+
+I really don't like to constantly switch another CSS file to style a random element to focus on productivity. This is the very reason I like CSS-in-JS in the first place.
+
+Furthermore, Tailwind also provide a even more powerful solution than plain-old inline styles.
+
+However I do encounter some starter issues:
+
+- how to use it for UI libraries?
+- how to custimize the default styles?
+- how to use it for SSR?
+
+I personally found that [Twind](https://twind.dev/) may fit better in some cases. It allows the user to
+
+- output the class names into hashes
+- define the output target (like a string) etc
+
+I became a [过来人](https://www.swyx.io/guo-lai-ren/) for Tailwind.
