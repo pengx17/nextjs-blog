@@ -52,7 +52,15 @@
     font-size: 16px;
   }
 
+  .container {
+    @apply font-sans;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
   a {
+    @apply hover:text-red-700;
     text-decoration-thickness: 2px;
     text-underline-offset: 2px;
   }
