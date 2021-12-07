@@ -27,7 +27,7 @@ export function reportWebVitals({
 }: NextWebVitalsMetric) {
   // Use `window.gtag` if you initialized Google Analytics as this example:
   // https://github.com/vercel/next.js/blob/canary/examples/with-google-analytics/pages/_document.js
-  window.gtag("event", name, {
+  window.gtag?.("event", name, {
     event_category:
       label === "web-vital" ? "Web Vitals" : "Next.js custom metric",
     value: Math.round(name === "CLS" ? value * 1000 : value), // values must be integers
