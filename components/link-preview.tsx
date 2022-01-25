@@ -1,16 +1,25 @@
 /* eslint-disable @next/next/no-img-element */
 import * as React from "react";
 import useSWR from "swr";
-import { useMountedState } from "react-use";
 import { useHasMounted } from "./has-mounted";
 
-const fetcher = (url) =>
-  fetch(`/api/link-preview?url=${encodeURIComponent(url)}`).then((res) => {
+const normalizeUrl = (url: string) => {
+  if (url.startsWith("/")) {
+    return new URL(url, document.location.origin).href;
+  }
+  return url;
+};
+
+const fetcher = (url: string) => {
+  return fetch(
+    `/api/link-preview?url=${encodeURIComponent(normalizeUrl(url))}`
+  ).then((res) => {
     if (res.status >= 400) {
       throw res.statusText;
     }
     return res.json();
   });
+};
 
 interface BaseType {
   mediaType: string;

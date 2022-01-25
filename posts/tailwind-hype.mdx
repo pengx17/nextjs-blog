@@ -16,7 +16,7 @@ I have to say, I still did not buy the idea even after I read or listen to many 
 
 - I enjoy how css-in-js could solve my problems in general
 - I can still have original CSS for simple tasks or module css to solve scoping issues
-- configurating Tailwind is troublesome
+- configuring Tailwind is troublesome
 - learning Tailwind vocabulary requires practice in action
 - I am afraid of learning domain-specific knowledge
 - I don't like long class names in HTML
@@ -36,7 +36,7 @@ a few lines of configurations into a Vite project.
 I was starting to understand why it was promoted by the community:
 
 - it enforces consistency & best practices
-- responsiveness over simple variant decroations
+- responsiveness over simple variant decorations
 - it has really nice IDE integrations (VS Code plugin, for example) to get rid some of the time of document-lookup
 
 Despect these obvious facts, these are not really the sweet points to me.
@@ -57,7 +57,7 @@ So if I want to use Tailwind to stylize a UI library, how do I make sure its sty
 
 In the market, there are many UI libraries built on top of Tailwind, like [Tailwind UI](https://tailwindui.com/), [VechaiUI](https://www.vechaiui.com), etc (more can be found in https://github.com/aniftyco/awesome-tailwindcss#ui-libraries-components--templates). The question is, they all requires the user to have Tailwind to be configured
 
-I personally found that [Twind](https://twind.dev/) or [Twin.macro](https://github.com/ben-rogerson/twin.macro) may fit better in some cases than vanilla Tailwind. It is said to be a <note label="tailwind-in-js">_"The smallest, fastest, most feature complete tailwind-in-js solution in existence"_, stated on the frontpage of https://twind.dev/</note>, which has comes with a small runtime to dynamically inject styles into HTML on the fly. It allows the user to output the class names into hashes and define the output target (like a string) etc.
+I personally found that [Twind](https://twind.dev/) or [Twin.macro](https://github.com/ben-rogerson/twin.macro) may fit better in some cases than vanilla Tailwind. It is said to be a <note label="tailwind-in-js">_"The smallest, fastest, most feature complete tailwind-in-js solution in existence"_, stated on the front page of https://twind.dev/</note>, which has comes with a small runtime to dynamically inject styles into HTML on the fly. It allows the user to output the class names into hashes and define the output target (like a string) etc.
 
 ### Working with other CSS solutions
 
@@ -65,7 +65,7 @@ Tailwind encourages us to write all styles in HTML class names, but sometimes we
 
 ### Pre-flight
 
-Another cool thing about Tailwind is that it comes with a well defined set of base styles ["built on top of modern-normalize"](https://tailwindcss.com/docs/preflight). In short, it resets many native HTML elements to make them either behavive like a `span` or a `div`. Its pre-flight also comes with some hidden utilities to make the development faster, for example it defines the following [rules for borders](https://github.com/tailwindcss/tailwindcss/pull/116):
+Another cool thing about Tailwind is that it comes with a well defined set of base styles ["built on top of modern-normalize"](https://tailwindcss.com/docs/preflight). In short, it resets many native HTML elements to make them either behave like a `span` or a `div`. Its pre-flight also comes with some hidden utilities to make the development faster, for example it defines the following [rules for borders](https://github.com/tailwindcss/tailwindcss/pull/116):
 
 ```css
 *,
