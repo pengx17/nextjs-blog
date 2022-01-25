@@ -123,6 +123,9 @@ type LinkPreviewMetadata = Pick<
 const useLinkPreview = (href: string): LinkPreviewMetadata | null => {
   const { data, error } = useSWR(href, fetcher, {
     revalidateOnFocus: false,
+    refreshInterval: 0,
+    refreshWhenHidden: false,
+    revalidateIfStale: false,
   });
 
   return React.useMemo(() => {
