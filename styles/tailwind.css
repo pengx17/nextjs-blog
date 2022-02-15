@@ -48,7 +48,6 @@
   html,
   body {
     @apply antialiased font-sans;
-    line-height: 1.8;
     font-size: 16px;
   }
 

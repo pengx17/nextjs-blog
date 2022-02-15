@@ -17,11 +17,11 @@ export default function Home({ allPostsData }) {
             <Link href="/about">pengx17</Link>
           </span>
         </div>
-        <ul className="flex flex-col flex-1 max-h-full overflow-auto p-12">
+        <div className="flex-1 max-h-full overflow-auto p-12">
           {allPostsData
             .filter((d) => !d.draft)
             .map(({ id, date, title }) => (
-              <li className="mb-6" key={id}>
+              <div className="mb-6" key={id}>
                 <Link href={`/posts/${id}`}>
                   <a className="text-xl font-semibold font-serif">{title}</a>
                 </Link>
@@ -29,9 +29,9 @@ export default function Home({ allPostsData }) {
                 <span className="text-xs text-gray-600">
                   <Date dateString={date} />
                 </span>
-              </li>
+              </div>
             ))}
-        </ul>
+        </div>
       </section>
     </Layout>
   );
