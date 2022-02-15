@@ -19,15 +19,15 @@
     "material-design-icons-iconfont": "6.1.1",
     "next": "12.0.7",
     "prism-react-renderer": "1.2.1",
-    "react": "^17.0.0",
-    "react-dom": "^17.0.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
     "react-use": "17.3.2",
     "remark": "14.0.2",
     "remark-html": "15.0.1",
     "swr": "1.1.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.12",
+    "@babel/core": "7.17.2",
     "@mdx-js/loader": "1.6.22",
     "@mdx-js/react": "1.6.22",
     "@next/mdx": "12.0.8",
