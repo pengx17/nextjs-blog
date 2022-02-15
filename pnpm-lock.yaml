@@ -31,7 +31,7 @@ specifiers:
   react-use: 17.3.2
   remark: 14.0.2
   remark-html: 15.0.1
-  swr: 1.1.2
+  swr: 1.2.1
   tailwindcss: 3.0.22
   typescript: 4.5.5
   windicss: 3.4.3
@@ -50,7 +50,7 @@ dependencies:
   react-use: 17.3.2_react-dom@17.0.2+react@17.0.2
   remark: 14.0.2
   remark-html: 15.0.1
-  swr: 1.1.2_react@17.0.2
+  swr: 1.2.1_react@17.0.2
 
 devDependencies:
   '@babel/core': 7.17.2
@@ -5181,8 +5181,8 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /swr/1.1.2_react@17.0.2:
-    resolution: {integrity: sha512-UsM0eo5T+kRPyWFZtWRx2XR5qzohs/LS4lDC0GCyLpCYFmsfTk28UCVDbOE9+KtoXY4FnwHYiF+ZYEU3hnJ1lQ==}
+  /swr/1.2.1_react@17.0.2:
+    resolution: {integrity: sha512-1cuWXqJqXcFwbgONGCY4PHZ8v05009JdHsC3CIC6u7d00kgbMswNr1sHnnhseOBxtzVqcCNpOHEgVDciRer45w==}
     peerDependencies:
       react: ^16.11.0 || ^17.0.0 || ^18.0.0
     dependencies:
