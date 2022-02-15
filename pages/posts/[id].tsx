@@ -1,10 +1,12 @@
-import { MDXRemote } from "next-mdx-remote";
 import Head from "next/head";
+import { getMDXComponent } from "mdx-bundler/client";
+
 import { SWRConfig } from "swr";
 import { mdxComponents } from "../../components";
 import Date from "../../components/date";
 import { Layout } from "../../components/layout";
 import { getAllPostIds, getPostData } from "../../lib/posts";
+import React from "react";
 
 function localStorageProvider() {
   if (typeof window === "undefined") {
@@ -23,26 +25,23 @@ function localStorageProvider() {
   return map;
 }
 
-export default function Post({ source, content, frontMatter }) {
+export default function Post({ source, frontmatter }) {
+  const Component = React.useMemo(() => getMDXComponent(source), [source]);
   return (
     <Layout>
       <Head>
-        <meta property="og:title" content={frontMatter.title} />
-        <meta
-          property="og:description"
-          content={content.substr(0, 140).replace(/\n/g, " ")}
-        />
-        <title>{frontMatter.title}</title>
+        <meta property="og:title" content={frontmatter.title} />
+        <title>{frontmatter.title}</title>
       </Head>
       <article className="w-full">
         <h1 className="text-4xl my-4 font-serif font-bold">
-          {frontMatter.title}
+          {frontmatter.title}
         </h1>
         <div className="text-gray-600 mb-8">
-          <Date dateString={frontMatter.date} />
+          <Date dateString={frontmatter.date} />
         </div>
         <SWRConfig value={{ provider: localStorageProvider }}>
-          <MDXRemote {...source} components={mdxComponents} />
+          <Component {...source} components={mdxComponents} />
         </SWRConfig>
       </article>
     </Layout>
@@ -50,7 +49,7 @@ export default function Post({ source, content, frontMatter }) {
 }
 
 export async function getStaticPaths() {
-  const paths = getAllPostIds();
+  const paths = await getAllPostIds();
   return {
     paths,
     fallback: false,
@@ -59,5 +58,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const data = await getPostData(params.id);
-  return data;
+  return {
+    props: data,
+  };
 }

@@ -14,7 +14,7 @@ Logseq 里实现两种渲染模式，我们还需要解决其他问题。
 
 ### 目标：当鼠标移动到外部链接时，在悬停位置显示链接的预览图。
 
-Logseq 插件 API 目前没有提供 `mouseenter` 或 `mouseleave` 事件的 API，但我们可以监听主视图中的 `mouseenter` 事件作为 <note label="workaround">这里请注意，发布在市场中的 Logseq 插件默认情况是运行在独立域名中的 `iframe` 沙盒里，访问主视图 `top` 引用（指向到主视图的 `window` 对象）的能力被[跨域安全策略](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy#cross-origin_script_api_access)禁止，我们目前只有在本地通过 `Load unpacked plugin` 的方式加载插件，才能访问到 `top` 引用。</note>。
+Logseq 插件 API 目前没有提供 `mouseenter` 或 `mouseleave` 事件的 API，但我们可以监听主视图中的 `mouseenter` 事件作为 <Note label="workaround">这里请注意，发布在市场中的 Logseq 插件默认情况是运行在独立域名中的 `iframe` 沙盒里，访问主视图 `top` 引用（指向到主视图的 `window` 对象）的能力被[跨域安全策略](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy#cross-origin_script_api_access)禁止，我们目前只有在本地通过 `Load unpacked plugin` 的方式加载插件，才能访问到 `top` 引用。</Note>。
 当事件中的 `target` 为外链 (`className === "external-link"`) 时，在锚点位置渲染预览图。如下的 `useHoveringExternalLink` React Hook 会返回当前鼠标悬停的外链锚点元素。
 
 ```tsx
@@ -162,7 +162,7 @@ logseq.Editor.registerSlashCommand("Convert to Link Card 🪧", async () => {
 
 ### 目标：自定义宏(Macro)渲染
 
-Logseq 中的宏与<note label="编程语言的宏概念">以预定义规则，将输入文本替换为其他的文本</note>类似。我们的接下来的目标就是将 `{{renderer :linkpreview,http://www.baidu.com}}` 文本渲染成相应 HTML 模板：
+Logseq 中的宏与<Note label="编程语言的宏概念">以预定义规则，将输入文本替换为其他的文本</Note>类似。我们的接下来的目标就是将 `{{renderer :linkpreview,http://www.baidu.com}}` 文本渲染成相应 HTML 模板：
 
 ```html
 <a
@@ -223,7 +223,7 @@ logseq.App.onMacroRendererSlotted(async ({ payload, slot }) => {
 });
 ```
 
-利用 React <note label="SSR/SSG">SSR 和 SSG 分别指 server-side rendering (服务端渲染)与 static site generation (静态站点生成)，[参考链接](https://nextjs.org/docs/basic-features/pages#two-forms-of-pre-rendering)</note> 中常用的 `ReactDOMServer.renderToStaticMarkup` 函数，我们可以复用 `LinkCard` React 组件，将 ReactElement 输出为 HTML 字符串。
+利用 React <Note label="SSR/SSG">SSR 和 SSG 分别指 server-side rendering (服务端渲染)与 static site generation (静态站点生成)，[参考链接](https://nextjs.org/docs/basic-features/pages#two-forms-of-pre-rendering)</Note> 中常用的 `ReactDOMServer.renderToStaticMarkup` 函数，我们可以复用 `LinkCard` React 组件，将 ReactElement 输出为 HTML 字符串。
 
 ### 问题：提供模板样式
 
@@ -231,7 +231,7 @@ logseq.App.onMacroRendererSlotted(async ({ payload, slot }) => {
 
 目前 `LinkCard` 的实现中，CSS 是以全局样式文件 `style.css` 注入到 iframe 上下文的。同样的，我们可以将 `style.css` 读取为纯文本字符串，通过 `logseq.provideStyle` 注册到主视图中。
 
-## <完>
+## 完
 
 以上是 `logseq-plugin-link-preview` 插件的基本思路。从功能来讲，它已经比较完整了，但我认为还有以下问题：
 

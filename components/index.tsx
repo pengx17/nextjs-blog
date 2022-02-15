@@ -61,18 +61,18 @@ const wrapNative = (Tag, className?: string) =>
 // Components to be injected to MDX
 export const mdxComponents = {
   a: Anchor,
-  code: dynamic(() => import("./code")),
+  pre: dynamic(() => import("./code-highlight")),
   LinkPreview: dynamic(() => import("./link-preview")),
-  note: FloatingNote,
+  Note: FloatingNote,
   Icon: Icon,
 
-  // Default ones
-  inlineCode: (props) => (
+  // inline code
+  code: (props) => (
     <code
       className="bg-gray-100 rounded"
       style={{ fontSize: "0.8em", padding: "0.1em 0.2em", lineHeight: 1 }}
     >
-      {props.children}
+      {props.children?.trim()}
     </code>
   ),
   p: wrapNative("p", "leading-relaxed"),
@@ -86,7 +86,7 @@ export const mdxComponents = {
     "blockquote",
     "py-0.5 px-4 border-green-900 border-l-4"
   ),
-  pre: wrapNative("pre", "whitespace-pre-wrap max-w-full break-words"),
+  // pre: wrapNative("pre", "whitespace-pre-wrap max-w-full break-words"),
   ul: wrapNative("ul", "list-disc pl-10 leading-relaxed"),
 };
 

@@ -2,18 +2,21 @@ import React from "react";
 import Highlight, { defaultProps } from "prism-react-renderer";
 import lightTheme from "prism-react-renderer/themes/github";
 
-export default function Code({ children, className }) {
-  const language = className?.replace(/language-/, "") ?? "javascript";
-
+export default function CodeHighlight({ children, className }) {
+  const content = children.props.children;
+  const language = className.split("language-")[1] ?? "javascript";
   return (
     <Highlight
       {...defaultProps}
       theme={lightTheme}
-      code={children.trim()}
+      code={content?.trim()}
       language={language}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <div className={`${className} text-sm p-4 bg-gray-100`} style={style}>
+        <pre
+          className={`${className} text-[13px] p-4 bg-gray-100 font-mono leading-snug max-w-full xl:w-[1000px] 2xl:w-[1400px]`}
+          style={style}
+        >
           {tokens.map((line, i) => (
             <div key={i} {...getLineProps({ line, key: i })}>
               {line.map((token, key) => (
@@ -21,7 +24,7 @@ export default function Code({ children, className }) {
               ))}
             </div>
           ))}
-        </div>
+        </pre>
       )}
     </Highlight>
   );
