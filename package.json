@@ -5,8 +5,6 @@
   "scripts": {
     "dev": "next-remote-watch ./posts",
     "build": "next build",
-    "export": "next export",
-    "deploy": "next build; next export",
     "start": "next start",
     "prettier": "prettier . --write",
     "prepare": "husky install"
