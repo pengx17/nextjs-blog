@@ -35,7 +35,7 @@ specifiers:
   tailwindcss: 3.0.22
   typescript: 4.5.5
   windicss: 3.4.3
-  windicss-webpack-plugin: 1.6.2
+  windicss-webpack-plugin: 1.6.4
 
 dependencies:
   '@tippyjs/react': 4.2.6_react-dom@17.0.2+react@17.0.2
@@ -74,7 +74,7 @@ devDependencies:
   tailwindcss: 3.0.22_autoprefixer@10.4.2
   typescript: 4.5.5
   windicss: 3.4.3
-  windicss-webpack-plugin: 1.6.2
+  windicss-webpack-plugin: 1.6.4
 
 packages:
 
@@ -4203,6 +4203,10 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /pathe/0.2.0:
+    resolution: {integrity: sha512-sTitTPYnn23esFR3RlqYBWn4c45WGeLcsKzQiUpXJAyfcWkolvlYpV8FLo7JishK946oQwMFUCHXQ9AjGPKExw==}
+    dev: true
+
   /pbkdf2/3.1.2:
     resolution: {integrity: sha512-iuh7L6jA7JEGu2WxDwtQP1ddOpaJNC4KlDEFfdQajSGgGPNi4OyDc2R7QnbY2bR9QjBVGwgvTdNJZoE7RaxUMA==}
     engines: {node: '>=0.12'}
@@ -5509,11 +5513,6 @@ packages:
     resolution: {integrity: sha1-sr9O6FFKrmFltIF4KdIbLvSZBOw=}
     engines: {node: '>= 0.8'}
 
-  /upath/2.0.1:
-    resolution: {integrity: sha512-1uEe95xksV1O0CYKXo8vQvN1JEbtJp7lb7C5U9HMsIp6IVwntkH/oNUzyVNQSd4S1sYk2FpSSW44FqMc8qee5w==}
-    engines: {node: '>=4'}
-    dev: true
-
   /uri-js/4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
     dependencies:
@@ -5673,15 +5672,14 @@ packages:
       isexe: 2.0.0
     dev: true
 
-  /windicss-webpack-plugin/1.6.2:
-    resolution: {integrity: sha512-1NhvBVmClIgxnC6C50RlqdpL9klF4g1JwJAoDNCdY0fO6o5GP6hO+E3xGCWI38l4Ij36JQZ4/CxFKWjdixXFBQ==}
+  /windicss-webpack-plugin/1.6.4:
+    resolution: {integrity: sha512-/ac7Y3eprrLnlBGoHIQG5V29OXZsYwM5RKpcp9+kxspN07sXKGGGNno1tScwY2H0/lkICMPinZa0iijf21ifzg==}
     dependencies:
       '@windicss/plugin-utils': 1.6.3
       debug: 4.3.3
       loader-utils: 2.0.2
       lodash: 4.17.21
-      magic-string: 0.25.7
-      upath: 2.0.1
+      pathe: 0.2.0
       webpack-virtual-modules: 0.4.3
       windicss: 3.4.3
     transitivePeerDependencies:
