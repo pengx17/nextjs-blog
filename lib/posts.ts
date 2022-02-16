@@ -24,6 +24,7 @@ export async function getSortedPostsData() {
       // Combine the data with the id
       return {
         id,
+        fileName,
         ...(matterResult.data as { date: string; [key: string]: any }),
       };
     })
@@ -35,18 +36,6 @@ export async function getSortedPostsData() {
     } else {
       return -1;
     }
-  });
-}
-
-export async function getAllPostIds() {
-  const fileNames = await fsp.readdir(postsDirectory);
-  return fileNames.map((fileName) => {
-    return {
-      params: {
-        id: fileName.replace(/\.mdx$/, ""),
-        original: fileName,
-      },
-    };
   });
 }
 

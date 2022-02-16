@@ -5,7 +5,7 @@ import { SWRConfig } from "swr";
 import { mdxComponents } from "../../components";
 import Date from "../../components/date";
 import { Layout } from "../../components/layout";
-import { getAllPostIds, getPostData } from "../../lib/posts";
+import { getSortedPostsData, getPostData } from "../../lib/posts";
 import React from "react";
 
 function localStorageProvider() {
@@ -49,9 +49,11 @@ export default function Post({ source, frontmatter }) {
 }
 
 export async function getStaticPaths() {
-  const paths = await getAllPostIds();
+  const items = await getSortedPostsData();
   return {
-    paths,
+    paths: items.map((item) => ({
+      params: { id: item.id, original: item.fileName },
+    })),
     fallback: false,
   };
 }
