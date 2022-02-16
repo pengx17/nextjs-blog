@@ -79,7 +79,7 @@ export const mdxComponents = {
   h1: hWrapper("h1", "text-3xl font-bold my-12 mb-8"),
   h2: hWrapper("h2", "text-2xl font-bold mt-12 mb-8"),
   h3: hWrapper("h3", "text-xl font-bold mt-8 mb-6"),
-  h4: hWrapper("h4", "text-xl font-semibold my-4"),
+  h4: hWrapper("h4", "text-xl font-bold my-4 text-gray-800"),
   // Should not use H5 & H6
   hr: wrapNative("hr", "h-1.5 border-gray-400 border-t border-b my-4"),
   blockquote: wrapNative(
