@@ -1,6 +1,7 @@
 import fsp from "fs/promises";
 import matter from "gray-matter";
 import { bundleMDX } from "mdx-bundler";
+import remarkGfm from "remark-gfm";
 
 import path from "path";
 
@@ -45,6 +46,10 @@ export async function getPostData(id: string) {
 
   const { code, frontmatter } = await bundleMDX({
     source,
+    xdmOptions(options) {
+      options.remarkPlugins = [...options.remarkPlugins, remarkGfm];
+      return options;
+    },
   });
 
   return {

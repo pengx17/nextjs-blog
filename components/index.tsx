@@ -88,6 +88,7 @@ export const mdxComponents = {
   ),
   // pre: wrapNative("pre", "whitespace-pre-wrap max-w-full break-words"),
   ul: wrapNative("ul", "list-disc pl-10 leading-relaxed"),
+  ol: wrapNative("ol", "list-decimal pl-10 leading-relaxed"),
 };
 
 ["p", "blockquote", "pre", "ul", "ol", "hr"].forEach((tag) => {
