@@ -170,7 +170,7 @@ const getCardSize = (data: LinkPreviewMetadata) => {
     height = 100;
   }
   if (!data.description) {
-    height -= 60;
+    height -= 30;
   }
 
   return [width, height];

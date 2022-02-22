@@ -10,14 +10,14 @@ export default function Home({ allPostsData }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className="w-screen h-screen flex items-center justify-self-center">
-        <div className="flex-1 pl-12 inline font-serif font-semibold">
+      <section className="w-screen h-screen flex sm:items-center justify-self-center flex-col sm:flex-row">
+        <div className="sm:flex-1 pl-12 py-2 inline font-serif font-semibold">
           <span className="text-5xl">Index</span>
           <span className="text-gray-600 text-lg ml-1">
             <Link href="/about">pengx17</Link>
           </span>
         </div>
-        <div className="flex-1 max-h-full overflow-auto p-12">
+        <div className="sm:flex-1 max-h-full overflow-auto p-12">
           {allPostsData
             .filter((d) => !d.draft)
             .map(({ id, date, title }) => (

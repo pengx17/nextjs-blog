@@ -75,7 +75,7 @@ export const mdxComponents = {
       {props.children?.trim()}
     </code>
   ),
-  p: wrapNative("p", "leading-relaxed"),
+  p: wrapNative("p", "leading-ease"),
   h1: hWrapper("h1", "text-3xl font-bold my-12 mb-8"),
   h2: hWrapper("h2", "text-2xl font-bold mt-12 mb-8"),
   h3: hWrapper("h3", "text-xl font-bold mt-8 mb-6"),
@@ -87,8 +87,8 @@ export const mdxComponents = {
     "py-0.5 px-4 border-green-900 border-l-4"
   ),
   // pre: wrapNative("pre", "whitespace-pre-wrap max-w-full break-words"),
-  ul: wrapNative("ul", "list-disc pl-10 leading-relaxed"),
-  ol: wrapNative("ol", "list-decimal pl-10 leading-relaxed"),
+  ul: wrapNative("ul", "list-disc pl-10 leading-ease"),
+  ol: wrapNative("ol", "list-decimal pl-10 leading-ease"),
 };
 
 ["p", "blockquote", "pre", "ul", "ol", "hr"].forEach((tag) => {

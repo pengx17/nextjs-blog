@@ -10,7 +10,11 @@ module.exports = {
       serif: ["Only Emoji", "Source Serif Pro", "Noto Serif SC", "serif"],
       mono: ["Only Emoji", "Fira Code", "monospace"],
     },
-    extend: {},
+    extend: {
+      lineHeight: {
+        ease: "1.8",
+      },
+    },
   },
   variants: {
     extend: {},

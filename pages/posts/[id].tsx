@@ -37,7 +37,7 @@ export default function Post({ source, frontmatter }) {
         <h1 className="text-4xl my-4 font-serif font-bold">
           {frontmatter.title}
         </h1>
-        <div className="text-gray-600 mb-8">
+        <div className="text-gray-600 mb-8 ml-0.5">
           <Date dateString={frontmatter.date} />
         </div>
         <SWRConfig value={{ provider: localStorageProvider }}>
