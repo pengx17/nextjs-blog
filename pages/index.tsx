@@ -12,7 +12,7 @@ export default function Home({ allPostsData }) {
       </Head>
       <section className="w-screen h-screen flex sm:items-center justify-self-center flex-col sm:flex-row">
         <div className="sm:flex-1 pl-12 py-2 inline font-serif font-semibold">
-          <span className="text-5xl">Index</span>
+          <span className="text-4xl sm:text-5xl">Index</span>
           <span className="text-gray-600 text-lg ml-1">
             <Link href="/about">pengx17</Link>
           </span>

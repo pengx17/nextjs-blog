@@ -14,7 +14,7 @@ export default function CodeHighlight({ children, className }) {
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre
-          className={`${className} text-[13px] p-4 bg-gray-100 font-mono leading-snug w-full`}
+          className={`${className} text-[13px] p-4 bg-gray-100 font-mono leading-snug w-full overflow-auto`}
           style={style}
         >
           {tokens.map((line, i) => (
