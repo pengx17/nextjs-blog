@@ -3,17 +3,17 @@ title: "Qiankun 沙箱技术浅析"
 date: "2022-02-22"
 ---
 
-# WIP
-
 最近因工作需要调研了一下 [Qiankun/乾坤](https://qiankun.umijs.org/zh) 微前端框架的<Note label="沙箱机制">指的是子应用与其他子应用或主应用之间的运行环境相互隔离，这样可以更好的避免 CSS/JS 等运行时相互污染的问题。</Note>实现思路。
 Qiankun 在其主页上声称，它是“简单、完备、生产可用”的。它的目标，是让一个前端应用在不做专门适配的情况下就可以注册为子应用，嵌入到一个微前端应用的基座容器中正常渲染。
 
-将任意的 Web 应用直接作为微前端子应用使用有一些技术难点需要攻克，比如：
+Qiankun 选用了比较成熟的 [single-spa](https://single-spa.js.org/) 作为微前端应用的“驱动”。
+为了将任意的 Web 应用直接作为微前端子应用使用，它还需要有一些技术难点需要攻克，比如：
 
 - JS 全局变量 `window` 的隔离
 - CSS 样式的隔离
 - 子应用的路由隔离，[可参考这里](https://zhuanlan.zhihu.com/p/355419817)
 - 切换应用时需要把子应用的副作用、内存泄漏等清理掉
+- 等等
 
 在框架的提供的外部 API 与内部具体实现的权衡中，Qiankun 试图把沙箱的实现复杂度封装在框架内部，以便于开发者可以把任务中心放在业务实现上，尽量减轻沙箱机制对于开发者造成的心智负担。
 
@@ -23,15 +23,28 @@ Qiankun 在其主页上声称，它是“简单、完备、生产可用”的。
 
 iframe 是一种特性完备的浏览器沙箱。[但 Qiankun 设计者认为](https://zhuanlan.zhihu.com/p/451425684)，iframe 会造成一些体验上的问题，因此从最开始就排除了将 iframe 作为微前端方案的核心。
 
-根据隔离场景，我们需要有 JS 沙箱与 CSS 沙箱两种机制。
+JS 沙箱与 CSS 沙箱分别有各自的隔离机制。
 
 ### JS 沙箱
 
-JS 沙箱目前还没有主流浏览器支持的成熟方案。虽然 TC39 的 [ShadowRealm API](https://tc39.es/proposal-shadowrealm/) 提案未来可期，社区中有一些 Polyfill 实现，不过它目前还处于很早期的草案阶段，很难作为生产环境方案使用。
+JS 沙箱目前还没有主流浏览器支持的成熟方案。
+虽然 TC39 的 [ShadowRealm API](https://tc39.es/proposal-shadowrealm/) 提案未来可期，同时社区中有一些 Polyfill 实现，不过它目前还处于很早期的草案阶段，很难作为生产环境方案使用。
 
-调研前，以我对 Qiankun 粗浅的理解，它的 JS 沙箱是基于 ES 的 Proxy 实现的。在初始化后，Qiankun 会为对于任意一个子应用实例化专用的 Proxy 实例，这个实例会代理到 `window` 上；在运行时，它会通过"**某种方式**"将子应用 js 模块对 `window` 对象的访问重新定向到 Proxy 实例上。
+调研前，以我对 Qiankun 粗浅的理解，它的 JS 沙箱是基于 ES6 中的 [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) 实现的。
+在初始化后，Qiankun 会为任意一个子应用实例化专用的 Proxy；在运行时，它会通过"**某种方式**"将子应用 js 模块对 `window` 对象的访问重新定向到各自的 Proxy 实例上。
 
 Qiankun 使用了一种巧妙（括弧 Hack）的方式在运行时对子应用模块中全局变量访问进行重定向。
+
+#### import-html-entry
+
+[import-html-entry](https://github.com/kuitos/import-html-entry) 是 Qiankun 的核心依赖之一。
+它可以把任意一个 index.html 文件作为静态资源入口清单进行分析，抽取其中的 JS/CSS 等资源，返回一个 `execScripts` 接口让开发者可以更灵活的执行脚本。其中 `execScripts` 有一个重要功能，它可以让开发者动态的提供 window 上下文。
+
+通过这个库，Qiankun 实现了以子应用的 index.html 作为入口加载 JS/CSS 资源，并将其中 JS 的执行上下文替换为 Proxy 实例。
+
+不过这个库有其局限性。由于 import-html-entry 需要通过 `eval` 机制执行脚本并提供执行上下文，这样导致 ESM 模块无法实现沙盒机制。
+
+据称 [shadowrealm-api](https://github.com/ambit-tsai/shadowrealm-api) 可以实现对于 ESM 的 window 劫持，不过我还没有做过具体调研。
 
 ### CSS 隔离
 
@@ -43,10 +56,12 @@ Qiankun 使用了一种巧妙（括弧 Hack）的方式在运行时对子应用�
 - 假如子应用被隔离在 shadow dom 中时，由于 shadow dom 的隔离特性，样式标签需要加入相应的 shadow root 中，而不是根部模板 HEAD 中
 - 子应用卸载时，需要清理子应用动态插入的样式标签
 
-## 浅析 Qiankun 运行时替换 `window` 机制
+Qiankun 在 window proxy 的 setter/getter 中注册了一些钩子：当子应用视图向根部模板 HEAD 插入动态样式时，它会把插入的位置重定向到当前激活应用的 shadow dom 中的位置。
 
-https://github.com/kuitos/import-html-entry
+对于当前激活应用，Qiankun 也在这里有个“巧妙”的做法。当子应用 Proxy 的任意属性被访问时，它会自动的把全局的当前激活应用指向到子应用。
 
-Scan html, extract entry assets. For each JS, fetch it, replace window with proxy etc and then eval it.
+## 结论
 
-## 未完成 ...
+通过简单地调研我发现 Qiankun 的实现十分依赖于 import-html-entry 动态替换 window 的机制，这也是其沙盒机制的核心。
+
+Qiankun 在他的 3.0 roadmap 提到，它考虑到把沙箱功能单独抽出来。我们拭目以待。
