@@ -44,9 +44,38 @@ Qiankun 使用了一种巧妙（括弧 Hack）的方式在运行时对子应用�
 
 通过这个库，Qiankun 实现了以子应用的 index.html 作为入口加载 JS/CSS 资源，并将其中 JS 的执行上下文替换为 Proxy 实例。
 
+[首先](https://github.com/kuitos/import-html-entry/blob/7432e56fc9497ccfdbcfdc24e0fe3a3b8156bed6/src/index.js#L54-L65)，它把子应用的 js 上下文中的 window, globalThis 和 self 替换为 Proxy：
+
+```js
+function getExecutableScript(scriptSrc, scriptText, proxy, strictGlobal) {
+  const sourceUrl = isInlineCode(scriptSrc)
+    ? ""
+    : `//# sourceURL=${scriptSrc}\n`;
+
+  // 通过这种方式获取全局 window，因为 script 也是在全局作用域下运行的，所以我们通过 window.proxy 绑定时也必须确保绑定到全局 window 上
+  // 否则在嵌套场景下， window.proxy 设置的是内层应用的 window，而代码其实是在全局作用域运行的，会导致闭包里的 window.proxy 取的是最外层的微应用的 proxy
+  const globalWindow = (0, eval)("window");
+  globalWindow.proxy = proxy;
+  return `;(function(window, self, globalThis){;${scriptText}\n${sourceUrl}})
+    .bind(window.proxy)(window.proxy, window.proxy, window.proxy);`;
+}
+```
+
+[之后](https://github.com/kuitos/import-html-entry/blob/7432e56fc9497ccfdbcfdc24e0fe3a3b8156bed6/src/index.js#L162-L169)，就可以通过 eval ，在运行时把基座应用为子应用创建的 proxy 传入 JS 上下文：
+
+```js
+const geval = (scriptSrc, inlineScript) => {
+  const rawCode = beforeExec(inlineScript, scriptSrc) || inlineScript;
+  const code = getExecutableScript(scriptSrc, rawCode, proxy, strictGlobal);
+
+  evalCode(scriptSrc, code);
+  afterExec(inlineScript, scriptSrc);
+};
+```
+
 不过这个库有其局限性。由于 import-html-entry 需要通过 `eval` 机制执行脚本并提供执行上下文，这样导致 ESM 模块无法实现沙盒机制。
 
-据称 [shadowrealm-api](https://github.com/ambit-tsai/shadowrealm-api) 可以实现对于 ESM 的 window 劫持，不过我还没有做过具体调研。
+据称 [shadowrealm-api](https://github.com/ambit-tsai/shadowrealm-api) 可以实现对于 ESM 的 window 劫持，~~不过我还没有做过具体调研~~。
 
 ### CSS 隔离
 
