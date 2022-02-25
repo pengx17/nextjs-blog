@@ -3,6 +3,8 @@ title: "Qiankun 沙箱技术浅析"
 date: "2022-02-22"
 ---
 
+> Disclaimer: 本人没有使用过 Qiankun，我只是看了一下它的源码与接口文档，内容仅供参考。
+
 最近因工作需要调研了一下 [Qiankun/乾坤](https://qiankun.umijs.org/zh) 微前端框架的<Note label="沙箱机制">指的是子应用与其他子应用或主应用之间的运行环境相互隔离，这样可以更好的避免 CSS/JS 等运行时相互污染的问题。</Note>实现思路。
 Qiankun 在其主页上声称，它是“简单、完备、生产可用”的。它的目标，是让一个前端应用在不做专门适配的情况下就可以注册为子应用，嵌入到一个微前端应用的基座容器中正常渲染。
 
@@ -62,6 +64,6 @@ Qiankun 在 window proxy 的 setter/getter 中注册了一些钩子：当子应�
 
 ## 结论
 
-通过简单地调研我发现 Qiankun 的实现十分依赖于 import-html-entry 动态替换 window 的机制，这也是其沙盒机制的核心。
+通过调研发现，Qiankun 的实现十分依赖于 import-html-entry。它会帮助 Qiankun 获取到子应用的资源清单以动态加载资源，并依赖于这个库在运行时替换 window 功能以实现沙盒机制。
 
 Qiankun 在他的 3.0 roadmap 提到，它考虑到把沙箱功能单独抽出来。我们拭目以待。
