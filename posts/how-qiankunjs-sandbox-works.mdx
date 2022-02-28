@@ -35,7 +35,17 @@ JS 沙箱目前还没有主流浏览器支持的成熟方案。
 调研前，以我对 Qiankun 粗浅的理解，它的 JS 沙箱是基于 ES6 中的 [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) 实现的。
 在初始化后，Qiankun 会为任意一个子应用实例化专用的 Proxy；在运行时，它会通过"**某种方式**"将子应用 js 模块对 `window` 对象的访问重新定向到各自的 Proxy 实例上。
 
-Qiankun 使用了一种巧妙（括弧 Hack）的方式在运行时对子应用模块中全局变量访问进行重定向。
+对于<Note label="非 esm 模式打包">目前本人还没有找到一个比较方便的为 ESM 提供 window 上下文注入的方式。</Note>的 JS 资源，我们可以认为其内容就是直接会在全局上下文执行的脚本，我们可以用一个函数包裹整个脚本，并提供 `window` 等对象上下文:
+
+```js
+(function (window) {
+  // bundled js script ...
+})(proxiedWindow);
+```
+
+这篇 [Figma 的博客文章](https://www.figma.com/blog/how-we-built-the-figma-plugin-system/#attempt-3-realms)也提到了类似的用 `with()` 这种比较生僻的 JS 语法替换 window 的方式。
+
+现在我们有办法替换 JS 运行环境的 window 上下文了，但我们还需要找到在运行时包裹子应用 JS 脚本的方案。Qiankun 使用了一种巧妙（括弧 Hack）的方式在运行时对子应用模块中全局变量访问进行重定向。
 
 #### import-html-entry
 
