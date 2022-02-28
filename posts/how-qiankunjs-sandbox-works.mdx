@@ -73,13 +73,14 @@ const geval = (scriptSrc, inlineScript) => {
 };
 ```
 
-不过这个库有其局限性。由于 import-html-entry 需要通过 `eval` 机制执行脚本并提供执行上下文，这样导致 ESM 模块无法实现沙盒机制。
+不过这个库有[其局限性](https://github.com/umijs/qiankun/issues/756)，它会直接[忽略掉](https://github.com/kuitos/import-html-entry/blob/7432e56fc9497ccfdbcfdc24e0fe3a3b8156bed6/src/process-tpl.js#L153) `type="module"` 的 SCRIPT 标签。
+由于 import-html-entry 需要通过 `eval` 机制执行脚本并提供执行上下文，这样导致 ESM 模块无法实现沙盒机制。
 
-据称 [shadowrealm-api](https://github.com/ambit-tsai/shadowrealm-api) 可以实现对于 ESM 的 window 劫持，~~不过我还没有做过具体调研~~。
+据称借助 ShadowRealm Polyfill，如 [shadowrealm-api](https://github.com/ambit-tsai/shadowrealm-api)，就可以实现对于 ESM 的 window 劫持，~~不过我还没有做过具体调研~~。
 
 ### CSS 隔离
 
-对于 CSS 来说，Qiankun 的主要维护者在 [Qiankun 快问快答](https://zhuanlan.zhihu.com/p/451425684) 中推荐应用本身在构建时就做好样式隔离，这样它被作为子应用使用时天然就具备了隔离特性。
+对于 CSS 来说，Qiankun 的主要维护者 Kuitos 在 [Qiankun 快问快答](https://zhuanlan.zhihu.com/p/451425684) 中推荐应用本身在构建时就做好样式隔离，这样它被作为子应用使用时天然就具备了隔离特性。
 不过 Qiankun 还是在运行时提供了的样式隔离机制，其原理是拦截子应用样式表，将所有 class 加上一个特殊的前缀，避免冲突；同时在新版本中，它还支持以 Shadow DOM 的模式隔离子应用的 CSS。
 
 另外，一些基于运行时的 CSS-in-JS 框架，如 Emotion、styled-components、或是 Webpack 的 style-loader 会把样式动态的向根部页面的 HEAD 标签插入 STYLE。这里有两个问题：
@@ -91,8 +92,12 @@ Qiankun 在 window proxy 的 setter/getter 中注册了一些钩子：当子应�
 
 对于当前激活应用，Qiankun 也在这里有个“巧妙”的做法。当子应用 Proxy 的任意属性被访问时，它会自动的把全局的当前激活应用指向到子应用。
 
-## 结论
+## 个人评价
 
-通过调研发现，Qiankun 的实现十分依赖于 import-html-entry。它会帮助 Qiankun 获取到子应用的资源清单以动态加载资源，并依赖于这个库在运行时替换 window 功能以实现沙盒机制。
+通过调研发现，Qiankun 的实现十分依赖于 import-html-entry。它会帮助 Qiankun 获取到子应用的资源清单以动态加载资源，并依赖其在运行时替换 window 的能力以实现沙盒机制。
 
-Qiankun 在他的 3.0 roadmap 提到，它考虑到把沙箱功能单独抽出来。我们拭目以待。
+Kuitos 在 Qiankun 的 [3.0 roadmap](https://github.com/umijs/qiankun/discussions/1378) 提到，他有在考虑在新版本中让 qiankun 接入 ShadowRealm API，并考虑到把沙箱功能单独抽出来。
+
+我个人对于 Qiankun 目前所提供能力的还是很敬佩的，它基本完成了它所承诺的目标，Qiankun 提供的微前端"傻瓜"式解决方案在 onboarding 微前端技术的初期会更受欢迎。但由于一些不好跨越技术壁垒，这套方案目前做不到足够完备，有对于使用者来说会有一些填不完的坑。
+
+对于一个项目管理十分完善的团队来说，我认为可以从 Qiankun 里借鉴一些实践，为自己的项目设计一个更合适的方案。
