@@ -1,4 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
+import Script from "next/script";
+
 import { GA_TRACKING_ID } from "../lib/gtag";
 
 class MyDocument extends Document {
@@ -21,11 +23,11 @@ class MyDocument extends Document {
           />
           {isProduction && (
             <>
-              <script
+              <Script
                 async
                 src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-              ></script>
-              <script
+              ></Script>
+              <Script
                 dangerouslySetInnerHTML={{
                   __html: `
             window.dataLayer = window.dataLayer || [];
