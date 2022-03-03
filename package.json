@@ -47,7 +47,7 @@
     "typescript": "4.6.2",
     "webpack": "^5.69.0",
     "windicss": "3.5.1",
-    "windicss-webpack-plugin": "1.6.6"
+    "windicss-webpack-plugin": "1.6.7"
   },
   "lint-staged": {
     "*": "prettier --write"
