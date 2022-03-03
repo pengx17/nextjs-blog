@@ -20,7 +20,7 @@ specifiers:
   mdx-bundler: 8.0.1
   next: 12.1.0
   next-compose-plugins: 2.2.1
-  next-pwa: 5.4.4
+  next-pwa: 5.4.5
   next-remote-watch: 1.0.0
   postcss: 8.4.7
   prettier: 2.5.1
@@ -67,7 +67,7 @@ devDependencies:
   husky: 7.0.4
   lint-staged: 12.3.4
   next-compose-plugins: 2.2.1
-  next-pwa: 5.4.4_bf9af0dbe6aa638c1b4e791668dbd094
+  next-pwa: 5.4.5_bf9af0dbe6aa638c1b4e791668dbd094
   next-remote-watch: 1.0.0
   postcss: 8.4.7
   prettier: 2.5.1
@@ -5265,8 +5265,8 @@ packages:
     resolution: {integrity: sha512-OjJ+fV15FXO2uQXQagLD4C0abYErBjyjE0I0FHpOEIB8upw0hg1ldFP6cqHTJBH1cZqy96OeR3u1dJ+Ez2D4Bg==}
     dev: true
 
-  /next-pwa/5.4.4_bf9af0dbe6aa638c1b4e791668dbd094:
-    resolution: {integrity: sha512-Wo7DctXO9ZZzMCuRK/q2U3x5k49LBRv7p31woJIUfiR6tJChSMoojHUvvgeCY72gSo4mtovS5KRm6iHIs/kxeg==}
+  /next-pwa/5.4.5_bf9af0dbe6aa638c1b4e791668dbd094:
+    resolution: {integrity: sha512-XmMbUDoBYdo4Ib2vOau4p42+6+ClZqUCFEGuVj4iuyM2C+JCqcVa2BYXcyFitjsKVBfECeIwaUqKgMB8Qm9cDQ==}
     peerDependencies:
       next: '>=9.0.0'
     dependencies:
@@ -6322,13 +6322,6 @@ packages:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
     engines: {node: '>=0.10.0'}
 
-  /source-map-support/0.5.20:
-    resolution: {integrity: sha512-n1lZZ8Ve4ksRqizaBQgxXDgKwttHDhyfQjA6YZZn8+AroHbsIz+JjwxQDxbp+7y5OYCI8t1Yk7etjD9CRd2hIw==}
-    dependencies:
-      buffer-from: 1.1.2
-      source-map: 0.6.1
-    dev: true
-
   /source-map-support/0.5.21:
     resolution: {integrity: sha512-uBHU3L3czsIyYXKX88fdrGovxdSCoTGDRZ6SYXtSRxLZUzHg5P/66Ht6uoUlHu9EZod+inXhKo3qQgwXUT/y1w==}
     dependencies:
@@ -6696,7 +6689,7 @@ packages:
     dependencies:
       commander: 2.20.3
       source-map: 0.7.3
-      source-map-support: 0.5.20
+      source-map-support: 0.5.21
     dev: true
 
   /terser/5.10.0_acorn@8.7.0:
@@ -6712,7 +6705,7 @@ packages:
       acorn: 8.7.0
       commander: 2.20.3
       source-map: 0.7.3
-      source-map-support: 0.5.20
+      source-map-support: 0.5.21
     dev: true
 
   /text-table/0.2.0:
