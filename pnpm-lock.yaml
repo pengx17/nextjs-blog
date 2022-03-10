@@ -4,7 +4,7 @@ specifiers:
   '@babel/core': 7.17.5
   '@tippyjs/react': 4.2.6
   '@types/node': 17.0.18
-  '@types/react': 17.0.39
+  '@types/react': 17.0.40
   '@types/react-dom': 17.0.13
   '@vercel/node': 1.13.0
   autoprefixer: 10.4.2
@@ -58,7 +58,7 @@ dependencies:
 devDependencies:
   '@babel/core': 7.17.5
   '@types/node': 17.0.18
-  '@types/react': 17.0.39
+  '@types/react': 17.0.40
   '@types/react-dom': 17.0.13
   '@vercel/node': 1.13.0
   autoprefixer: 10.4.2_postcss@8.4.8
@@ -1659,11 +1659,11 @@ packages:
   /@types/react-dom/17.0.13:
     resolution: {integrity: sha512-wEP+B8hzvy6ORDv1QBhcQia4j6ea4SFIBttHYpXKPFZRviBvknq0FRh3VrIxeXUmsPkwuXVZrVGG7KUVONmXCQ==}
     dependencies:
-      '@types/react': 17.0.39
+      '@types/react': 17.0.40
     dev: true
 
-  /@types/react/17.0.39:
-    resolution: {integrity: sha512-UVavlfAxDd/AgAacMa60Azl7ygyQNRwC/DsHZmKgNvPmRR5p70AJ5Q9EAmL2NWOJmeV+vVUI4IAP7GZrN8h8Ug==}
+  /@types/react/17.0.40:
+    resolution: {integrity: sha512-UrXhD/JyLH+W70nNSufXqMZNuUD2cXHu6UjCllC6pmOQgBX4SGXOH8fjRka0O0Ee0HrFxapDD8Bwn81Kmiz6jQ==}
     dependencies:
       '@types/prop-types': 15.7.4
       '@types/scheduler': 0.16.2
