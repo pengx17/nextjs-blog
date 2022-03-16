@@ -40,7 +40,7 @@
     "next-compose-plugins": "2.2.1",
     "next-pwa": "5.4.6",
     "next-remote-watch": "1.0.0",
-    "postcss": "8.4.11",
+    "postcss": "8.4.12",
     "prettier": "2.6.0",
     "remark-gfm": "^3.0.1",
     "tailwindcss": "3.0.23",
