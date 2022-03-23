@@ -6,7 +6,7 @@ specifiers:
   '@types/node': 17.0.18
   '@types/react': 17.0.42
   '@types/react-dom': 17.0.14
-  '@vercel/node': 1.13.0
+  '@vercel/node': 1.14.0
   autoprefixer: 10.4.4
   date-fns: 2.28.0
   esbuild: 0.14.27
@@ -60,7 +60,7 @@ devDependencies:
   '@types/node': 17.0.18
   '@types/react': 17.0.42
   '@types/react-dom': 17.0.14
-  '@vercel/node': 1.13.0
+  '@vercel/node': 1.14.0
   autoprefixer: 10.4.4_postcss@8.4.12
   eslint: 8.11.0
   eslint-config-next: 12.1.0_3ac81353fe98918efb885c3e6be622c2
@@ -1759,10 +1759,15 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@vercel/node/1.13.0:
-    resolution: {integrity: sha512-AqdUuJC0+r3q1lcL+Knjb+dHsSDSCRfwFPJ7odRkHO7sfoAkhJI4RussIDFTF7Yvt0e+GmWuYGFAgwSiv4FWEg==}
+  /@vercel/node-bridge/2.2.0:
+    resolution: {integrity: sha512-ydYlZyIQfsuriF6qTt/F4vaAt+nb4ZKhLEl2o5AQFa5ED7LoPS5w01Xbujy+25pqS1ODu8/bsqOCUSX8y/+tSQ==}
+    dev: true
+
+  /@vercel/node/1.14.0:
+    resolution: {integrity: sha512-UAb1qQMeTkSXz95yljJpz0MyTzcj++B/1XR0vKFZOs2CEfSkBO1DjzX6BkaKriaihBdbGM/X9UoMJfWfUBBn8Q==}
     dependencies:
       '@types/node': 17.0.18
+      '@vercel/node-bridge': 2.2.0
       ts-node: 8.9.1_typescript@4.3.4
       typescript: 4.3.4
     dev: true
