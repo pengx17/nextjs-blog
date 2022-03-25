@@ -17,7 +17,7 @@ export default function Home({ allPostsData }) {
             <Link href="/about">pengx17</Link>
           </span>
         </div>
-        <div className="sm:flex-1 max-h-full overflow-auto p-12">
+        <div className="sm:flex-1 sm:py-24 max-h-full overflow-auto px-12 py-12">
           {allPostsData
             .filter((d) => !d.draft)
             .map(({ id, date, title }) => (

@@ -37,7 +37,7 @@ const hWrapper = (Tag, defaultClassName) =>
     );
   });
 
-const createSectionWrapper =
+export const createSectionWrapper =
   (Tag) =>
   ({ className, ...props }) => {
     return (

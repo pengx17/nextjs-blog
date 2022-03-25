@@ -2,7 +2,7 @@ import Head from "next/head";
 import { getMDXComponent } from "mdx-bundler/client";
 
 import { SWRConfig } from "swr";
-import { mdxComponents } from "../../components";
+import { mdxComponents, createSectionWrapper } from "../../components";
 import Date from "../../components/date";
 import { Layout } from "../../components/layout";
 import { getSortedPostsData, getPostData } from "../../lib/posts";
@@ -25,6 +25,8 @@ function localStorageProvider() {
   return map;
 }
 
+const WrappedH1 = createSectionWrapper("h1");
+
 export default function Post({ source, frontmatter }) {
   const Component = React.useMemo(() => getMDXComponent(source), [source]);
   return (
@@ -34,9 +36,10 @@ export default function Post({ source, frontmatter }) {
         <title>{frontmatter.title}</title>
       </Head>
       <article className="w-full">
-        <h1 className="text-4xl my-4 font-serif font-bold">
+        <section></section>
+        <WrappedH1 className="text-4xl my-4 font-serif font-bold leading-snug">
           {frontmatter.title}
-        </h1>
+        </WrappedH1>
         <div className="text-gray-600 mb-8 ml-0.5">
           <Date dateString={frontmatter.date} />
         </div>
