@@ -17,6 +17,8 @@
 .DS_Store
 .env*
 
+/patches
+
 # debug
 npm-debug.log*
 yarn-debug.log*

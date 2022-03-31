@@ -7,6 +7,9 @@ const prod = process.env.NODE_ENV === "production";
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
+  experimental: {
+    reactRoot: true,
+  },
   basePath: process.env.BASE_PATH ?? "",
   swcMinify: true,
   eslint: {
