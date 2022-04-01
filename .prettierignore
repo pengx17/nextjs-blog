@@ -27,4 +27,5 @@ yarn-error.log*
 /public
 .prettierignore
 yarn.lock
+pnpm-lock.yaml
 .gitignore
