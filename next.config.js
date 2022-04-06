@@ -17,18 +17,6 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
-  webpack: (config) => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      // Remove me until https://github.com/kentcdodds/mdx-bundler/issues/164 fixed
-      "mdx-bundler/client": path.resolve(
-        __dirname,
-        "lib",
-        "mdx-bundler-client.js"
-      ),
-    };
-    return config;
-  },
 };
 
 module.exports = withPlugins([withPWA], {
