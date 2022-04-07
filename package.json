@@ -12,7 +12,7 @@
   "dependencies": {
     "@tippyjs/react": "4.2.6",
     "date-fns": "2.28.0",
-    "esbuild": "0.14.32",
+    "esbuild": "0.14.34",
     "gray-matter": "4.0.3",
     "link-preview-js": "2.1.13",
     "material-design-icons-iconfont": "6.6.0",
