@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import * as React from "react";
-import useSWR from "swr";
+import useSWR from "swr/immutable";
 import { useHasMounted } from "./has-mounted";
 
 const normalizeUrl = (url: string) => {
@@ -130,12 +130,7 @@ type LinkPreviewMetadata = Pick<
 };
 
 const useLinkPreview = (href: string): LinkPreviewMetadata | null => {
-  const { data, error } = useSWR(href, fetcher, {
-    revalidateOnFocus: false,
-    refreshInterval: 0,
-    refreshWhenHidden: false,
-    revalidateIfStale: false,
-  });
+  const { data, error } = useSWR(href, fetcher);
 
   return React.useMemo(() => {
     return href
