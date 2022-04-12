@@ -49,8 +49,10 @@ export async function getPostData(id: string) {
   const { code, frontmatter } = await bundleMDX({
     source,
     mdxOptions(options) {
-      // @ts-expect-error ??
-      options.remarkPlugins = [...(options.remarkPlugins ?? []), remarkGfm];
+      options.remarkPlugins = [
+        ...(options.remarkPlugins ?? []),
+        remarkGfm as any,
+      ];
       options.rehypePlugins = [...(options.rehypePlugins ?? []), rehypeShiki];
       return options;
     },
