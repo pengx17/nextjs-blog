@@ -144,9 +144,10 @@ const useLinkPreview = (href: string): LinkPreviewMetadata | null => {
   }, [href, error, data]);
 };
 
-const getCardSize = (data: LinkPreviewMetadata) => {
+export const getCardSize = (data: LinkPreviewMetadata) => {
   // If link has cover image
-  const width = data.images && data.images.length > 0 ? 720 : 400;
+  let width =
+    data.images && data.images.length > 0 && data.description ? 720 : 400;
 
   // If link showing placeholder
   let height = 140;
@@ -164,8 +165,9 @@ const getCardSize = (data: LinkPreviewMetadata) => {
   } else {
     height = 100;
   }
-  if (!data.description) {
-    height -= 30;
+
+  if (!data.description && data.images?.length !== 0) {
+    height -= 60;
   }
 
   return [width, height];
@@ -176,127 +178,47 @@ const PreviewCard = ({ data }: { data: LinkPreviewMetadata }) => {
   const [width, height] = getCardSize(data);
 
   return (
-    <>
-      <a
-        className="root"
-        href={data.url}
-        rel="noopener noreferrer"
-        target="_blank"
-        style={{ width, height }}
-      >
-        <div className="card-container">
-          <div className="text-container">
-            <div className="text-container-title">{data.title}</div>
-            <div className="text-container-description">{data.description}</div>
-            <div className="text-container-url-container">
-              {data.favicons?.length > 0 && (
-                <img src={data.favicons[0]} width={16} height={16} alt="" />
-              )}
-              <span className="text-container-url">{data.url}</span>
-            </div>
+    <a
+      className="block cursor-pointer select-none rounded-md border border-gray-200 overflow-hidden max-w-full hover:border-blue-200 shadow-sm"
+      href={data.url}
+      rel="noopener noreferrer"
+      target="_blank"
+      style={{ width, height }}
+    >
+      <div className="h-full bg-gray-50 flex justify-between items-stretch">
+        <div className="py-3 px-4 flex-[2] overflow-hidden flex-col flex">
+          <div className="text-base text-gray-800 font-medium leading-6 text-ellipsis whitespace-nowrap shrink-0">
+            {data.title}
           </div>
-          {data.images?.[0] && (
-            <div className="cover-container">
-              <img className="cover-image" src={data.images[0]} alt="" />
-            </div>
-          )}
+          <div className="leading-5 text-xs font-normal text-gray-500 mt-1.5 flex flex-grow overflow-auto">
+            {data.description}
+          </div>
+          <div className="flex items-center flex-nowrap min-w-0 flex-row h-4 leading-4 text-xs text-gray-700 mt-1.5">
+            {data.favicons?.length > 0 && (
+              <img
+                className="mr-2"
+                src={data.favicons[0]}
+                width={16}
+                height={16}
+                alt=""
+              />
+            )}
+            <span className="grow-0 shrink min-w-0 overflow-hidden text-ellipsis whitespace-nowrap">
+              {data.url}
+            </span>
+          </div>
         </div>
-      </a>
-      <style jsx>{`
-        .root {
-          display: block;
-          cursor: pointer;
-          user-select: none;
-          border-radius: 6px;
-          border: 1px solid #dee0e3;
-          overflow: hidden;
-          border: 1px solid #dee0e3;
-          text-decoration: none;
-          text-shadow: none;
-          max-width: 100%;
-        }
-        .root:hover {
-          border: 1px solid rgba(97, 106, 229, 0.5);
-        }
-        .card-container {
-          width: 100%;
-          height: 100%;
-          background-color: #f8f8f8;
-          display: flex;
-          justify-content: space-between;
-          align-items: stretch;
-        }
-        .text-container {
-          padding: 12px 16px;
-          flex: 2;
-          overflow: hidden;
-          display: flex;
-          flex-flow: column;
-        }
-        .cover-container {
-          flex: 1;
-        }
-        .text-container-title {
-          font-size: 16px;
-          font-weight: 500;
-          line-height: 26px;
-          color: #1f2329;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          flex-shrink: 0;
-        }
-        .text-container-description {
-          line-height: 20px;
-          font-size: 12px;
-          font-weight: 400;
-          color: #646a73;
-          margin-top: 6px;
-          overflow: auto;
-          display: flex;
-          flex-grow: 1;
-        }
-
-        .text-container-description > * {
-          align-self: center;
-          flex: 1;
-        }
-
-        .text-container-url-container {
-          display: flex;
-          align-items: center;
-          flex-wrap: nowrap;
-          min-width: 0;
-          flex-direction: row;
-          height: 17px;
-          line-height: 17px;
-          font-size: 12px;
-          color: #1f2329;
-          margin-top: 6px;
-        }
-        .text-container-url-container > img {
-          margin-right: 8px;
-        }
-        .text-container-url {
-          flex-grow: 0;
-          flex-shrink: 1;
-          min-width: 0;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-        }
-        .cover-image {
-          object-position: 50% 50%;
-          background-size: auto 100%;
-          background-position-y: 50%;
-          background-repeat: no-repeat;
-          object-fit: cover;
-          overflow: hidden;
-          width: 100%;
-          height: 100%;
-        }
-      `}</style>
-    </>
+        {data.images?.[0] && (
+          <div className="flex-1">
+            <img
+              className="object-cover overflow-hidden h-full float-right"
+              src={data.images[0]}
+              alt=""
+            />
+          </div>
+        )}
+      </div>
+    </a>
   );
 };
 
