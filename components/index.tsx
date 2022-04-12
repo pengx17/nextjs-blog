@@ -3,7 +3,6 @@ import dynamic from "next/dynamic";
 import React from "react";
 import { Anchor } from "./anchor";
 import { FloatingNote } from "./floating-note";
-import { Icon } from "./icon";
 
 const cx = (...args: string[]) => {
   return args.filter(Boolean).join(" ");
@@ -63,17 +62,22 @@ export const mdxComponents = {
   a: Anchor,
   LinkPreview: dynamic(() => import("./link-preview")),
   Note: FloatingNote,
-  Icon: Icon,
 
   // inline code
-  // code: (props) => (
-  //   <code
-  //     className="bg-gray-100 rounded"
-  //     style={{ fontSize: "0.8em", padding: "0.1em 0.2em", lineHeight: 1 }}
-  //   >
-  //     {props.children?.trim()}
-  //   </code>
-  // ),
+  code: (props) => {
+    if (typeof props.children === "string") {
+      return (
+        <code
+          className="bg-gray-100 rounded"
+          style={{ fontSize: "0.8em", padding: "0.1em 0.2em", lineHeight: 1 }}
+        >
+          {props.children?.trim()}
+        </code>
+      );
+    } else {
+      return <code {...props} />;
+    }
+  },
   p: wrapNative("p", "leading-ease"),
   h1: hWrapper("h1", "text-3xl font-bold my-12 mb-8"),
   h2: hWrapper("h2", "text-2xl font-bold mt-12 mb-8"),

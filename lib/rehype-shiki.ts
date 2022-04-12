@@ -40,10 +40,6 @@ export default () => async (tree) => {
         // The pre's parent
         // @ts-expect-error ???
         n.children[0].properties.className.push(theme);
-
-        // pre's child (code)
-        // @ts-expect-error ???
-        n.children[0].children[0].properties.className = "shiki-codeblock";
         return n;
       })
     );
