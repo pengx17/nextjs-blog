@@ -179,7 +179,7 @@ const PreviewCard = ({ data }: { data: LinkPreviewMetadata }) => {
 
   return (
     <a
-      className="block cursor-pointer select-none rounded-md border border-gray-200 overflow-hidden max-w-full hover:border-blue-200 shadow-sm"
+      className="block cursor-pointer select-none rounded-md border border-gray-200 overflow-hidden max-w-[90vw] hover:border-blue-200 shadow-sm"
       href={data.url}
       rel="noopener noreferrer"
       target="_blank"

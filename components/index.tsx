@@ -24,7 +24,7 @@ const hWrapper = (Tag, defaultClassName) =>
               right: "calc(100% + .2rem)",
               opacity: ".1",
               top: "calc(50% - .4em)",
-              fontSize: "0.8em",
+              fontSize: "0.6em",
               lineHeight: 1,
             }}
             className="font-normal font-mono uppercase select-none"
