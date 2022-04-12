@@ -9,6 +9,7 @@ export function Anchor({ ...props }) {
       interactive
       delay={100}
       animation="fade"
+      maxWidth={620}
       arrow={false}
       content={<LinkPreview url={props.href} />}
     >
