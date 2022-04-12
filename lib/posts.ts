@@ -5,6 +5,8 @@ import remarkGfm from "remark-gfm";
 
 import path from "path";
 
+import rehypeShiki from "./rehype-shiki";
+
 const postsDirectory = path.join(process.cwd(), "posts");
 
 export async function getSortedPostsData() {
@@ -47,7 +49,9 @@ export async function getPostData(id: string) {
   const { code, frontmatter } = await bundleMDX({
     source,
     mdxOptions(options) {
-      options.remarkPlugins = [...options.remarkPlugins, remarkGfm as any];
+      // @ts-expect-error ??
+      options.remarkPlugins = [...(options.remarkPlugins ?? []), remarkGfm];
+      options.rehypePlugins = [...(options.rehypePlugins ?? []), rehypeShiki];
       return options;
     },
   });
