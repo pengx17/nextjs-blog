@@ -12,7 +12,7 @@
   "devDependencies": {
     "@tippyjs/react": "4.2.6",
     "date-fns": "2.28.0",
-    "esbuild": "0.14.35",
+    "esbuild": "0.14.36",
     "gray-matter": "4.0.3",
     "link-preview-js": "2.1.13",
     "mdx-bundler": "9.0.0",
@@ -29,7 +29,7 @@
     "unist-util-visit": "^4.1.0",
     "@babel/core": "7.17.9",
     "@types/node": "17.0.23",
-    "@types/react": "18.0.1",
+    "@types/react": "18.0.2",
     "@types/react-dom": "18.0.0",
     "@vercel/node": "1.14.1",
     "autoprefixer": "10.4.4",
