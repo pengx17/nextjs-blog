@@ -6,7 +6,7 @@ import { visit } from "unist-util-visit";
 
 const themes = ["github-light"];
 
-export default () => async (tree) => {
+const rehypeShiki = () => async (tree) => {
   let highlighter = await shiki.getHighlighter({ themes });
 
   visit(tree, (node, index, parent) => {
@@ -45,3 +45,5 @@ export default () => async (tree) => {
     );
   });
 };
+
+export default rehypeShiki;
