@@ -36,7 +36,7 @@
     "eslint": "8.13.0",
     "eslint-config-next": "12.1.5",
     "husky": "7.0.4",
-    "lint-staged": "12.3.7",
+    "lint-staged": "12.3.8",
     "next-compose-plugins": "2.2.1",
     "next-pwa": "5.5.0",
     "next-remote-watch": "1.0.0",
