@@ -46,7 +46,7 @@
     "tailwindcss": "3.0.24",
     "typescript": "4.6.4",
     "webpack": "^5.72.0",
-    "windicss": "3.5.2",
+    "windicss": "3.5.3",
     "windicss-webpack-plugin": "1.7.2"
   },
   "lint-staged": {
