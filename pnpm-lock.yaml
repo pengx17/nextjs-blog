@@ -16,7 +16,7 @@ specifiers:
   husky: 7.0.4
   link-preview-js: 2.1.13
   lint-staged: 12.4.1
-  mdx-bundler: 9.0.0
+  mdx-bundler: 9.0.1
   next: 12.1.6
   next-compose-plugins: 2.2.1
   next-pwa: 5.5.2
@@ -56,7 +56,7 @@ devDependencies:
   husky: 7.0.4
   link-preview-js: 2.1.13
   lint-staged: 12.4.1
-  mdx-bundler: 9.0.0_esbuild@0.14.39
+  mdx-bundler: 9.0.1_esbuild@0.14.39
   next: 12.1.6_bbbc8632124e1dc321404fd747a4d336
   next-compose-plugins: 2.2.1
   next-pwa: 5.5.2_d31dd57309f06185e5efecc3b8f88f6b
@@ -4852,8 +4852,8 @@ packages:
     resolution: {integrity: sha1-/oWy7HWlkDfyrf7BAP1sYBdhFS4=}
     dev: true
 
-  /mdx-bundler/9.0.0_esbuild@0.14.39:
-    resolution: {integrity: sha512-ZkP3xU6wPgGaEUNRaiRlwxQdIQyFyoa1q5eMJEAgFmCPSj3LRI0uR6ZvqiNb9794WBiGCafdFmWjQFN6JpBQAQ==}
+  /mdx-bundler/9.0.1_esbuild@0.14.39:
+    resolution: {integrity: sha512-/ktO4WTwrZszPOISh9qU0Ud/WXlTZHqA9grErUZGc7WGd7mooJiCCxejkkzHy7TQf1PS83jGECLrTeSVUkqEkQ==}
     engines: {node: '>=12', npm: '>=6'}
     peerDependencies:
       esbuild: 0.11.x || 0.12.x || 0.13.x || 0.14.x
@@ -4897,7 +4897,7 @@ packages:
   /micromark-core-commonmark/1.0.5:
     resolution: {integrity: sha512-ZNtWumX94lpiyAu/lxvth6I5+XzxF+BLVUB7u60XzOBy4RojrbZqrx0mcRmbfqEMO6489vyvDfIQNv5hdulrPg==}
     dependencies:
-      decode-named-character-reference: 1.0.0
+      decode-named-character-reference: 1.0.1
       micromark-factory-destination: 1.0.0
       micromark-factory-label: 1.0.2
       micromark-factory-space: 1.0.0
@@ -4912,7 +4912,7 @@ packages:
       micromark-util-subtokenize: 1.0.2
       micromark-util-symbol: 1.0.1
       micromark-util-types: 1.0.2
-      uvu: 0.5.2
+      uvu: 0.5.3
     dev: true
 
   /micromark-core-commonmark/1.0.6:
@@ -5088,7 +5088,7 @@ packages:
       micromark-util-character: 1.1.0
       micromark-util-symbol: 1.0.1
       micromark-util-types: 1.0.2
-      uvu: 0.5.2
+      uvu: 0.5.3
     dev: true
 
   /micromark-factory-mdx-expression/1.0.6:
@@ -5118,7 +5118,7 @@ packages:
       micromark-util-character: 1.1.0
       micromark-util-symbol: 1.0.1
       micromark-util-types: 1.0.2
-      uvu: 0.5.2
+      uvu: 0.5.3
     dev: true
 
   /micromark-factory-whitespace/1.0.0:
@@ -5218,7 +5218,7 @@ packages:
       micromark-util-chunked: 1.0.0
       micromark-util-symbol: 1.0.1
       micromark-util-types: 1.0.2
-      uvu: 0.5.2
+      uvu: 0.5.3
     dev: true
 
   /micromark-util-symbol/1.0.1:
