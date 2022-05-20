@@ -25,7 +25,7 @@ specifiers:
   prettier: 2.6.2
   react: 18.1.0
   react-dom: 18.1.0
-  react-use: 17.3.2
+  react-use: 17.4.0
   rehype-parse: ^8.0.4
   remark: 14.0.2
   remark-gfm: ^3.0.1
@@ -65,7 +65,7 @@ devDependencies:
   prettier: 2.6.2
   react: 18.1.0
   react-dom: 18.1.0_react@18.1.0
-  react-use: 17.3.2_react-dom@18.1.0+react@18.1.0
+  react-use: 17.4.0_react-dom@18.1.0+react@18.1.0
   rehype-parse: 8.0.4
   remark: 14.0.2
   remark-gfm: 3.0.1
@@ -5936,11 +5936,11 @@ packages:
       tslib: 2.3.1
     dev: true
 
-  /react-use/17.3.2_react-dom@18.1.0+react@18.1.0:
-    resolution: {integrity: sha512-bj7OD0/1wL03KyWmzFXAFe425zziuTf7q8olwCYBfOeFHY1qfO1FAMjROQLsLZYwG4Rx63xAfb7XAbBrJsZmEw==}
+  /react-use/17.4.0_react-dom@18.1.0+react@18.1.0:
+    resolution: {integrity: sha512-TgbNTCA33Wl7xzIJegn1HndB4qTS9u03QUwyNycUnXaweZkE4Kq2SB+Yoxx8qbshkZGYBDvUXbXWRUmQDcZZ/Q==}
     peerDependencies:
-      react: ^16.8.0  || ^17.0.0
-      react-dom: ^16.8.0  || ^17.0.0
+      react: ^16.8.0  || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0  || ^17.0.0 || ^18.0.0
     dependencies:
       '@types/js-cookie': 2.2.7
       '@xobotyi/scrollbar-width': 1.9.5
