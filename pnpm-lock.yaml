@@ -38,7 +38,7 @@ specifiers:
   unist-util-visit: ^4.1.0
   webpack: ^5.72.0
   windicss: 3.5.4
-  windicss-webpack-plugin: 1.7.2
+  windicss-webpack-plugin: 1.7.3
 
 devDependencies:
   '@babel/core': 7.18.0
@@ -78,7 +78,7 @@ devDependencies:
   unist-util-visit: 4.1.0
   webpack: 5.72.0_esbuild@0.14.39
   windicss: 3.5.4
-  windicss-webpack-plugin: 1.7.2
+  windicss-webpack-plugin: 1.7.3
 
 packages:
 
@@ -7262,8 +7262,8 @@ packages:
       isexe: 2.0.0
     dev: true
 
-  /windicss-webpack-plugin/1.7.2:
-    resolution: {integrity: sha512-7KopGPg63RXyJfsq/2OAHYoAFyIHSeexAk+MYMlW4CsBlEb+sw0Kt2v0gLgsPc1zs90oky1crAElKk+DDk8/5A==}
+  /windicss-webpack-plugin/1.7.3:
+    resolution: {integrity: sha512-vESTMEUqzNlvOmnOCCxeqDkj1q2u69FfKMQHyTF9Y9tLJbWttEHgt+qSJZ3cYndUHRxbz06INanEyL08dQr79A==}
     dependencies:
       '@windicss/plugin-utils': 1.8.4
       debug: 4.3.4
