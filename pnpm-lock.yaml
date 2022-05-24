@@ -15,7 +15,7 @@ specifiers:
   gray-matter: 4.0.3
   husky: 7.0.4
   link-preview-js: 2.1.13
-  lint-staged: 12.4.1
+  lint-staged: 12.4.2
   mdx-bundler: 9.0.1
   next: 12.1.6
   next-compose-plugins: 2.2.1
@@ -55,7 +55,7 @@ devDependencies:
   gray-matter: 4.0.3
   husky: 7.0.4
   link-preview-js: 2.1.13
-  lint-staged: 12.4.1
+  lint-staged: 12.4.2
   mdx-bundler: 9.0.1_esbuild@0.14.39
   next: 12.1.6_6120e9cbe23a2e6744d87c27dde38996
   next-compose-plugins: 2.2.1
@@ -4493,8 +4493,8 @@ packages:
       - encoding
     dev: true
 
-  /lint-staged/12.4.1:
-    resolution: {integrity: sha512-PTXgzpflrQ+pODQTG116QNB+Q6uUTDg5B5HqGvNhoQSGt8Qy+MA/6zSnR8n38+sxP5TapzeQGTvoKni0KRS8Vg==}
+  /lint-staged/12.4.2:
+    resolution: {integrity: sha512-JAJGIzY/OioIUtrRePr8go6qUxij//mL+RGGoFKU3VWQRtIHgWoHizSqH0QVn2OwrbXS9Q6CICQjfj+E5qvrXg==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     hasBin: true
     dependencies:
