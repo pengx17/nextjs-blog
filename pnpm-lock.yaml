@@ -6,7 +6,7 @@ specifiers:
   '@types/node': 17.0.23
   '@types/react': 18.0.0
   '@types/react-dom': 18.0.0
-  '@vercel/node': 1.15.3
+  '@vercel/node': 1.15.4
   autoprefixer: 10.4.7
   date-fns: 2.28.0
   esbuild: 0.14.42
@@ -46,7 +46,7 @@ devDependencies:
   '@types/node': 17.0.23
   '@types/react': 18.0.0
   '@types/react-dom': 18.0.0
-  '@vercel/node': 1.15.3
+  '@vercel/node': 1.15.4
   autoprefixer: 10.4.7_postcss@8.4.14
   date-fns: 2.28.0
   esbuild: 0.14.42
@@ -1785,8 +1785,8 @@ packages:
     resolution: {integrity: sha512-haGBC8noyA5BfjCRXRH+VIkHCDVW5iD5UX24P2nOdilwUxI4qWsattS/co8QBGq64XsNLRAMdM5pQUE3zxkF9Q==}
     dev: true
 
-  /@vercel/node/1.15.3:
-    resolution: {integrity: sha512-eKm7/9UThh7TIdt7Rpcw40uMkWMQMo13G0E4g7Di2po+RSDKuD2G2sUwTRv8TzrjdB53rrqnuNo4a7xvGApBxA==}
+  /@vercel/node/1.15.4:
+    resolution: {integrity: sha512-45fV7qVVw1cWCD6tWBXH0i4pSfYck4yF2qNKlJb1gmbO9JHWRqMYm0uxNWISD6E6Z69Pl1KDvfa+l48w/qEkaw==}
     dependencies:
       '@types/node': 17.0.23
       '@vercel/node-bridge': 2.2.2
