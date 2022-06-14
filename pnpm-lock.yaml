@@ -22,7 +22,7 @@ specifiers:
   next-pwa: 5.5.4
   next-remote-watch: 1.0.0
   postcss: 8.4.14
-  prettier: 2.6.2
+  prettier: 2.7.0
   react: 18.1.0
   react-dom: 18.1.0
   react-use: 17.4.0
@@ -62,7 +62,7 @@ devDependencies:
   next-pwa: 5.5.4_adeb809bf6d3b9938923f66f9a898603
   next-remote-watch: 1.0.0
   postcss: 8.4.14
-  prettier: 2.6.2
+  prettier: 2.7.0
   react: 18.1.0
   react-dom: 18.1.0_react@18.1.0
   react-use: 17.4.0_react-dom@18.1.0+react@18.1.0
@@ -5836,8 +5836,8 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
-  /prettier/2.6.2:
-    resolution: {integrity: sha512-PkUpF+qoXTqhOeWL9fu7As8LXsIUZ1WYaJiY/a7McAQzxjk82OF0tibkFXVCDImZtWxbvojFjerkiLb0/q8mew==}
+  /prettier/2.7.0:
+    resolution: {integrity: sha512-nwoX4GMFgxoPC6diHvSwmK/4yU8FFH3V8XWtLQrbj4IBsK2pkYhG4kf/ljF/haaZ/aii+wNJqISrCDPgxGWDVQ==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
