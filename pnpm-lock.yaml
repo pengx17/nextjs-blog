@@ -23,8 +23,8 @@ specifiers:
   next-remote-watch: 1.0.0
   postcss: 8.4.14
   prettier: 2.7.0
-  react: 18.1.0
-  react-dom: 18.1.0
+  react: 18.2.0
+  react-dom: 18.2.0
   react-use: 17.4.0
   rehype-parse: ^8.0.4
   remark: 14.0.2
@@ -42,7 +42,7 @@ specifiers:
 
 devDependencies:
   '@babel/core': 7.18.5
-  '@tippyjs/react': 4.2.6_react-dom@18.1.0+react@18.1.0
+  '@tippyjs/react': 4.2.6_react-dom@18.2.0+react@18.2.0
   '@types/node': 17.0.23
   '@types/react': 18.0.0
   '@types/react-dom': 18.0.0
@@ -57,21 +57,21 @@ devDependencies:
   link-preview-js: 2.1.15
   lint-staged: 12.5.0
   mdx-bundler: 9.0.1_esbuild@0.14.43
-  next: 12.1.6_ebaa45d3dbea869421c3cff94006b92d
+  next: 12.1.6_e085dcdba0ca19a0a2fff8fdb593fa95
   next-compose-plugins: 2.2.1
   next-pwa: 5.5.4_adeb809bf6d3b9938923f66f9a898603
   next-remote-watch: 1.0.0
   postcss: 8.4.14
   prettier: 2.7.0
-  react: 18.1.0
-  react-dom: 18.1.0_react@18.1.0
-  react-use: 17.4.0_react-dom@18.1.0+react@18.1.0
+  react: 18.2.0
+  react-dom: 18.2.0_react@18.2.0
+  react-use: 17.4.0_react-dom@18.2.0+react@18.2.0
   rehype-parse: 8.0.4
   remark: 14.0.2
   remark-gfm: 3.0.1
   remark-html: 15.0.1
   shiki: 0.10.1
-  swr: 1.3.0_react@18.1.0
+  swr: 1.3.0_react@18.2.0
   tailwindcss: 3.1.3
   typescript: 4.7.3
   unified: 10.1.2
@@ -1557,14 +1557,14 @@ packages:
       string.prototype.matchall: 4.0.7
     dev: true
 
-  /@tippyjs/react/4.2.6_react-dom@18.1.0+react@18.1.0:
+  /@tippyjs/react/4.2.6_react-dom@18.2.0+react@18.2.0:
     resolution: {integrity: sha512-91RicDR+H7oDSyPycI13q3b7o4O60wa2oRbjlz2fyRLmHImc4vyDwuUP8NtZaN0VARJY5hybvDYrFzhY9+Lbyw==}
     peerDependencies:
       react: '>=16.8'
       react-dom: '>=16.8'
     dependencies:
-      react: 18.1.0
-      react-dom: 18.1.0_react@18.1.0
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
       tippy.js: 6.3.7
     dev: true
 
@@ -3193,7 +3193,7 @@ packages:
       eslint-plugin-jsx-a11y: 6.5.1_eslint@8.17.0
       eslint-plugin-react: 7.29.4_eslint@8.17.0
       eslint-plugin-react-hooks: 4.5.0_eslint@8.17.0
-      next: 12.1.6_ebaa45d3dbea869421c3cff94006b92d
+      next: 12.1.6_e085dcdba0ca19a0a2fff8fdb593fa95
       typescript: 4.7.3
     transitivePeerDependencies:
       - eslint-import-resolver-webpack
@@ -5309,7 +5309,7 @@ packages:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
     dev: true
 
-  /nano-css/5.3.4_react-dom@18.1.0+react@18.1.0:
+  /nano-css/5.3.4_react-dom@18.2.0+react@18.2.0:
     resolution: {integrity: sha512-wfcviJB6NOxDIDfr7RFn/GlaN7I/Bhe4d39ZRCJ3xvZX60LVe2qZ+rDqM49nm4YT81gAjzS+ZklhKP/Gnfnubg==}
     peerDependencies:
       react: '*'
@@ -5319,8 +5319,8 @@ packages:
       csstype: 3.0.11
       fastest-stable-stringify: 2.0.2
       inline-style-prefixer: 6.0.1
-      react: 18.1.0
-      react-dom: 18.1.0_react@18.1.0
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
       rtl-css-js: 1.15.0
       sourcemap-codec: 1.4.8
       stacktrace-js: 2.0.2
@@ -5358,7 +5358,7 @@ packages:
       babel-loader: 8.2.5_4b9e4762bada4b4f8f998ca109280d28
       clean-webpack-plugin: 4.0.0_webpack@5.72.0
       globby: 11.1.0
-      next: 12.1.6_ebaa45d3dbea869421c3cff94006b92d
+      next: 12.1.6_e085dcdba0ca19a0a2fff8fdb593fa95
       terser-webpack-plugin: 5.3.3_esbuild@0.14.43+webpack@5.72.0
       workbox-webpack-plugin: 6.5.3_webpack@5.72.0
       workbox-window: 6.5.3
@@ -5385,7 +5385,7 @@ packages:
       - supports-color
     dev: true
 
-  /next/12.1.6_ebaa45d3dbea869421c3cff94006b92d:
+  /next/12.1.6_e085dcdba0ca19a0a2fff8fdb593fa95:
     resolution: {integrity: sha512-cebwKxL3/DhNKfg9tPZDQmbRKjueqykHHbgaoG4VBRH3AHQJ2HO0dbKFiS1hPhe1/qgc2d/hFeadsbPicmLD+A==}
     engines: {node: '>=12.22.0'}
     hasBin: true
@@ -5406,9 +5406,9 @@ packages:
       '@next/env': 12.1.6
       caniuse-lite: 1.0.30001338
       postcss: 8.4.5
-      react: 18.1.0
-      react-dom: 18.1.0_react@18.1.0
-      styled-jsx: 5.0.2_@babel+core@7.18.5+react@18.1.0
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      styled-jsx: 5.0.2_@babel+core@7.18.5+react@18.2.0
     optionalDependencies:
       '@next/swc-android-arm-eabi': 12.1.6
       '@next/swc-android-arm64': 12.1.6
@@ -5917,31 +5917,31 @@ packages:
       unpipe: 1.0.0
     dev: true
 
-  /react-dom/18.1.0_react@18.1.0:
-    resolution: {integrity: sha512-fU1Txz7Budmvamp7bshe4Zi32d0ll7ect+ccxNu9FlObT605GOEB8BfO4tmRJ39R5Zj831VCpvQ05QPBW5yb+w==}
+  /react-dom/18.2.0_react@18.2.0:
+    resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
     peerDependencies:
-      react: ^18.1.0
+      react: ^18.2.0
     dependencies:
       loose-envify: 1.4.0
-      react: 18.1.0
-      scheduler: 0.22.0
+      react: 18.2.0
+      scheduler: 0.23.0
     dev: true
 
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
     dev: true
 
-  /react-universal-interface/0.6.2_react@18.1.0+tslib@2.3.1:
+  /react-universal-interface/0.6.2_react@18.2.0+tslib@2.3.1:
     resolution: {integrity: sha512-dg8yXdcQmvgR13RIlZbTRQOoUrDciFVoSBZILwjE2LFISxZZ8loVJKAkuzswl5js8BHda79bIb2b84ehU8IjXw==}
     peerDependencies:
       react: '*'
       tslib: '*'
     dependencies:
-      react: 18.1.0
+      react: 18.2.0
       tslib: 2.3.1
     dev: true
 
-  /react-use/17.4.0_react-dom@18.1.0+react@18.1.0:
+  /react-use/17.4.0_react-dom@18.2.0+react@18.2.0:
     resolution: {integrity: sha512-TgbNTCA33Wl7xzIJegn1HndB4qTS9u03QUwyNycUnXaweZkE4Kq2SB+Yoxx8qbshkZGYBDvUXbXWRUmQDcZZ/Q==}
     peerDependencies:
       react: ^16.8.0  || ^17.0.0 || ^18.0.0
@@ -5953,10 +5953,10 @@ packages:
       fast-deep-equal: 3.1.3
       fast-shallow-equal: 1.0.0
       js-cookie: 2.2.1
-      nano-css: 5.3.4_react-dom@18.1.0+react@18.1.0
-      react: 18.1.0
-      react-dom: 18.1.0_react@18.1.0
-      react-universal-interface: 0.6.2_react@18.1.0+tslib@2.3.1
+      nano-css: 5.3.4_react-dom@18.2.0+react@18.2.0
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-universal-interface: 0.6.2_react@18.2.0+tslib@2.3.1
       resize-observer-polyfill: 1.5.1
       screenfull: 5.2.0
       set-harmonic-interval: 1.0.1
@@ -5965,8 +5965,8 @@ packages:
       tslib: 2.3.1
     dev: true
 
-  /react/18.1.0:
-    resolution: {integrity: sha512-4oL8ivCz5ZEPyclFQXaNksK3adutVS8l2xzZU0cqEFrE9Sb7fC0EFK5uEk74wIreL1DERyjvsU915j1pcT2uEQ==}
+  /react/18.2.0:
+    resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
@@ -6261,8 +6261,8 @@ packages:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
     dev: true
 
-  /scheduler/0.22.0:
-    resolution: {integrity: sha512-6QAm1BgQI88NPYymgGQLCZgvep4FyePDWFpXVK+zNSUgHwlqpJy8VEh8Et0KxTACS4VWwMousBElAZOH9nkkoQ==}
+  /scheduler/0.23.0:
+    resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
     dependencies:
       loose-envify: 1.4.0
     dev: true
@@ -6624,7 +6624,7 @@ packages:
       inline-style-parser: 0.1.1
     dev: true
 
-  /styled-jsx/5.0.2_@babel+core@7.18.5+react@18.1.0:
+  /styled-jsx/5.0.2_@babel+core@7.18.5+react@18.2.0:
     resolution: {integrity: sha512-LqPQrbBh3egD57NBcHET4qcgshPks+yblyhPlH2GY8oaDgKs8SK4C3dBh3oSJjgzJ3G5t1SYEZGHkP+QEpX9EQ==}
     engines: {node: '>= 12.0.0'}
     peerDependencies:
@@ -6638,7 +6638,7 @@ packages:
         optional: true
     dependencies:
       '@babel/core': 7.18.5
-      react: 18.1.0
+      react: 18.2.0
     dev: true
 
   /stylis/4.0.13:
@@ -6676,12 +6676,12 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /swr/1.3.0_react@18.1.0:
+  /swr/1.3.0_react@18.2.0:
     resolution: {integrity: sha512-dkghQrOl2ORX9HYrMDtPa7LTVHJjCTeZoB1dqTbnnEDlSvN8JEKpYIYurDfvbQFUUS8Cg8PceFVZNkW0KNNYPw==}
     peerDependencies:
       react: ^16.11.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      react: 18.1.0
+      react: 18.2.0
     dev: true
 
   /tailwindcss/3.1.3:
