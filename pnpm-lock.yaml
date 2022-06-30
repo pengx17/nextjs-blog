@@ -37,7 +37,7 @@ specifiers:
   unified: ^10.1.2
   unist-util-visit: ^4.1.0
   webpack: ^5.72.0
-  windicss: 3.5.5
+  windicss: 3.5.6
   windicss-webpack-plugin: 1.7.3
 
 devDependencies:
@@ -77,7 +77,7 @@ devDependencies:
   unified: 10.1.2
   unist-util-visit: 4.1.0
   webpack: 5.72.0_esbuild@0.14.48
-  windicss: 3.5.5
+  windicss: 3.5.6
   windicss-webpack-plugin: 1.7.3
 
 packages:
@@ -1920,7 +1920,7 @@ packages:
     dependencies:
       debug: 4.3.4
       jiti: 1.13.0
-      windicss: 3.5.5
+      windicss: 3.5.6
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -1934,7 +1934,7 @@ packages:
       fast-glob: 3.2.11
       magic-string: 0.26.1
       micromatch: 4.0.5
-      windicss: 3.5.5
+      windicss: 3.5.6
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -7347,13 +7347,13 @@ packages:
       lodash: 4.17.21
       pathe: 0.2.0
       webpack-virtual-modules: 0.4.3
-      windicss: 3.5.5
+      windicss: 3.5.6
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /windicss/3.5.5:
-    resolution: {integrity: sha512-Mnbb9DT+74cw3UxcVimbwCw5tKxITNvOBwTFMFdUv9f5KoZensestA4vKUM8tw74QAwyjE5bqH0QQufgFQwj0Q==}
+  /windicss/3.5.6:
+    resolution: {integrity: sha512-P1mzPEjgFMZLX0ZqfFht4fhV/FX8DTG7ERG1fBLiWvd34pTLVReS5CVsewKn9PApSgXnVfPWwvq+qUsRwpnwFA==}
     engines: {node: '>= 12'}
     hasBin: true
     dev: true
