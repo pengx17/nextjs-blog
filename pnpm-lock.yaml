@@ -26,17 +26,17 @@ specifiers:
   react: 18.2.0
   react-dom: 18.2.0
   react-use: 17.4.0
-  rehype-parse: ^8.0.4
+  rehype-parse: 8.0.4
   remark: 14.0.2
-  remark-gfm: ^3.0.1
+  remark-gfm: 3.0.1
   remark-html: 15.0.1
-  shiki: ^0.10.1
+  shiki: 0.10.1
   swr: 1.3.0
   tailwindcss: 3.1.6
   typescript: 4.7.4
-  unified: ^10.1.2
-  unist-util-visit: ^4.1.0
-  webpack: ^5.72.0
+  unified: 10.1.2
+  unist-util-visit: 4.1.0
+  webpack: 5.73.0
   windicss: 3.5.6
   windicss-webpack-plugin: 1.7.4
 
@@ -59,7 +59,7 @@ devDependencies:
   mdx-bundler: 9.0.1_esbuild@0.14.49
   next: 12.2.3_850d4ee91924e701c20cec04912e6240
   next-compose-plugins: 2.2.1
-  next-pwa: 5.5.4_8d8a16b67684bedd0df31e6debd693af
+  next-pwa: 5.5.4_b8fa0901ad4c89c1cd9fd0d64f800535
   next-remote-watch: 1.0.0
   postcss: 8.4.14
   prettier: 2.7.1
@@ -76,7 +76,7 @@ devDependencies:
   typescript: 4.7.4
   unified: 10.1.2
   unist-util-visit: 4.1.0
-  webpack: 5.72.0_esbuild@0.14.49
+  webpack: 5.73.0_esbuild@0.14.49
   windicss: 3.5.6
   windicss-webpack-plugin: 1.7.4
 
@@ -1962,16 +1962,16 @@ packages:
     resolution: {integrity: sha512-PYAthTa2m2VKxuvSD3DPC/Gy+U+sOA1LAuT8mkmRuvw+NACSaeXEQ+NHcVF7rONl6qcaxV3Uuemwawk+7+SJLw==}
     engines: {node: '>= 0.6'}
     dependencies:
-      mime-types: 2.1.34
+      mime-types: 2.1.35
       negotiator: 0.6.3
     dev: true
 
-  /acorn-import-assertions/1.8.0_acorn@8.7.0:
+  /acorn-import-assertions/1.8.0_acorn@8.7.1:
     resolution: {integrity: sha512-m7VZ3jwz4eK6A4Vtt8Ew1/mNbP24u0FhdyfA7fSvnJR6LMdfOYnmuIrrJAgrYfYJ10F/otaHTtrtrtmHdMNzEw==}
     peerDependencies:
       acorn: ^8
     dependencies:
-      acorn: 8.7.0
+      acorn: 8.7.1
     dev: true
 
   /acorn-jsx/5.3.2_acorn@8.7.1:
@@ -1997,12 +1997,6 @@ packages:
 
   /acorn/7.4.1:
     resolution: {integrity: sha512-nQyp0o1/mNdbTO1PO6kHkwSrmgZ0MT/jCCpNiwbUjGoRN4dlBhqJtoQuCnEOKzgTVwg0ZWiCoQy6SxMebQVh8A==}
-    engines: {node: '>=0.4.0'}
-    hasBin: true
-    dev: true
-
-  /acorn/8.7.0:
-    resolution: {integrity: sha512-V/LGr1APy+PXIwKebEWrkZPwoeoF+w1jiOBUmuxuiUIaOHtob8Qc9BTrYo7VuI5fR8tqsy+buA2WFooR5olqvQ==}
     engines: {node: '>=0.4.0'}
     hasBin: true
     dev: true
@@ -2215,7 +2209,7 @@ packages:
     resolution: {integrity: sha512-Td525n+iPOOyUQIeBfcASuG6uJsDOITl7Mds5gFyerkWiX7qhUTdYUBlSgNMyVqtSJqwpt1kXGLdUt6SykLMRA==}
     dev: true
 
-  /babel-loader/8.2.5_c4ad1a87342a92b816974305b3c2725c:
+  /babel-loader/8.2.5_941d08ac27e144887a91138e4068a1e8:
     resolution: {integrity: sha512-OSiFfH89LrEMiWd4pLNqGz4CwJDtbs2ZVc+iGu2HrkRfPxId9F2anQj38IxWpmRfsUY0aBZYi1EFcd3mhtRMLQ==}
     engines: {node: '>= 8.9'}
     peerDependencies:
@@ -2227,7 +2221,7 @@ packages:
       loader-utils: 2.0.2
       make-dir: 3.1.0
       schema-utils: 2.7.1
-      webpack: 5.72.0_esbuild@0.14.49
+      webpack: 5.73.0_esbuild@0.14.49
     dev: true
 
   /babel-plugin-dynamic-import-node/2.3.3:
@@ -2323,18 +2317,6 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       fill-range: 7.0.1
-    dev: true
-
-  /browserslist/4.20.2:
-    resolution: {integrity: sha512-CQOBCqp/9pDvDbx3xfMi+86pr4KXIf2FDkTTdeuYw8OxS9t898LA1Khq57gtufFILXpfgsSx5woNgsBgvGjpsA==}
-    engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
-    hasBin: true
-    dependencies:
-      caniuse-lite: 1.0.30001338
-      electron-to-chromium: 1.4.136
-      escalade: 3.1.1
-      node-releases: 2.0.4
-      picocolors: 1.0.0
     dev: true
 
   /browserslist/4.20.3:
@@ -2471,14 +2453,14 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /clean-webpack-plugin/4.0.0_webpack@5.72.0:
+  /clean-webpack-plugin/4.0.0_webpack@5.73.0:
     resolution: {integrity: sha512-WuWE1nyTNAyW5T7oNyys2EN0cfP2fdRxhxnIQWiAp0bMabPdHhoGxM8A6YL2GhqwgrPnnaemVE7nv5XJ2Fhh2w==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       webpack: '>=4.0.0 <6.0.0'
     dependencies:
       del: 4.1.1
-      webpack: 5.72.0_esbuild@0.14.49
+      webpack: 5.73.0_esbuild@0.14.49
     dev: true
 
   /cli-cursor/3.1.0:
@@ -2729,12 +2711,6 @@ packages:
       supports-color: 9.2.2
     dev: true
 
-  /decode-named-character-reference/1.0.0:
-    resolution: {integrity: sha512-KTiXDlRp9MMm/nlgI8rDGKoNNKiTJBl0RPjnBM680m2HlgJEA4JTASspK44lsvE4GQJildMRFp2HdEBiG+nqng==}
-    dependencies:
-      character-entities: 2.0.1
-    dev: true
-
   /decode-named-character-reference/1.0.1:
     resolution: {integrity: sha512-YV/0HQHreRwKb7uBopyIkLG17jG6Sv2qUchk9qSoVJ2f+flwRsPNBO0hAnjt6mTNYUT+vw9Gy2ihXg4sUWPi2w==}
     dependencies:
@@ -2902,8 +2878,8 @@ packages:
     engines: {node: '>= 0.8'}
     dev: true
 
-  /enhanced-resolve/5.9.2:
-    resolution: {integrity: sha512-GIm3fQfwLJ8YZx2smuHpBKkXC1yOk+OBEmKckVyL0i/ea8mqDEykK3ld5dgH1QYPNyT/lIllxV2LULnxCHaHkA==}
+  /enhanced-resolve/5.10.0:
+    resolution: {integrity: sha512-T0yTFjdpldGY8PmuXXR0PyQ1ufZpEGiHVrp7zHKB7jdR4qlmZHhONVM5AQOAWXuF/w3dnHbEQVrNptJgt7F+cQ==}
     engines: {node: '>=10.13.0'}
     dependencies:
       graceful-fs: 4.2.10
@@ -4396,8 +4372,8 @@ packages:
     hasBin: true
     dev: true
 
-  /json-parse-better-errors/1.0.2:
-    resolution: {integrity: sha512-mrqyZKfX5EhL7hvqcV6WG1yYjnjeuYDzDhhcAAUrq8Po85NBQBJP+ZDUT75qZQ98IkUoBqdkExkukOU7Ts2wrw==}
+  /json-parse-even-better-errors/2.3.1:
+    resolution: {integrity: sha512-xyFwyhro/JEof6Ghe2iz2NcXoj2sloNsWr/XsERDK/oiPCfaNhl5ONfp+jQdAZRQQ0IJWNzH9zIZF7li91kh2w==}
     dev: true
 
   /json-schema-traverse/0.4.1:
@@ -4672,7 +4648,7 @@ packages:
     dependencies:
       '@types/mdast': 3.0.10
       '@types/unist': 2.0.6
-      decode-named-character-reference: 1.0.0
+      decode-named-character-reference: 1.0.1
       mdast-util-to-string: 3.1.0
       micromark: 3.0.9
       micromark-util-decode-numeric-character-reference: 1.0.0
@@ -4680,8 +4656,8 @@ packages:
       micromark-util-normalize-identifier: 1.0.0
       micromark-util-symbol: 1.0.1
       micromark-util-types: 1.0.2
-      unist-util-stringify-position: 3.0.0
-      uvu: 0.5.2
+      unist-util-stringify-position: 3.0.2
+      uvu: 0.5.3
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -4819,18 +4795,6 @@ packages:
       unist-util-visit: 4.1.0
     dev: true
 
-  /mdast-util-to-markdown/1.2.5:
-    resolution: {integrity: sha512-l7EjJrzfaKrolGV9Yi4wbT/Ctv0E07E16Udbt/QWuBdHwUKDPMuO87QIikF6Hs2mHr6oppk+upsGOoVnRZ2UyA==}
-    dependencies:
-      '@types/mdast': 3.0.10
-      '@types/unist': 2.0.6
-      longest-streak: 3.0.1
-      mdast-util-to-string: 3.1.0
-      micromark-util-decode-string: 1.0.2
-      unist-util-visit: 4.1.0
-      zwitch: 2.0.2
-    dev: true
-
   /mdast-util-to-markdown/1.3.0:
     resolution: {integrity: sha512-6tUSs4r+KK4JGTTiQ7FfHmVOaDrLQJPmpjD6wPMlHGUVXoG9Vjc3jIeP+uyBWRf8clwB2blM+W7+KrlMYQnftA==}
     dependencies:
@@ -4897,27 +4861,6 @@ packages:
     engines: {node: '>= 0.6'}
     dev: true
 
-  /micromark-core-commonmark/1.0.5:
-    resolution: {integrity: sha512-ZNtWumX94lpiyAu/lxvth6I5+XzxF+BLVUB7u60XzOBy4RojrbZqrx0mcRmbfqEMO6489vyvDfIQNv5hdulrPg==}
-    dependencies:
-      decode-named-character-reference: 1.0.1
-      micromark-factory-destination: 1.0.0
-      micromark-factory-label: 1.0.2
-      micromark-factory-space: 1.0.0
-      micromark-factory-title: 1.0.2
-      micromark-factory-whitespace: 1.0.0
-      micromark-util-character: 1.1.0
-      micromark-util-chunked: 1.0.0
-      micromark-util-classify-character: 1.0.0
-      micromark-util-html-tag-name: 1.0.0
-      micromark-util-normalize-identifier: 1.0.0
-      micromark-util-resolve-all: 1.0.0
-      micromark-util-subtokenize: 1.0.2
-      micromark-util-symbol: 1.0.1
-      micromark-util-types: 1.0.2
-      uvu: 0.5.3
-    dev: true
-
   /micromark-core-commonmark/1.0.6:
     resolution: {integrity: sha512-K+PkJTxqjFfSNkfAhp4GB+cZPfQd6dxtTXnf+RjZOV7T4EEXnvgzOcnp+eSTmpGk9d1S9sL6/lqrgSNn/s0HZA==}
     dependencies:
@@ -4954,19 +4897,19 @@ packages:
       micromark-util-sanitize-uri: 1.0.0
       micromark-util-symbol: 1.0.1
       micromark-util-types: 1.0.2
-      uvu: 0.5.2
+      uvu: 0.5.3
     dev: true
 
   /micromark-extension-gfm-footnote/1.0.3:
     resolution: {integrity: sha512-bn62pC5y39rIo2g1RqZk1NhF7T7cJLuJlbevunQz41U0iPVCdVOFASe5/L1kke+DFKSgfCRhv24+o42cZ1+ADw==}
     dependencies:
-      micromark-core-commonmark: 1.0.5
+      micromark-core-commonmark: 1.0.6
       micromark-factory-space: 1.0.0
       micromark-util-character: 1.1.0
       micromark-util-normalize-identifier: 1.0.0
       micromark-util-sanitize-uri: 1.0.0
       micromark-util-symbol: 1.0.1
-      uvu: 0.5.2
+      uvu: 0.5.3
     dev: true
 
   /micromark-extension-gfm-strikethrough/1.0.4:
@@ -4977,7 +4920,7 @@ packages:
       micromark-util-resolve-all: 1.0.0
       micromark-util-symbol: 1.0.1
       micromark-util-types: 1.0.2
-      uvu: 0.5.2
+      uvu: 0.5.3
     dev: true
 
   /micromark-extension-gfm-table/1.0.5:
@@ -4987,7 +4930,7 @@ packages:
       micromark-util-character: 1.1.0
       micromark-util-symbol: 1.0.1
       micromark-util-types: 1.0.2
-      uvu: 0.5.2
+      uvu: 0.5.3
     dev: true
 
   /micromark-extension-gfm-tagfilter/1.0.1:
@@ -5003,7 +4946,7 @@ packages:
       micromark-util-character: 1.1.0
       micromark-util-symbol: 1.0.1
       micromark-util-types: 1.0.2
-      uvu: 0.5.2
+      uvu: 0.5.3
     dev: true
 
   /micromark-extension-gfm/2.0.1:
@@ -5170,7 +5113,7 @@ packages:
   /micromark-util-decode-string/1.0.2:
     resolution: {integrity: sha512-DLT5Ho02qr6QWVNYbRZ3RYOSSWWFuH3tJexd3dgN1odEuPNxCngTCXJum7+ViRAd9BbdxCvMToPOD/IvVhzG6Q==}
     dependencies:
-      decode-named-character-reference: 1.0.0
+      decode-named-character-reference: 1.0.1
       micromark-util-character: 1.1.0
       micromark-util-decode-numeric-character-reference: 1.0.0
       micromark-util-symbol: 1.0.1
@@ -5237,8 +5180,8 @@ packages:
     dependencies:
       '@types/debug': 4.1.7
       debug: 4.3.4
-      decode-named-character-reference: 1.0.0
-      micromark-core-commonmark: 1.0.5
+      decode-named-character-reference: 1.0.1
+      micromark-core-commonmark: 1.0.6
       micromark-factory-space: 1.0.0
       micromark-util-character: 1.1.0
       micromark-util-chunked: 1.0.0
@@ -5251,7 +5194,7 @@ packages:
       micromark-util-subtokenize: 1.0.2
       micromark-util-symbol: 1.0.1
       micromark-util-types: 1.0.2
-      uvu: 0.5.2
+      uvu: 0.5.3
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -5264,21 +5207,9 @@ packages:
       picomatch: 2.3.1
     dev: true
 
-  /mime-db/1.51.0:
-    resolution: {integrity: sha512-5y8A56jg7XVQx2mbv1lu49NR4dokRnhZYTtL+KGfaa27uq4pSTXkwQkFJl4pkRMyNFz/EtYDSkiiEHx3F7UN6g==}
-    engines: {node: '>= 0.6'}
-    dev: true
-
   /mime-db/1.52.0:
     resolution: {integrity: sha512-sPU4uV7dYlvtWJxwwxHD0PuihVNiE7TyAbQ5SWxDCB9mUYvOgroQOwYQQOKPJ8CIbE+1ETVlOoK1UC2nU3gYvg==}
     engines: {node: '>= 0.6'}
-    dev: true
-
-  /mime-types/2.1.34:
-    resolution: {integrity: sha512-6cP692WwGIs9XXdOO4++N+7qjqv0rqxxVvJ3VHPh/Sc9mVZcQP+ZGhkKiTvWMQRr2tbHkJP/Yn7Y0npb3ZBs4A==}
-    engines: {node: '>= 0.6'}
-    dependencies:
-      mime-db: 1.51.0
     dev: true
 
   /mime-types/2.1.35:
@@ -5367,17 +5298,17 @@ packages:
     resolution: {integrity: sha512-OjJ+fV15FXO2uQXQagLD4C0abYErBjyjE0I0FHpOEIB8upw0hg1ldFP6cqHTJBH1cZqy96OeR3u1dJ+Ez2D4Bg==}
     dev: true
 
-  /next-pwa/5.5.4_8d8a16b67684bedd0df31e6debd693af:
+  /next-pwa/5.5.4_b8fa0901ad4c89c1cd9fd0d64f800535:
     resolution: {integrity: sha512-EgB2MQWGR8oZDzY6US+/D0LOCUhPZYCgeqRVBYDxQWNi0N6XfQOoZPw2COIrg/eMt/rB0M+/mquhAQACs5v4Ag==}
     peerDependencies:
       next: '>=9.0.0'
     dependencies:
-      babel-loader: 8.2.5_c4ad1a87342a92b816974305b3c2725c
-      clean-webpack-plugin: 4.0.0_webpack@5.72.0
+      babel-loader: 8.2.5_941d08ac27e144887a91138e4068a1e8
+      clean-webpack-plugin: 4.0.0_webpack@5.73.0
       globby: 11.1.0
       next: 12.2.3_850d4ee91924e701c20cec04912e6240
-      terser-webpack-plugin: 5.3.3_esbuild@0.14.49+webpack@5.72.0
-      workbox-webpack-plugin: 6.5.3_webpack@5.72.0
+      terser-webpack-plugin: 5.3.3_esbuild@0.14.49+webpack@5.73.0
+      workbox-webpack-plugin: 6.5.3_webpack@5.73.0
       workbox-window: 6.5.3
     transitivePeerDependencies:
       - '@babel/core'
@@ -6139,7 +6070,7 @@ packages:
     resolution: {integrity: sha512-6wV3pvbPvHkbNnWB0wdDvVFHOe1hBRAx1Q/5g/EpH4RppAII6J8Gnwe7VbHuXaoKIF6LAg6ExTel/+kNqSQ7lw==}
     dependencies:
       '@types/mdast': 3.0.10
-      mdast-util-to-markdown: 1.2.5
+      mdast-util-to-markdown: 1.3.0
       unified: 10.1.2
     dev: true
 
@@ -6251,13 +6182,6 @@ packages:
     resolution: {integrity: sha512-sy+H0pQofO95VDmFLzyaw9xNJU4KTRSwQIGM6+iG3SypAtCiLDzpeG8sJrNCWn2Up9km+KhkvTdbkrdy+yzZdw==}
     dependencies:
       tslib: 2.4.0
-    dev: true
-
-  /sade/1.7.4:
-    resolution: {integrity: sha512-y5yauMD93rX840MwUJr7C1ysLFBgMspsdTo4UVrDg3fXDvtwOyIqykhVAAm6fk/3au77773itJStObgK+LKaiA==}
-    engines: {node: '>= 6'}
-    dependencies:
-      mri: 1.2.0
     dev: true
 
   /sade/1.8.1:
@@ -6468,7 +6392,7 @@ packages:
     dev: true
 
   /source-map/0.5.6:
-    resolution: {integrity: sha1-dc449SvwczxafwwRjYEzSiu19BI=}
+    resolution: {integrity: sha512-MjZkVp0NHr5+TPihLcadqnlVoGIoWo4IBHptutGh9wI3ttUYvCG26HkSuDi+K6lsZ25syXJXcctwgyVCt//xqA==}
     engines: {node: '>=0.10.0'}
     dev: true
 
@@ -6753,32 +6677,7 @@ packages:
       unique-string: 2.0.0
     dev: true
 
-  /terser-webpack-plugin/5.3.1_esbuild@0.14.49+webpack@5.72.0:
-    resolution: {integrity: sha512-GvlZdT6wPQKbDNW/GDQzZFg/j4vKU96yl2q6mcUkzKOgW4gwf1Z8cZToUCrz31XHlPWH8MVb1r2tFtdDtTGJ7g==}
-    engines: {node: '>= 10.13.0'}
-    peerDependencies:
-      '@swc/core': '*'
-      esbuild: '*'
-      uglify-js: '*'
-      webpack: ^5.1.0
-    peerDependenciesMeta:
-      '@swc/core':
-        optional: true
-      esbuild:
-        optional: true
-      uglify-js:
-        optional: true
-    dependencies:
-      esbuild: 0.14.49
-      jest-worker: 27.5.1
-      schema-utils: 3.1.1
-      serialize-javascript: 6.0.0
-      source-map: 0.6.1
-      terser: 5.10.0
-      webpack: 5.72.0_esbuild@0.14.49
-    dev: true
-
-  /terser-webpack-plugin/5.3.3_esbuild@0.14.49+webpack@5.72.0:
+  /terser-webpack-plugin/5.3.3_esbuild@0.14.49+webpack@5.73.0:
     resolution: {integrity: sha512-Fx60G5HNYknNTNQnzQ1VePRuu89ZVYWfjRAeT5rITuCY/1b08s49e5kSQwHDirKZWuoKOBRFS98EUUoZ9kLEwQ==}
     engines: {node: '>= 10.13.0'}
     peerDependencies:
@@ -6800,7 +6699,7 @@ packages:
       schema-utils: 3.1.1
       serialize-javascript: 6.0.0
       terser: 5.10.0
-      webpack: 5.72.0_esbuild@0.14.49
+      webpack: 5.73.0_esbuild@0.14.49
     dev: true
 
   /terser/5.10.0:
@@ -6859,11 +6758,6 @@ packages:
 
   /toml/3.0.0:
     resolution: {integrity: sha512-y/mWCZinnvxjTKYhJ+pYxwD0mRLVvOtdS2Awbgxln6iEnt4rk0yBxeSBHkGJcPucRiG0e55mwWp+g/05rsrd6w==}
-    dev: true
-
-  /totalist/2.0.0:
-    resolution: {integrity: sha512-+Y17F0YzxfACxTyjfhnJQEe7afPA0GSpYlFkl2VFMxYP7jshQf9gXV7cH47EfToBumFThfKBvfAcoUn6fdNeRQ==}
-    engines: {node: '>=6'}
     dev: true
 
   /tr46/0.0.3:
@@ -6957,7 +6851,7 @@ packages:
     engines: {node: '>= 0.6'}
     dependencies:
       media-typer: 0.3.0
-      mime-types: 2.1.34
+      mime-types: 2.1.35
     dev: true
 
   /typescript/4.3.4:
@@ -7060,12 +6954,6 @@ packages:
       unist-util-visit: 4.1.0
     dev: true
 
-  /unist-util-stringify-position/3.0.0:
-    resolution: {integrity: sha512-SdfAl8fsDclywZpfMDTVDxA2V7LjtRDTOFd44wUJamgl6OlVngsqWjxvermMYf60elWHbxhuRCZml7AnuXCaSA==}
-    dependencies:
-      '@types/unist': 2.0.6
-    dev: true
-
   /unist-util-stringify-position/3.0.2:
     resolution: {integrity: sha512-7A6eiDCs9UtjcwZOcCpM4aPII3bAAGv13E96IkawkOAW0OhH+yRxtY0lzo8KiHpzEMfH7Q+FizUmwp8Iqy5EWg==}
     dependencies:
@@ -7150,18 +7038,6 @@ packages:
   /uuid/8.3.2:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
     hasBin: true
-    dev: true
-
-  /uvu/0.5.2:
-    resolution: {integrity: sha512-m2hLe7I2eROhh+tm3WE5cTo/Cv3WQA7Oc9f7JB6uWv+/zVKvfAm53bMyOoGOSZeQ7Ov2Fu9pLhFr7p07bnT20w==}
-    engines: {node: '>=8'}
-    hasBin: true
-    dependencies:
-      dequal: 2.0.2
-      diff: 5.0.0
-      kleur: 4.1.4
-      sade: 1.7.4
-      totalist: 2.0.0
     dev: true
 
   /uvu/0.5.3:
@@ -7256,8 +7132,8 @@ packages:
     resolution: {integrity: sha512-5NUqC2JquIL2pBAAo/VfBP6KuGkHIZQXW/lNKupLPfhViwh8wNsu0BObtl09yuKZszeEUfbXz8xhrHvSG16Nqw==}
     dev: true
 
-  /webpack/5.72.0_esbuild@0.14.49:
-    resolution: {integrity: sha512-qmSmbspI0Qo5ld49htys8GY9XhS9CGqFoHTsOVAnjBdg0Zn79y135R+k4IR4rKK6+eKaabMhJwiVB7xw0SJu5w==}
+  /webpack/5.73.0_esbuild@0.14.49:
+    resolution: {integrity: sha512-svjudQRPPa0YiOYa2lM/Gacw0r6PvxptHj4FuEKQ2kX05ZLkjbVc5MnPs6its5j7IZljnIqSVo/OsY2X0IpHGA==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     peerDependencies:
@@ -7271,23 +7147,23 @@ packages:
       '@webassemblyjs/ast': 1.11.1
       '@webassemblyjs/wasm-edit': 1.11.1
       '@webassemblyjs/wasm-parser': 1.11.1
-      acorn: 8.7.0
-      acorn-import-assertions: 1.8.0_acorn@8.7.0
-      browserslist: 4.20.2
+      acorn: 8.7.1
+      acorn-import-assertions: 1.8.0_acorn@8.7.1
+      browserslist: 4.20.3
       chrome-trace-event: 1.0.3
-      enhanced-resolve: 5.9.2
+      enhanced-resolve: 5.10.0
       es-module-lexer: 0.9.3
       eslint-scope: 5.1.1
       events: 3.3.0
       glob-to-regexp: 0.4.1
       graceful-fs: 4.2.10
-      json-parse-better-errors: 1.0.2
+      json-parse-even-better-errors: 2.3.1
       loader-runner: 4.2.0
       mime-types: 2.1.35
       neo-async: 2.6.2
       schema-utils: 3.1.1
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.1_esbuild@0.14.49+webpack@5.72.0
+      terser-webpack-plugin: 5.3.3_esbuild@0.14.49+webpack@5.73.0
       watchpack: 2.3.1
       webpack-sources: 3.2.3
     transitivePeerDependencies:
@@ -7494,7 +7370,7 @@ packages:
     resolution: {integrity: sha512-BQBzm092w+NqdIEF2yhl32dERt9j9MDGUTa2Eaa+o3YKL4Qqw55W9yQC6f44FdAHdAJrJvp0t+HVrfh8AiGj8A==}
     dev: true
 
-  /workbox-webpack-plugin/6.5.3_webpack@5.72.0:
+  /workbox-webpack-plugin/6.5.3_webpack@5.73.0:
     resolution: {integrity: sha512-Es8Xr02Gi6Kc3zaUwR691ZLy61hz3vhhs5GztcklQ7kl5k2qAusPh0s6LF3wEtlpfs9ZDErnmy5SErwoll7jBA==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
@@ -7503,7 +7379,7 @@ packages:
       fast-json-stable-stringify: 2.1.0
       pretty-bytes: 5.6.0
       upath: 1.2.0
-      webpack: 5.72.0_esbuild@0.14.49
+      webpack: 5.73.0_esbuild@0.14.49
       webpack-sources: 1.4.3
       workbox-build: 6.5.3
     transitivePeerDependencies:
