@@ -38,7 +38,7 @@ specifiers:
   unist-util-visit: ^4.1.0
   webpack: ^5.72.0
   windicss: 3.5.6
-  windicss-webpack-plugin: 1.7.4
+  windicss-webpack-plugin: 1.7.5
 
 devDependencies:
   '@babel/core': 7.18.9
@@ -78,7 +78,7 @@ devDependencies:
   unist-util-visit: 4.1.0
   webpack: 5.72.0_esbuild@0.14.50
   windicss: 3.5.6
-  windicss-webpack-plugin: 1.7.4
+  windicss-webpack-plugin: 1.7.5
 
 packages:
 
@@ -1915,8 +1915,8 @@ packages:
       '@xtuc/long': 4.2.2
     dev: true
 
-  /@windicss/config/1.8.6:
-    resolution: {integrity: sha512-WVS41qUJtd44g2iWzTAE8tpgk8gD0yAr1RwwaWi7FAECKm3LVNMLOoToum9R/QKFE2n64EUVJpIvSUNby8rlhg==}
+  /@windicss/config/1.8.7:
+    resolution: {integrity: sha512-8n+/Y36j5L3rw2tgMdLjeGRuNV7VYfKoHoraLK6Bk9OJ1MTPd5vv7pekof/uOPWVV7WWjVeZ6CTO8SDbDDW3iw==}
     dependencies:
       debug: 4.3.4
       jiti: 1.14.0
@@ -1925,11 +1925,11 @@ packages:
       - supports-color
     dev: true
 
-  /@windicss/plugin-utils/1.8.6:
-    resolution: {integrity: sha512-YY6EcUsgkosaQkIseFiIoHfU1H5boOAs/l74QWLI6ryNeHLMq2e04QVsFz+Rt+U8b8PRNxXPC8ADbxE05X7I7g==}
+  /@windicss/plugin-utils/1.8.7:
+    resolution: {integrity: sha512-dfj95olNZyGFDPFMBvE5oq8hA5f0ooUJZjVdWlthS4ek4W1/xNOHDxB6ygWR8LE9zCOXZykApjt1LOhy9Ky2QA==}
     dependencies:
       '@antfu/utils': 0.5.2
-      '@windicss/config': 1.8.6
+      '@windicss/config': 1.8.7
       debug: 4.3.4
       fast-glob: 3.2.11
       magic-string: 0.26.2
@@ -7329,10 +7329,10 @@ packages:
       isexe: 2.0.0
     dev: true
 
-  /windicss-webpack-plugin/1.7.4:
-    resolution: {integrity: sha512-lszP4l+E5qoQs+UY0ZGNVCxq0y9guKmDT8vbgfWcjC8CRT8hqvd5B379/i98ntOhCQvnO7RhY+u1EyH2OnvQ7g==}
+  /windicss-webpack-plugin/1.7.5:
+    resolution: {integrity: sha512-+DwZwFcjgYrD/UU1UEs1TOTo4ijAwRkXEgJMttPd05NSC3ULvguvNKL5kNxrCTYs4OMJn68qbCfkjpI0mir4cQ==}
     dependencies:
-      '@windicss/plugin-utils': 1.8.6
+      '@windicss/plugin-utils': 1.8.7
       debug: 4.3.4
       get-port: 6.1.2
       loader-utils: 2.0.2
