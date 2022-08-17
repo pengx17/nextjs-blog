@@ -12,7 +12,7 @@
   "devDependencies": {
     "@tippyjs/react": "4.2.6",
     "date-fns": "2.29.1",
-    "esbuild": "0.15.4",
+    "esbuild": "0.15.5",
     "gray-matter": "4.0.3",
     "link-preview-js": "2.1.19",
     "mdx-bundler": "9.0.1",
