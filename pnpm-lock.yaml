@@ -19,7 +19,7 @@ specifiers:
   mdx-bundler: 9.0.1
   next: 12.2.5
   next-compose-plugins: 2.2.1
-  next-pwa: 5.5.5
+  next-pwa: 5.6.0
   next-remote-watch: 1.0.0
   postcss: 8.4.16
   prettier: 2.7.1
@@ -59,7 +59,7 @@ devDependencies:
   mdx-bundler: 9.0.1_esbuild@0.15.5
   next: 12.2.5_8ac08509d25e6d69c30af862f1e489ee
   next-compose-plugins: 2.2.1
-  next-pwa: 5.5.5_c3fe747c265658acde014a4adcd4c44f
+  next-pwa: 5.6.0_c3fe747c265658acde014a4adcd4c44f
   next-remote-watch: 1.0.0
   postcss: 8.4.16
   prettier: 2.7.1
@@ -5414,8 +5414,8 @@ packages:
     resolution: {integrity: sha512-OjJ+fV15FXO2uQXQagLD4C0abYErBjyjE0I0FHpOEIB8upw0hg1ldFP6cqHTJBH1cZqy96OeR3u1dJ+Ez2D4Bg==}
     dev: true
 
-  /next-pwa/5.5.5_c3fe747c265658acde014a4adcd4c44f:
-    resolution: {integrity: sha512-EdheDzxr3V7piAeW2qAeH0uJW5iouSt7s/Fzz6xuvkmRPgbyqQeRY/3ZOWbhfgbPBuzGjdbBWzVurWJPH8bY5w==}
+  /next-pwa/5.6.0_c3fe747c265658acde014a4adcd4c44f:
+    resolution: {integrity: sha512-XV8g8C6B7UmViXU8askMEYhWwQ4qc/XqJGnexbLV68hzKaGHZDMtHsm2TNxFcbR7+ypVuth/wwpiIlMwpRJJ5A==}
     peerDependencies:
       next: '>=9.0.0'
     dependencies:
