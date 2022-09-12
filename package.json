@@ -33,7 +33,7 @@
     "@types/react-dom": "18.0.0",
     "@vercel/node": "1.15.4",
     "autoprefixer": "10.4.9",
-    "eslint": "8.23.0",
+    "eslint": "8.23.1",
     "eslint-config-next": "12.3.0",
     "husky": "7.0.4",
     "lint-staged": "12.5.0",
