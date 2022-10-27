@@ -1,13 +1,9 @@
 import fsp from "fs/promises";
 import matter from "gray-matter";
-import { bundleMDX } from "mdx-bundler";
-import remarkGfm from "remark-gfm";
 
 import path from "path";
 
-import rehypeShiki from "./rehype-shiki";
-
-const postsDirectory = path.join(process.cwd(), "posts");
+export const postsDirectory = path.join(process.cwd(), "posts");
 
 export async function getSortedPostsData() {
   // Get file names under /posts
@@ -28,7 +24,12 @@ export async function getSortedPostsData() {
       return {
         id,
         fileName,
-        ...(matterResult.data as { date: string; [key: string]: any }),
+        ...(matterResult.data as {
+          date: string;
+          title: string;
+          draft: boolean;
+          [key: string]: any;
+        }),
       };
     })
   );
@@ -40,26 +41,4 @@ export async function getSortedPostsData() {
       return -1;
     }
   });
-}
-
-export async function getPostData(id: string) {
-  const fullPath = path.join(postsDirectory, `${id}.mdx`);
-  const source = await fsp.readFile(fullPath, "utf8");
-
-  const { code, frontmatter } = await bundleMDX({
-    source,
-    mdxOptions(options) {
-      options.remarkPlugins = [
-        ...(options.remarkPlugins ?? []),
-        remarkGfm as any,
-      ];
-      options.rehypePlugins = [...(options.rehypePlugins ?? []), rehypeShiki];
-      return options;
-    },
-  });
-
-  return {
-    source: code,
-    frontmatter,
-  };
 }

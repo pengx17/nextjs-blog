@@ -1,4 +1,10 @@
 {
   "editor.formatOnSave": true,
-  "editor.quickSuggestions": false
+  "editor.quickSuggestions": {
+    "comments": "off",
+    "strings": "off",
+    "other": "off"
+  },
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
 }

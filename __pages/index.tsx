@@ -22,8 +22,11 @@ export default function Home({ allPostsData }) {
             .filter((d) => !d.draft)
             .map(({ id, date, title }) => (
               <div className="mb-6" key={id}>
-                <Link href={`/posts/${id}`}>
-                  <a className="text-xl font-semibold font-serif">{title}</a>
+                <Link
+                  href={`/posts/${id}`}
+                  className="text-xl font-semibold font-serif"
+                >
+                  {title}
                 </Link>
                 <br />
                 <span className="text-xs text-gray-600">
