@@ -34,7 +34,7 @@ const hWrapper = (Tag, defaultClassName) =>
         </>
       </Tag>
     );
-  });
+  }) as any;
 
 export const createSectionWrapper =
   (Tag) =>
@@ -55,11 +55,11 @@ export const createSectionWrapper =
 const wrapNative = (Tag, className?: string) =>
   React.forwardRef(({ className: c, ...props }: any, ref) => {
     return <Tag ref={ref} className={cx(className, c)} {...props} />;
-  });
+  }) as any;
 
 // Components to be injected to MDX
 export const mdxComponents = {
-  a: Anchor,
+  // a: Anchor,
   LinkPreview: dynamic(() => import("./link-preview")),
   Note: FloatingNote,
 

@@ -3,11 +3,24 @@ import rehypeParse from "rehype-parse";
 import * as shiki from "shiki";
 import { unified } from "unified";
 import { visit } from "unist-util-visit";
-
+import path from "path";
 const themes = ["github-light"];
 
+// FIXME: shiki does not load wasm file correctly
 const rehypeShiki = () => async (tree) => {
-  let highlighter = await shiki.getHighlighter({ themes });
+  let highlighter = await shiki.getHighlighter({
+    themes,
+    paths: {
+      languages: path.join(
+        process.cwd(),
+        "node_modules",
+        "shiki",
+        "languages",
+        "/"
+      ),
+      themes: path.join(process.cwd(), "node_modules", "shiki", "themes", "/"),
+    },
+  });
 
   visit(tree, (node, index, parent) => {
     // If child is pre, but it contains no code

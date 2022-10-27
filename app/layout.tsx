@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-page-custom-font */
 import Script from "next/script";
 import { GA_TRACKING_ID } from "../lib/gtag";
-import "../styles/tailwind.css";
+import "./global.css";
 
 const siteTitle = "pengx17";
 const isProduction = process.env.NODE_ENV === "production";
@@ -16,10 +16,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Noto+Serif+SC:wght@600;700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap"
-          rel="stylesheet"
-        />
         {/* Global Site Tag (gtag.js) - Google Analytics */}
         {isProduction && (
           <>
@@ -54,6 +50,10 @@ export default function RootLayout({
         <meta
           name="twitter:card"
           content="https://avatars.githubusercontent.com/u/584378"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Noto+Serif+SC:wght@600;700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap"
+          rel="stylesheet"
         />
       </head>
       <body className="flex flex-col min-h-screen items-center">

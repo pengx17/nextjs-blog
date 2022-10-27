@@ -1,4 +1,4 @@
-import LinkPreview from "../../components/link-preview";
+import LinkPreview from "../../../components/link-preview";
 
 export default function About() {
   return (

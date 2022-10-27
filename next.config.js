@@ -5,6 +5,8 @@ const nextConfig = {
   experimental: {
     // https://beta.nextjs.org/docs/upgrade-guide#step-1-creating-the-app-directory
     appDir: true,
+    serverComponentsExternalPackages: ["vscode-oniguruma"],
+    esmExternals: true,
   },
   basePath: process.env.BASE_PATH ?? "",
   eslint: {

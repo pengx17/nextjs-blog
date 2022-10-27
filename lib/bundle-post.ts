@@ -1,6 +1,7 @@
 import fsp from "fs/promises";
-import { bundleMDX } from "mdx-bundler";
+import { serialize } from "next-mdx-remote/serialize";
 import path from "path";
+import matter from "gray-matter";
 import remarkGfm from "remark-gfm";
 import { postsDirectory } from "./posts";
 
@@ -9,21 +10,17 @@ import rehypeShiki from "./rehype-shiki";
 export async function getPostData(id: string) {
   const fullPath = path.join(postsDirectory, `${id}.mdx`);
   const source = await fsp.readFile(fullPath, "utf8");
+  const { content, data } = matter(source);
 
-  const { code, frontmatter } = await bundleMDX({
-    source,
-    mdxOptions(options) {
-      options.remarkPlugins = [
-        ...(options.remarkPlugins ?? []),
-        remarkGfm as any,
-      ];
-      options.rehypePlugins = [...(options.rehypePlugins ?? []), rehypeShiki];
-      return options;
+  const mdxSource = await serialize(content, {
+    mdxOptions: {
+      remarkPlugins: [remarkGfm],
+      rehypePlugins: [rehypeShiki],
     },
   });
 
   return {
-    source: code,
-    frontmatter,
+    source: mdxSource,
+    frontmatter: data,
   };
 }

@@ -72,4 +72,8 @@
   aside code {
     background: transparent !important;
   }
+
+  [data-nextjs-scroll-focus-boundary] {
+    display: contents;
+  }
 }
