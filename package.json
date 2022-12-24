@@ -15,7 +15,7 @@
     "esbuild": "0.16.10",
     "gray-matter": "4.0.3",
     "link-preview-js": "2.1.19",
-    "mdx-bundler": "9.0.1",
+    "mdx-bundler": "9.1.0",
     "next": "12.3.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
