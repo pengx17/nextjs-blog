@@ -16,7 +16,7 @@ specifiers:
   husky: 7.0.4
   link-preview-js: 2.1.19
   lint-staged: 12.5.0
-  mdx-bundler: 9.2.0
+  mdx-bundler: 9.2.1
   next: 12.3.4
   next-compose-plugins: 2.2.1
   next-pwa: 5.6.0
@@ -56,7 +56,7 @@ devDependencies:
   husky: 7.0.4
   link-preview-js: 2.1.19
   lint-staged: 12.5.0
-  mdx-bundler: 9.2.0_esbuild@0.16.10
+  mdx-bundler: 9.2.1_esbuild@0.16.10
   next: 12.3.4_fdd71b2eb597c55d38319781dc79d7bc
   next-compose-plugins: 2.2.1
   next-pwa: 5.6.0_0bc76de697223cec0c0309aa539b876c
@@ -4940,8 +4940,8 @@ packages:
     resolution: {integrity: sha512-/sKlQJCBYVY9Ers9hqzKou4H6V5UWc/M59TH2dvkt+84itfnq7uFOMLpOiOS4ujvHP4etln18fmIxA5R5fll0g==}
     dev: true
 
-  /mdx-bundler/9.2.0_esbuild@0.16.10:
-    resolution: {integrity: sha512-hv6k1o7SDh4uWZOF6i6QlIxkNK2Yrn3g2uDsgUO7sZCQcB9kQZiDmUxtAHbaCR7O46kNW2daN/ByyVHckOs3yw==}
+  /mdx-bundler/9.2.1_esbuild@0.16.10:
+    resolution: {integrity: sha512-hWEEip1KU9MCNqeH2rqwzAZ1pdqPPbfkx9OTJjADqGPQz4t9BO85fhI7AP9gVYrpmfArf9/xJZUN0yBErg/G/Q==}
     engines: {node: '>=14', npm: '>=6'}
     peerDependencies:
       esbuild: 0.*
