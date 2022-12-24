@@ -14,7 +14,7 @@ specifiers:
   eslint-config-next: 12.3.4
   gray-matter: 4.0.3
   husky: 7.0.4
-  link-preview-js: 2.1.19
+  link-preview-js: 3.0.4
   lint-staged: 12.5.0
   mdx-bundler: 9.2.1
   next: 12.3.4
@@ -54,7 +54,7 @@ devDependencies:
   eslint-config-next: 12.3.4_eslint@8.30.0+typescript@4.9.4
   gray-matter: 4.0.3
   husky: 7.0.4
-  link-preview-js: 2.1.19
+  link-preview-js: 3.0.4
   lint-staged: 12.5.0
   mdx-bundler: 9.2.1_esbuild@0.16.10
   next: 12.3.4_fdd71b2eb597c55d38319781dc79d7bc
@@ -4576,8 +4576,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /link-preview-js/2.1.19:
-    resolution: {integrity: sha512-ZXiacDuzpNLY/Xx7R3njpI07K2VWZqe/kANwc4RdRPTc+uAkBHW3hGHTeN7upnyrwV7hfwR79CjRXo0fvfGH5A==}
+  /link-preview-js/3.0.4:
+    resolution: {integrity: sha512-xsuxMigAZd4xmj6BIwMNuQjjpJdh0DWeIo1NXQgaoWSi9Z/dzz/Kxy6vzzsUonFlMTPJ1i0EC8aeOg/xrOMidg==}
     dependencies:
       abort-controller: 3.0.0
       cheerio: 1.0.0-rc.11
