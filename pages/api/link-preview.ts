@@ -37,3 +37,7 @@ export default async function linkPreviewHandler(
     res.status(400).json({ message: err.message });
   }
 }
+
+export const config = {
+  runtime: "edge",
+};

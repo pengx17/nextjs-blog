@@ -1,26 +1,44 @@
 // Credits: https://github.com/mdx-js/mdx/discussions/1939#discussioncomment-2214962
 import rehypeParse from "rehype-parse";
-import * as shiki from "shiki";
 import { unified } from "unified";
 import { visit } from "unist-util-visit";
 import path from "path";
 const themes = ["github-light"];
 
-// FIXME: shiki does not load wasm file correctly
+// cache highlighter fore better performance
+let _hlPromise: Promise<import("shiki").Highlighter>;
+const getHighlighter$ = async () => {
+  if (!_hlPromise) {
+    _hlPromise = import("shiki").then((shiki) =>
+      shiki.getHighlighter({
+        themes,
+        paths: {
+          languages: path.join(
+            process.cwd(),
+            "node_modules",
+            "shiki",
+            "languages",
+            "/"
+          ),
+          themes: path.join(
+            process.cwd(),
+            "node_modules",
+            "shiki",
+            "themes",
+            "/"
+          ),
+        },
+      })
+    );
+  }
+  return _hlPromise;
+};
+
+// FIXME: shiki does not load wasm file correctly without pnpm patch
 const rehypeShiki = () => async (tree) => {
-  let highlighter = await shiki.getHighlighter({
-    themes,
-    paths: {
-      languages: path.join(
-        process.cwd(),
-        "node_modules",
-        "shiki",
-        "languages",
-        "/"
-      ),
-      themes: path.join(process.cwd(), "node_modules", "shiki", "themes", "/"),
-    },
-  });
+  // const startTime = performance.now();
+  const highlighter = await getHighlighter$();
+  // console.log("rehypeShiki load", performance.now() - startTime);
 
   visit(tree, (node, index, parent) => {
     // If child is pre, but it contains no code
@@ -56,6 +74,7 @@ const rehypeShiki = () => async (tree) => {
         return n;
       })
     );
+    // console.log("rehypeShiki transform", performance.now() - startTime);
   });
 };
 

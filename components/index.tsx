@@ -1,7 +1,7 @@
 /* eslint-disable react/display-name */
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import React from "react";
-import { Anchor } from "./anchor";
 import { FloatingNote } from "./floating-note";
 
 const cx = (...args: string[]) => {
@@ -95,6 +95,13 @@ export const mdxComponents = {
   ),
   ul: wrapNative("ul", "list-disc pl-10 leading-ease"),
   ol: wrapNative("ol", "list-decimal pl-10 leading-ease"),
+  img: ({ src, ...props }) => {
+    if (src.startsWith("/")) {
+      return <Image src={src} alt={src} {...props} loading="lazy" />;
+    }
+    // eslint-disable-next-line @next/next/no-img-element
+    return <img src={src} alt={src} {...props} />;
+  },
 };
 
 ["p", "blockquote", "pre", "ul", "ol", "hr"].forEach((tag) => {

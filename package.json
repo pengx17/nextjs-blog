@@ -33,6 +33,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-use": "17.4.0",
+    "rehype-img-size": "^1.0.1",
     "rehype-parse": "^8.0.4",
     "remark": "14.0.2",
     "remark-gfm": "^3.0.1",

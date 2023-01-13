@@ -2,6 +2,8 @@ import fsp from "fs/promises";
 import { serialize } from "next-mdx-remote/serialize";
 import path from "path";
 import matter from "gray-matter";
+import imageSize from "rehype-img-size";
+
 import remarkGfm from "remark-gfm";
 import { postsDirectory } from "./posts";
 
@@ -15,7 +17,7 @@ export async function getPostData(id: string) {
   const mdxSource = await serialize(content, {
     mdxOptions: {
       remarkPlugins: [remarkGfm],
-      rehypePlugins: [rehypeShiki],
+      rehypePlugins: [rehypeShiki, [imageSize, { dir: "public" }]],
     },
   });
 
