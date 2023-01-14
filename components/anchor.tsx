@@ -13,7 +13,9 @@ export function Anchor({ ...props }) {
       arrow={false}
       content={<LinkPreview url={props.href} />}
     >
-      <a style={{ textDecorationLine: "underline" }} {...props} />
+      <div>
+        <a style={{ textDecorationLine: "underline" }} {...props} />
+      </div>
     </Tippy>
   );
 }

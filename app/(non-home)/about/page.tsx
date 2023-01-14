@@ -12,7 +12,6 @@ export default function About() {
         </ruby>{" "}
         Frontend Developer
       </h3>
-      <LinkPreview url="https://twitter.com/pengx17" />
       <h3 className="font-serif text-lg my-4">
         <a href="https://pengx17.github.io/" target="_blank" rel="noreferrer">
           Archived Blog
