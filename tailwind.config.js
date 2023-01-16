@@ -7,9 +7,9 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      sans: ["Only Emoji", "Source Sans Pro", "Noto Sans SC", "sans-serif"],
-      serif: ["Only Emoji", "Source Serif Pro", "Noto Serif SC", "serif"],
-      mono: ["Only Emoji", "Fira Code", "monospace"],
+      sans: ["Source Sans Pro", "Noto Sans SC", "sans-serif"],
+      serif: ["Source Serif Pro", "Noto Serif SC", "serif"],
+      mono: ["Fira Code", "monospace"],
     },
     extend: {
       lineHeight: {

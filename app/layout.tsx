@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-page-custom-font */
+import classnames from "classnames";
 import Script from "next/script";
 import { GA_TRACKING_ID } from "../lib/gtag";
 import "./global.css";
@@ -14,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="zh_CN" className="antialiased font-sans">
       <head>
         {/* Global Site Tag (gtag.js) - Google Analytics */}
         {isProduction && (

@@ -1,11 +1,9 @@
 import Link from "next/link";
-import { use } from "react";
 import Date from "../components/date";
-
 import { getSortedPostsData } from "../lib/posts";
 
-export default function Home() {
-  const allPostsData = use(getSortedPostsData());
+export default async function Home() {
+  const allPostsData = await getSortedPostsData();
   return (
     <section className="w-screen h-screen flex sm:items-center justify-self-center flex-col sm:flex-row">
       <div className="sm:flex-1 pl-12 py-2 mt-2 inline font-serif font-semibold">

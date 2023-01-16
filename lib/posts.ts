@@ -2,10 +2,11 @@ import fsp from "fs/promises";
 import matter from "gray-matter";
 
 import path from "path";
+import { cache } from "react";
 
 export const postsDirectory = path.join(process.cwd(), "posts");
 
-export async function getSortedPostsData() {
+export const getSortedPostsData = cache(async () => {
   // Get file names under /posts
   const fileNames = await fsp.readdir(postsDirectory);
   const allPostsData = await Promise.all(
@@ -41,4 +42,4 @@ export async function getSortedPostsData() {
       return -1;
     }
   });
-}
+});
